@@ -1,0 +1,9 @@
+23,24c23
+<     <QscExe>dotnet</QscExe>
+<     <QsLib>"../../../CommandLineTool/bin/$(Configuration)/netcoreapp3.0/qsc.dll"</QsLib>
+---
+>     <QscExe>dotnet "..\..\..\CommandLineTool\bin\$(Configuration)\netcoreapp3.0\qsc.dll"</QscExe>
+61c60
+<       <QscCommand>$(QscExe) $(QsLib) build -v --format MsBuild --proj "$(MSBuildProjectName)" -i "@(QsSourceFiles,'" "')" -r "@(QsReferences,'" "')" -o $(GenFilesDir) --load "$(SimulationTarget)"</QscCommand>
+---
+>       <QscCommand>$(QscExe) build -v --format MsBuild --proj "$(MSBuildProjectName)" -i "@(QsSourceFiles,'" "')" -r "@(QsReferences,'" "')" -o $(GenFilesDir) --load "$(SimulationTarget)"</QscCommand>

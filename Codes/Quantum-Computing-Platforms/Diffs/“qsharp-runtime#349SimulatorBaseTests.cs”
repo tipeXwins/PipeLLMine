@@ -1,0 +1,98 @@
+331c331
+<             public override Func<Qubit, QVoid> __Body__ => throw new NotImplementedException();
+---
+>             public override Func<Qubit, QVoid> Body => throw new NotImplementedException();
+333c333
+<             public override Func<(IQArray<Qubit>, Qubit), QVoid> __ControlledBody__ => throw new NotImplementedException();
+---
+>             public override Func<(IQArray<Qubit>, Qubit), QVoid> ControlledBody => throw new NotImplementedException();
+346c346
+<             public override Func<Qubit, Result> __Body__ => throw new NotImplementedException();
+---
+>             public override Func<Qubit, Result> Body => throw new NotImplementedException();
+348c348
+<             public override void __Init__()
+---
+>             public override void Init()
+366c366
+<             public override void __Init__()
+---
+>             public override void Init()
+368c368
+<                 this.X = this.__Factory__.Get<IUnitary<Qubit>, Intrinsic.X>();
+---
+>                 this.X = this.Factory.Get<IUnitary<Qubit>, Intrinsic.X>();
+371c371
+<             public override Func<QVoid, QVoid> __Body__ => throw new NotImplementedException();
+---
+>             public override Func<QVoid, QVoid> Body => throw new NotImplementedException();
+387c387
+<             public override void __Init__() { }
+---
+>             public override void Init() { }
+389c389
+<             public override Func<(IQArray<Qubit>, Qubit), QVoid> __ControlledAdjointBody__ => throw new NotImplementedException();
+---
+>             public override Func<(IQArray<Qubit>, Qubit), QVoid> ControlledAdjointBody => throw new NotImplementedException();
+391c391
+<             public override Func<Qubit, QVoid> __AdjointBody__ => throw new NotImplementedException();
+---
+>             public override Func<Qubit, QVoid> AdjointBody => throw new NotImplementedException();
+393c393
+<             public override Func<(IQArray<Qubit>, Qubit), QVoid> __ControlledBody__ => throw new NotImplementedException();
+---
+>             public override Func<(IQArray<Qubit>, Qubit), QVoid> ControlledBody => throw new NotImplementedException();
+395c395
+<             public override Func<Qubit, QVoid> __Body__ => throw new NotImplementedException();
+---
+>             public override Func<Qubit, QVoid> Body => throw new NotImplementedException();
+410c410
+<             public override void __Init__()
+---
+>             public override void Init()
+412c412
+<                 this.B = this.__Factory__.Get<ICallable, B>();
+---
+>                 this.B = this.Factory.Get<ICallable, B>();
+417c417
+<             public override Func<QVoid, QVoid> __Body__ => (_) => { return QVoid.Instance; };
+---
+>             public override Func<QVoid, QVoid> Body => (_) => { return QVoid.Instance; };
+433c433
+<             public override void __Init__()
+---
+>             public override void Init()
+435c435
+<                 this.A = this.__Factory__.Get<ICallable, A>();
+---
+>                 this.A = this.Factory.Get<ICallable, A>();
+438c438
+<             public override Func<QVoid, QVoid> __Body__ => (_) => { return QVoid.Instance; };
+---
+>             public override Func<QVoid, QVoid> Body => (_) => { return QVoid.Instance; };
+449c449
+<             public override Func<T, QVoid> __Body__ => (_) => { return QVoid.Instance; };
+---
+>             public override Func<T, QVoid> Body => (_) => { return QVoid.Instance; };
+455c455
+<             public override void __Init__()
+---
+>             public override void Init()
+457,458c457,458
+<                 this.A = this.__Factory__.Get<ICallable, A>();
+<                 this.X = this.__Factory__.Get<IUnitary<Qubit>, Intrinsic.X>();
+---
+>                 this.A = this.Factory.Get<ICallable, A>();
+>                 this.X = this.Factory.Get<IUnitary<Qubit>, Intrinsic.X>();
+473c473
+<             public override Func<QVoid, QVoid> __Body__ => (_) => { return QVoid.Instance; };
+---
+>             public override Func<QVoid, QVoid> Body => (_) => { return QVoid.Instance; };
+475c475
+<             public override void __Init__()
+---
+>             public override void Init()
+477c477
+<                 this.Gen = this.__Factory__.Get<ICallable>(typeof(Gen<>));
+---
+>                 this.Gen = this.Factory.Get<ICallable>(typeof(Gen<>));

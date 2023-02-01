@@ -1,0 +1,8 @@
+597d596
+<                     UpdateStringRefCount(openParens, 1); // added to avoid dangling pointer in comparison inside loop
+611d609
+<                     UpdateStringRefCount(openParens, -1);
+2099c2097
+<                             ? this.SharedState.Values.Unit
+---
+>                             ? this.SharedState.Values.FromTuple(parameters[1], ImmutableArray.Create(paArgsType)) // todo: this is a bit hacky...

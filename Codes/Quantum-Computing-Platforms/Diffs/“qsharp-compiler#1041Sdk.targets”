@@ -1,0 +1,4 @@
+140c140
+<           Outputs="$(GeneratedFilesOutputPath)$(PathCompatibleAssemblyName).bson"
+---
+>           Outputs="$(GeneratedFilesOutputPath)$(PathCompatibleAssemblyName).*"

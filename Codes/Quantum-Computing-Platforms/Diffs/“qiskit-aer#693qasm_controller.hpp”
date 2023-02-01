@@ -1,0 +1,4 @@
+24a25
+> #include "transpile/basic_opts.hpp"
+275a277
+>   add_circuit_optimization(Transpile::ReduceBarrier());

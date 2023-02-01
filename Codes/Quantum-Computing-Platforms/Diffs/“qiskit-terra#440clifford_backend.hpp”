@@ -1,0 +1,8 @@
+409c409
+<   if (noise_flag && !gate_error("id").ideal) {
+---
+>   if (noise_flag && !gate_error("idle").ideal) {
+415c415
+<     qc_relax(qubit, gate_error("id").gate_time);
+---
+>     qc_relax(qubit, gate_error("idle").gate_time);

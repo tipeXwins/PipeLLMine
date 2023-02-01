@@ -1,0 +1,4 @@
+21c21
+<             public override Func<(IQArray<Pauli>, IQArray<Qubit>), Result> __Body__ => (_args) =>
+---
+>             public override Func<(IQArray<Pauli>, IQArray<Qubit>), Result> Body => (_args) =>

@@ -1,0 +1,6 @@
+16,20d15
+< #ifdef __AVX2__
+< #ifndef __FMA__
+< #undef __AVX2__
+< #endif
+< #endif

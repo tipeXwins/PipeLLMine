@@ -1,0 +1,8 @@
+74c74
+<       int j = num_bits-1;
+---
+>       int j = 0;
+81c81
+<         j = (j-1)%num_bits;
+---
+>         j++;

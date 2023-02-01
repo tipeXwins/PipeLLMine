@@ -1,0 +1,32 @@
+22c22
+<             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> __Body__ => (args) =>
+---
+>             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> Body => (args) =>
+26c26
+<                 return Exp__.Apply((paulis, angle, qubits));
+---
+>                 return Exp.Apply((paulis, angle, qubits));
+29c29
+<             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> __AdjointBody__ => (args) =>
+---
+>             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> AdjointBody => (args) =>
+33c33
+<                 return Exp__.Adjoint.Apply((paulis, angle, qubits));
+---
+>                 return Exp.Adjoint.Apply((paulis, angle, qubits));
+36c36
+<             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, long, long, IQArray<Qubit>)), QVoid> __ControlledBody__ => (args) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, long, long, IQArray<Qubit>)), QVoid> ControlledBody => (args) =>
+40c40
+<                 return Exp__.Controlled.Apply((ctrls, (paulis, angle, qubits)));
+---
+>                 return Exp.Controlled.Apply((ctrls, (paulis, angle, qubits)));
+43c43
+<             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, long, long, IQArray<Qubit>)), QVoid> __ControlledAdjointBody__ => (args) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, long, long, IQArray<Qubit>)), QVoid> ControlledAdjointBody => (args) =>
+47c47
+<                 return Exp__.Adjoint.Controlled.Apply((ctrls, (paulis, angle, qubits)));
+---
+>                 return Exp.Adjoint.Controlled.Apply((ctrls, (paulis, angle, qubits)));

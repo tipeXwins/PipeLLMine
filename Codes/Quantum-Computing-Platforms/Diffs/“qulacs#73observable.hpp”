@@ -1,0 +1,49 @@
+2a3
+>  * @brief Definition and basic functions for Observable
+13d13
+< #include "pauli_operator.hpp"
+17d16
+< class GeneralQuantumOperator;
+20c19,24
+< class DllExport HermitianQuantumOperator : public GeneralQuantumOperator {
+---
+> class DllExport Observable {
+> private:
+>     //! list of multi pauli term
+>     std::vector<PauliOperator*> _operator_list;
+>     //! the number of qubits
+>     UINT _qubit_count;
+22c26,27
+<     using GeneralQuantumOperator::GeneralQuantumOperator;
+---
+>     Observable(UINT qubit_count);
+>     virtual ~Observable();
+40a46,57
+>     UINT get_qubit_count() const { return _qubit_count; }
+>     ITYPE get_state_dim() const { return (1ULL) << _qubit_count; }
+>     UINT get_term_count() const { return (UINT)_operator_list.size(); }
+>     const PauliOperator* get_term(UINT index) const { 
+> 		if (index >= _operator_list.size()) {
+> 			std::cerr << "Error: PauliOperator::get_term(UINT): index out of range" << std::endl;
+> 			return NULL;
+> 		}
+> 		return _operator_list[index]; 
+> 	}
+>     std::vector<PauliOperator*> get_terms() const { return _operator_list;}
+> 
+41a59
+>     CPPCTYPE get_transition_amplitude(const QuantumStateBase* state_bra, const QuantumStateBase* state_ket) const;
+45c63
+<     DllExport HermitianQuantumOperator* create_observable_from_openfermion_file(std::string file_path);
+---
+>     DllExport Observable* create_observable_from_openfermion_file(std::string file_path);
+55c73
+<     DllExport HermitianQuantumOperator* create_observable_from_openfermion_text(std::string text);
+---
+>     DllExport Observable* create_observable_from_openfermion_text(std::string text);
+63c81
+<     DllExport std::pair<HermitianQuantumOperator*, HermitianQuantumOperator*> create_split_observable(std::string file_path);
+---
+>     DllExport std::pair<Observable*, Observable*> create_split_observable(std::string file_path);
+65d82
+< typedef HermitianQuantumOperator Observable;

@@ -1,0 +1,32 @@
+6,7d5
+<     open Microsoft.Quantum.Targeting;
+<     @TargetInstruction("single_qubit_op")
+12d9
+<     @TargetInstruction("multi_qubit_op")
+17d13
+<     @TargetInstruction("single_qubit_op_ctl")
+22d17
+<     @TargetInstruction("multi_qubit_op_ctl")
+27d21
+<     @TargetInstruction("single_qubit_measure")
+32d25
+<     @TargetInstruction("joint_measure")
+108,109c101
+<     open Microsoft.Quantum.Targeting;
+<     @TargetInstruction("inject_barrier")
+---
+>     @TargetInstruction("inject_global_barrier")
+136c128
+<         controlled (ctls, ...) { Controlled X(ctls + [control], target); }
+---
+>         controlled (ctls, ...) { Controlled X(ctls + control, target); }
+216c208
+<         body  (...) { return Phys.Mz(qb); }
+---
+>         body  (...) { return Phyz.Mz(qb); }
+237,238c229,230
+<                 if (paulis[0] == PauliX) { set res = Phys.Mx(qubits[0]); }
+<                 else { set res = Phys.Mz(qubits[0]); }
+---
+>                 if (paulis[0] == PauliX) { set res = Mx(qubits[0]); }
+>                 else { set res = Mz(qubits[0]); }

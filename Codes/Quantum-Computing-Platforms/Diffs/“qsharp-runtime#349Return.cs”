@@ -1,0 +1,9 @@
+16c16
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+18c18
+< }
+---
+> }
+\ No newline at end of file

@@ -1,0 +1,24 @@
+42d41
+<                 var globals = compilation.Namespaces.GlobalCallableResolutions();
+44,46c43
+<                 var entryPointNodes = compilation.EntryPoints.SelectMany(name =>
+<                     GetSpecializationKinds(globals, name).Select(kind =>
+<                         new ConcreteCallGraphNode(name, kind, TypeParameterResolutions.Empty)));
+---
+>                 var entryPointNodes = compilation.EntryPoints.Select(name => new ConcreteCallGraphNode(name, QsSpecializationKind.QsBody, TypeParameterResolutions.Empty));
+53a51
+>                 var globals = compilation.Namespaces.GlobalCallableResolutions();
+261,263c259
+<                     var newNodes = this.GetSpecializationKinds(identifier)
+<                         .Select(specKind => new ConcreteCallGraphNode(identifier, specKind, typeRes));
+<                     foreach (var node in newNodes)
+---
+>                     if (!this.RequestStack.Contains(called) && !this.ResolvedNodeSet.Contains(called))
+265,269c261
+<                         if (!this.RequestStack.Contains(node) && !this.ResolvedNodeSet.Contains(node))
+<                         {
+<                             this.Graph.AddNode(node);
+<                             this.RequestStack.Push(node);
+<                         }
+---
+>                         this.RequestStack.Push(called);

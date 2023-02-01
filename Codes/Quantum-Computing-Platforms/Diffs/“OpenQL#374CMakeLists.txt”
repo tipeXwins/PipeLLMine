@@ -1,0 +1,7 @@
+347d346
+< set_property(TARGET ql APPEND PROPERTY INTERFACE_LINK_LIBRARIES ${BACKWARD_LIBRARIES})
+410c409
+< endif() # NOT TARGET ql
+---
+> endif() # NOT TARGET ql
+\ No newline at end of file

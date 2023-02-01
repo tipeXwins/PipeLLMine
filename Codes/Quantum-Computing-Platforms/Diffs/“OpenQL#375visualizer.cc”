@@ -1,0 +1,22 @@
+76c76
+<     cycles(generateCycles(gates, cycleDuration)),
+---
+>     cycleDuration(cycleDuration),
+79c79
+<     cycleDuration(cycleDuration)
+---
+>     cycles(generateCycles(gates, cycleDuration))
+227,228c227,228
+<                             if ((edgeOperands1.first >= edgeOperands2.first && edgeOperands1.first <= edgeOperands2.second) ||
+<                                 (edgeOperands1.second >= edgeOperands2.first && edgeOperands1.second <= edgeOperands2.second))
+---
+>                             if (edgeOperands1.first >= edgeOperands2.first && edgeOperands1.first <= edgeOperands2.second ||
+>                                 edgeOperands1.second >= edgeOperands2.first && edgeOperands1.second <= edgeOperands2.second)
+329c329
+< Cycle CircuitData::getCycle(const size_t index) const {
+---
+> Cycle CircuitData::getCycle(const int index) const {
+539c539
+< Position4 Structure::getCellPosition(const size_t column, const size_t row, const BitType bitType) const {
+---
+> Position4 Structure::getCellPosition(const int column, const int row, const BitType bitType) const {

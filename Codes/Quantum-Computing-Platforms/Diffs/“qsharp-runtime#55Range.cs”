@@ -1,0 +1,7 @@
+69,70d68
+<         public bool IsEmpty =>
+<             (End < Start && Step >= 0) || (End > Start && Step <= 0);
+73c71
+<             if (IsEmpty) return Range.Empty; 
+---
+>             if ((End < Start && Step >= 0) || (End > Start && Step <= 0)) return Range.Empty; 

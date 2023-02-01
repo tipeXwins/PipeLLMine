@@ -1,0 +1,96 @@
+123c123
+<         private int uniqueControlFlowId = 0;
+---
+>         internal bool IsWithinLoop = false;
+125,127c125,127
+<         private readonly Stack<int> branchIds = new Stack<int>(new[] { 0 });
+<         internal int CurrentBranch => this.branchIds.Peek();
+<         internal bool IsOpenBranch(int id) => this.branchIds.Contains(id);
+---
+>         private (int, Stack<int>) branchIds = (0, new Stack<int>(new[] { 0 }));
+>         internal int CurrentBranch => this.branchIds.Item2.Peek();
+>         internal bool IsOpenBranch(int id) => this.branchIds.Item2.Contains(id);
+131,132c131,133
+<             this.uniqueControlFlowId += 1;
+<             this.branchIds.Push(this.uniqueControlFlowId);
+---
+>             var (lastUsedId, stack) = this.branchIds;
+>             stack.Push(lastUsedId + 1);
+>             this.branchIds = (stack.Peek(), stack);
+136,159c137
+<             this.branchIds.Pop();
+<         private readonly Stack<int> loopIds = new Stack<int>();
+<         internal bool IsWithinLoop => this.loopIds.Any();
+<         internal bool IsWithinCurrentLoop(int branchId)
+<         {
+<             if (!this.loopIds.TryPeek(out var currentLoopId))
+<             {
+<                 return false;
+<             }
+<             var branchesWithinCurrentLoop = this.branchIds.TakeWhile(id => id >= currentLoopId);
+<             return branchesWithinCurrentLoop.Contains(branchId);
+<         }
+<         internal void StartLoop()
+<         {
+<             // We need to mark the loop and also mark the branching
+<             // to ensure that pointers are properly loaded when needed.
+<             this.StartBranch();
+<             this.loopIds.Push(this.CurrentBranch);
+<         }
+<         internal void EndLoop()
+<         {
+<             this.loopIds.Pop();
+<             this.EndBranch();
+<         }
+---
+>             this.branchIds.Item2.Pop();
+1177c1155
+<             Value ProcessConditionalBlock(BasicBlock block, Func<IValue>? evaluate)
+---
+>             IValue ProcessBlock(Func<IValue>? evaluate)
+1179,1181d1156
+<                 this.SetCurrentBlock(block);
+<                 this.StartBranch();
+<                 IValue evaluated;
+1185c1160
+<                     evaluated = evaluate?.Invoke() ?? defaultValue!;
+---
+>                     var evaluated = evaluate?.Invoke() ?? defaultValue!;
+1186a1162
+>                     return evaluated;
+1190c1166
+<                     evaluated = evaluate?.Invoke() ?? defaultValue!;
+---
+>                     return evaluate?.Invoke() ?? defaultValue!;
+1192,1195d1167
+<                 var res = evaluated.Value;
+<                 this.EndBranch();
+<                 this.CurrentBuilder.Branch(contBlock);
+<                 return res;
+1201,1202c1173,1176
+<                 var onTrue = ProcessConditionalBlock(trueBlock, onCondTrue);
+<                 (evaluatedOnTrue, afterTrue) = (onTrue, this.CurrentBlock!);
+---
+>                 this.SetCurrentBlock(trueBlock);
+>                 var onTrue = ProcessBlock(onCondTrue);
+>                 this.CurrentBuilder.Branch(contBlock);
+>                 (evaluatedOnTrue, afterTrue) = (onTrue.Value, this.CurrentBlock!);
+1208,1209c1182,1185
+<                 var onFalse = ProcessConditionalBlock(falseBlock, onCondFalse);
+<                 (evaluatedOnFalse, afterFalse) = (onFalse, this.CurrentBlock!);
+---
+>                 this.SetCurrentBlock(falseBlock);
+>                 var onFalse = ProcessBlock(onCondFalse);
+>                 this.CurrentBuilder.Branch(contBlock);
+>                 (evaluatedOnFalse, afterFalse) = (onFalse.Value, this.CurrentBlock!);
+1373c1349,1351
+<             this.StartLoop();
+---
+>             bool withinOuterLoop = this.IsWithinLoop;
+>             this.IsWithinLoop = true;
+>             this.StartBranch();
+1375c1353,1354
+<             this.EndLoop();
+---
+>             this.EndBranch();
+>             this.IsWithinLoop = withinOuterLoop;

@@ -1,0 +1,9 @@
+20,21c20
+<     <QscExe>dotnet</QscExe>
+<     <QsLib>"../../../CommandLineTool/bin/$(Configuration)/netcoreapp3.0/qsc.dll"</QsLib>
+---
+>     <QscExe>dotnet "..\..\..\CommandLineTool\bin\$(Configuration)\netcoreapp3.0\qsc.dll"</QscExe>
+38c37
+<       <QscCommand>$(QscExe) $(QsLib) build -v --format MsBuild --proj "$(MSBuildProjectName)" -i "@(QsSourceFiles,'" "')" -r "@(QsReferences,'" "')" -o $(OutputPath)</QscCommand>
+---
+>       <QscCommand>$(QscExe) build -v --format MsBuild --proj "$(MSBuildProjectName)" -i "@(QsSourceFiles,'" "')" -r "@(QsReferences,'" "')" -o $(OutputPath)</QscCommand>

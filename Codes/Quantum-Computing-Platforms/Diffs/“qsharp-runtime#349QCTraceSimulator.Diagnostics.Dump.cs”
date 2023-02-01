@@ -1,0 +1,16 @@
+20c20
+<             public override Func<T, QVoid> __Body__ => (location) =>
+---
+>             public override Func<T, QVoid> Body => (location) =>
+26c26
+<                 var logMessage = this.__Factory__.Get<ICallable<string, QVoid>, Intrinsic.Message>();
+---
+>                 var logMessage = this.Factory.Get<ICallable<string, QVoid>, Intrinsic.Message>();
+57c57
+<             public override Func<(T, IQArray<Qubit>), QVoid> __Body__ => (__in) =>
+---
+>             public override Func<(T, IQArray<Qubit>), QVoid> Body => (__in) =>
+65c65
+<                 var logMessage = this.__Factory__.Get<ICallable<string, QVoid>, Intrinsic.Message>();
+---
+>                 var logMessage = this.Factory.Get<ICallable<string, QVoid>, Intrinsic.Message>();

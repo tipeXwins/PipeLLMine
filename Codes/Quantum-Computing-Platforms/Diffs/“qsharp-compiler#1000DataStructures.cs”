@@ -1,0 +1,6 @@
+54,55c54,55
+<                 this.sharedState.IsOpenBranch(this.cache.Item1) &&
+<                 (this.store == null || !this.sharedState.IsWithinLoop || this.sharedState.IsWithinCurrentLoop(this.cache.Item1));
+---
+>                 (this.store == null || !this.sharedState.IsWithinLoop || this.cache.Item1 == this.sharedState.CurrentBranch) &&
+>                 this.sharedState.IsOpenBranch(this.cache.Item1);

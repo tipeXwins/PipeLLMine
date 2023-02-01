@@ -1,0 +1,4 @@
+28c28
+<         public GenericAdjoint(GenericCallable baseOp) : base(baseOp.__Factory__, null)
+---
+>         public GenericAdjoint(GenericCallable baseOp) : base(baseOp.Factory, null)

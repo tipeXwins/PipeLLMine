@@ -1,0 +1,12 @@
+181,182c181,182
+<     std::string mask_bin = Utils::hex2bin(mask, false);
+<     size_t length = std::min(mask_bin.size(), creg_register_.size());
+---
+>     std::string mask_bin = Utils::hex2bin(mask); // has 0b prefix while creg_register_ doesn't
+>     size_t length = std::min(mask_bin.size() - 2, creg_register_.size()); // -2 to remove 0b
+188,192d187
+<     size_t end_i = masked_val.find('1');
+<     if (end_i == std::string::npos)
+<         masked_val = "0";
+<     else
+<         masked_val.erase(0, end_i);

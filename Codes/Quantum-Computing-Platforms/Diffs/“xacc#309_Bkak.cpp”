@@ -1,0 +1,8 @@
+527c527
+<     return allClose(in_mat, totalU, 1e-6);
+---
+>     return allClose(in_mat, totalU);
+775c775
+<       composite->addInstruction(gateRegistry->createInstruction("Rx", { bit2 }, { M_PI_2 }));
+---
+>       composite->addInstruction(gateRegistry->createInstruction("Rx", { bit1 }, { M_PI_2 }));

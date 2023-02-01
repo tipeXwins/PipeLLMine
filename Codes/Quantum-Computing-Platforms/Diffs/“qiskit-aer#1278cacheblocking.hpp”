@@ -1,0 +1,66 @@
+95c95
+<   uint_t add_ops(std::vector<Operations::Op>& ops,std::vector<Operations::Op>& out,std::vector<Operations::Op>& queue,bool doSwap,bool first,bool crossQubitOnly) const;
+---
+>   uint_t add_ops(std::vector<Operations::Op>& ops,std::vector<Operations::Op>& out,std::vector<Operations::Op>& queue,bool doSwap,bool first) const;
+219a220,222
+>     result.metadata.add(true, "cacheblocking", "enabled");
+>     result.metadata.add(block_bits_, "cacheblocking", "block_bits");
+> 
+229,233d231
+< 
+<     if(blocking_enabled_){
+<       result.metadata.add(true, "cacheblocking", "enabled");
+<       result.metadata.add(block_bits_, "cacheblocking", "block_bits");
+<     }
+312c310
+<   if(op.type != Operations::OpType::gate && op.type != Operations::OpType::matrix && op.type != Operations::OpType::diagonal_matrix){
+---
+>   if(op.type != Operations::OpType::gate && op.type != Operations::OpType::matrix){
+342d339
+<   bool crossQubits = false;
+344c341
+<   n = add_ops(circ.ops,out,queue,doSwap,true,crossQubits);
+---
+>   n = add_ops(circ.ops,out,queue,doSwap,true);
+346,347c343
+<     n = add_ops(queue,out,queue_next,doSwap,false,crossQubits);
+< 
+---
+>     n = add_ops(queue,out,queue_next,doSwap,false);
+351,354d346
+<       if(queue.size() > 0 && crossQubits == false){
+<         crossQubits = true;
+<         continue;
+<       }
+357d348
+<     crossQubits = false;
+360c351
+<   if(queue.size() > 0){
+---
+>   if(queue.size() > 0)
+362d352
+<   }
+368d357
+< 
+470c459
+< uint_t CacheBlocking::add_ops(std::vector<Operations::Op>& ops,std::vector<Operations::Op>& out,std::vector<Operations::Op>& queue,bool doSwap,bool first,bool crossQubitOnly) const
+---
+> uint_t CacheBlocking::add_ops(std::vector<Operations::Op>& ops,std::vector<Operations::Op>& out,std::vector<Operations::Op>& queue,bool doSwap,bool first) const
+493,501c482,486
+<       if(crossQubitOnly){
+<         //add multi-qubits gate at first
+<         define_blocked_qubits(ops,blockedQubits,true);
+< 
+<         //not enough qubits are blocked, then add one qubit gate
+<         if(blockedQubits.size() < block_bits_)
+<           define_blocked_qubits(ops,blockedQubits,false);
+<       }
+<       else{
+---
+>       //add multi-qubits gate at first
+>       define_blocked_qubits(ops,blockedQubits,true);
+> 
+>       //not enough qubits are blocked, then add one qubit gate
+>       if(blockedQubits.size() < block_bits_)
+503d487
+<       }

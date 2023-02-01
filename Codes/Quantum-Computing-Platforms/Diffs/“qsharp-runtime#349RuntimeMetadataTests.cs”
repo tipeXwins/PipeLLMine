@@ -1,0 +1,104 @@
+192c192
+<             var args = op.__DataIn__((control, target));
+---
+>             var args = op.__dataIn((control, target));
+216c216
+<             var args = op.__DataIn__((control1, control2, target));
+---
+>             var args = op.__dataIn((control1, control2, target));
+239c239
+<             var args = op.__DataIn__((q1, q2));
+---
+>             var args = op.__dataIn((q1, q2));
+261c261
+<             var args = op.__DataIn__((2.1, target));
+---
+>             var args = op.__dataIn((2.1, target));
+283c283
+<             var args = op.__DataIn__(measureQubit);
+---
+>             var args = op.__dataIn(measureQubit);
+305c305
+<             var args = op.__DataIn__(target);
+---
+>             var args = op.__dataIn(target);
+327c327
+<             var args = op.__DataIn__(targets);
+---
+>             var args = op.__dataIn(targets);
+352c352
+<             var args = op.__DataIn__(measureQubit);
+---
+>             var args = op.__dataIn(measureQubit);
+374c374
+<             var args = op.__DataIn__(measureQubit);
+---
+>             var args = op.__dataIn(measureQubit);
+396c396
+<             var args = op.__DataIn__(measureQubit);
+---
+>             var args = op.__dataIn(measureQubit);
+421c421
+<             var args = op.__DataIn__(QVoid.Instance);
+---
+>             var args = op.__dataIn(QVoid.Instance);
+444c444
+<             var args = op.__DataIn__((opArg, q));
+---
+>             var args = op.__dataIn((opArg, q));
+465c465
+<             var args = op.__DataIn__(QVoid.Instance);
+---
+>             var args = op.__dataIn(QVoid.Instance);
+487c487
+<             var args = op.__DataIn__((q, q));
+---
+>             var args = op.__dataIn((q, q));
+509c509
+<             var args = op.__DataIn__(bits);
+---
+>             var args = op.__dataIn(bits);
+534c534
+<             var args = op.__DataIn__(new Circuits.FooUDT(("bar", (target, 2.1))));
+---
+>             var args = op.__dataIn(new Circuits.FooUDT(("bar", (target, 2.1))));
+560c560
+<             var args = op.__DataIn__((controls, target));
+---
+>             var args = op.__dataIn((controls, target));
+583c583
+<             var args = op.__DataIn__((controls, target));
+---
+>             var args = op.__dataIn((controls, target));
+607c607
+<             var args = op.__DataIn__((controls, (control, target)));
+---
+>             var args = op.__dataIn((controls, (control, target)));
+633c633
+<             var args = op.__DataIn__((controls, (control2, control3, target)));
+---
+>             var args = op.__dataIn((controls, (control2, control3, target)));
+658c658
+<             var args = op.__DataIn__(target);
+---
+>             var args = op.__dataIn(target);
+680c680
+<             var args = op.__DataIn__(target);
+---
+>             var args = op.__dataIn(target);
+702c702
+<             var args = op.__DataIn__(target);
+---
+>             var args = op.__dataIn(target);
+726c726
+<             var args = op1.__DataIn__((controls, target));
+---
+>             var args = op1.__dataIn((controls, target));
+752c752
+<             var args = op1.__DataIn__((controls, target));
+---
+>             var args = op1.__dataIn((controls, target));
+781c781
+<             var args = op.__DataIn__(2.1);
+---
+>             var args = op.__dataIn(2.1);

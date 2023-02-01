@@ -1,0 +1,28 @@
+72,78d71
+<         // NB: Calling the LSP.Range constructor results in an object with
+<         //     non-nullable fields set to null values, confusing other places
+<         //     where we use nullable reference type metadata. To address this,
+<         //     we explicitly construct an empty range that runs from 0:0 to 0:0
+<         //     that we can use when there is no reasonable range to provide.
+<         private static readonly LSP.Range EmptyRange = new LSP.Range { Start = new Position(0, 0), End = new Position(0, 0) };
+< 
+92c85
+<                 Range = range ?? EmptyRange
+---
+>                 Range = range
+106c99
+<                 Range = range ?? EmptyRange
+---
+>                 Range = range
+121c114
+<                 Range = range ?? EmptyRange
+---
+>                 Range = range
+167d159
+<                 m.Code != null &&
+183,185c175
+<             // We only want to print line number offsets if at least one of the
+<             // start and end ranges are not both empty.
+<             var msg = m.Range == EmptyRange ? m : m.WithLineNumOffset(this.lineNrOffset);
+---
+>             var msg = m.Range == null ? m : m.WithLineNumOffset(this.lineNrOffset);

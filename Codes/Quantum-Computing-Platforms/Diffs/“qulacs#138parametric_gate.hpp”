@@ -1,0 +1,49 @@
+21,23d20
+< #ifdef _USE_GPU
+< #include <gpusim/update_ops_cuda.h>
+< #endif
+41,43c38
+< 	typedef void (T_GPU_UPDATE_FUNC)(UINT, double, void*, ITYPE);
+< 	T_UPDATE_FUNC* _update_func;
+< 	T_GPU_UPDATE_FUNC* _update_func_gpu;
+---
+>     T_UPDATE_FUNC* _update_func;
+50,58c45
+< #ifdef _USE_GPU
+< 		if (state->get_device_name() == "gpu") {
+< 			_update_func_gpu(this->_target_qubit_list[0].index(), _angle, state->data(), state->dim);
+< 		}
+< 		else {
+< 			_update_func(this->_target_qubit_list[0].index(), _angle, state->data_c(), state->dim);
+< 		}
+< #else
+< #endif
+---
+>         _update_func(this->_target_qubit_list[0].index(), _angle, state->data_c(), state->dim);
+68,70d54
+< #ifdef _USE_GPU
+< 		this->_update_func_gpu = RX_gate_host;
+< #endif
+87,89d70
+< #ifdef _USE_GPU
+< 		this->_update_func_gpu = RY_gate_host;
+< #endif
+106,108d86
+< #ifdef _USE_GPU
+< 		this->_update_func_gpu = RZ_gate_host;
+< #endif
+146,157d123
+< #ifdef _USE_GPU
+< 		if (state->get_device_name() == "gpu") {
+< 			multi_qubit_Pauli_rotation_gate_partial_list_host(
+< 				target_index_list.data(), pauli_id_list.data(), (UINT)target_index_list.size(),
+< 				_angle, state->data(), state->dim);
+< 		}
+< 		else {
+< 			multi_qubit_Pauli_rotation_gate_partial_list(
+< 				target_index_list.data(), pauli_id_list.data(), (UINT)target_index_list.size(),
+< 				_angle, state->data_c(), state->dim);
+< 		}
+< #else
+161d126
+< #endif

@@ -1,0 +1,12 @@
+24c24
+<             this.__Factory__ = m;
+---
+>             this.Factory = m;
+27c27
+<         public IOperationFactory __Factory__ { get; private set; }
+---
+>         public IOperationFactory Factory { get; private set; }
+32c32
+<         public abstract void __Init__();
+---
+>         public abstract void Init();

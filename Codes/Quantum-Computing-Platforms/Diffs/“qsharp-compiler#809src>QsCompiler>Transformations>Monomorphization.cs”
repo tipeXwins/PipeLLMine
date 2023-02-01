@@ -1,0 +1,41 @@
+37c37
+<         public static QsCompilation Apply(QsCompilation compilation, bool keepAllIntrinsics = true)
+---
+>         public static QsCompilation Apply(QsCompilation compilation)
+69,71c69
+<                     concretizations.Add(
+<                         concrete.WithFullName(oldName => concreteName)
+<                         .WithSpecializations(specs => specs.Select(spec => spec.WithParent(_ => concreteName)).ToImmutableArray()));
+---
+>                     concretizations.Add(concrete.WithFullName(oldName => concreteName));
+94c92
+<             return ResolveGenerics.Apply(compilation, final, intrinsicCallableSet, keepAllIntrinsics);
+---
+>             return ResolveGenerics.Apply(compilation, final, intrinsicCallableSet);
+101c99
+<             public static QsCompilation Apply(QsCompilation compilation, List<QsCallable> callables, ImmutableHashSet<QsQualifiedName> intrinsicCallableSet, bool keepAllIntrinsics)
+---
+>             public static QsCompilation Apply(QsCompilation compilation, List<QsCallable> callables, ImmutableHashSet<QsQualifiedName> intrinsicCallableSet)
+103c101
+<                 var filter = new ResolveGenerics(callables.ToLookup(res => res.FullName.Namespace), intrinsicCallableSet, keepAllIntrinsics);
+---
+>                 var filter = new ResolveGenerics(callables.ToLookup(res => res.FullName.Namespace), intrinsicCallableSet);
+112d109
+<                 public readonly bool KeepAllIntrinsics;
+114c111
+<                 public TransformationState(ILookup<string, QsCallable> namespaceCallables, ImmutableHashSet<QsQualifiedName> intrinsicCallableSet, bool keepAllIntrinsics)
+---
+>                 public TransformationState(ILookup<string, QsCallable> namespaceCallables, ImmutableHashSet<QsQualifiedName> intrinsicCallableSet)
+118d114
+<                     this.KeepAllIntrinsics = keepAllIntrinsics;
+126,127c122,123
+<             private ResolveGenerics(ILookup<string, QsCallable> namespaceCallables, ImmutableHashSet<QsQualifiedName> intrinsicCallableSet, bool keepAllIntrinsics)
+<                 : base(new TransformationState(namespaceCallables, intrinsicCallableSet, keepAllIntrinsics))
+---
+>             private ResolveGenerics(ILookup<string, QsCallable> namespaceCallables, ImmutableHashSet<QsQualifiedName> intrinsicCallableSet)
+>                 : base(new TransformationState(namespaceCallables, intrinsicCallableSet))
+145,146c141
+<                         return BuiltIn.RewriteStepDependencies.Contains(call.Item.FullName) ||
+<                             (this.SharedState.KeepAllIntrinsics && this.SharedState.IntrinsicCallableSet.Contains(call.Item.FullName));
+---
+>                         return BuiltIn.RewriteStepDependencies.Contains(call.Item.FullName) || this.SharedState.IntrinsicCallableSet.Contains(call.Item.FullName);

@@ -1,0 +1,15 @@
+2,7c2
+< find_package(Python COMPONENTS Interpreter Development)
+< get_filename_component(PYTHON_LIB_NAME ${Python_LIBRARIES} NAME)
+< configure_file(aer_python_adapter.in.cpp
+<                ${CMAKE_BINARY_DIR}/quantum/plugins/ibm/aer/py-aer/aer_python_adapter.cpp)
+< file(GLOB SRC ${CMAKE_BINARY_DIR}/quantum/plugins/ibm/aer/py-aer/aer_python_adapter.cpp)
+< include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+---
+> file(GLOB SRC *.cpp)
+11a7
+> find_package(Python COMPONENTS Interpreter Development)
+20c16
+<         target_include_directories(${LIBRARY_NAME} PUBLIC . ${Python_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/tpls/pybind11/include ${CMAKE_BINARY_DIR})
+---
+>         target_include_directories(${LIBRARY_NAME} PUBLIC . ${Python_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/tpls/pybind11/include)

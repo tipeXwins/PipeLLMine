@@ -1,0 +1,14 @@
+516c516
+<     m_qlmQpuServer = noisyQProc(hw_model, "deterministic-vectorized");
+---
+>     m_qlmQpuServer = noisyQProc(hw_model);
+549,551c549
+<     for (const auto &iter : QLM_GATE_ERRORS) {
+<       auto aqasmGate = iter.first;
+<       auto errorRate = iter.second;
+---
+>     for (const auto &[aqasmGate, errorRate] : QLM_GATE_ERRORS) {
+837,839d834
+<     auto qlmJob = constructQlmJob(buffer, compositeInstruction);
+<     auto result = m_qlmQpuServer.attr("submit")(qlmJob);
+<     persistResultToBuffer(buffer, result, qlmJob);

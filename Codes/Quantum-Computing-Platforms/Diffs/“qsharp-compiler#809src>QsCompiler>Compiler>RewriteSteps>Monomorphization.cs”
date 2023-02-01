@@ -1,0 +1,12 @@
+17d16
+<         private readonly bool keepAllIntrinsics;
+32c31
+<         public Monomorphization(bool keepAllIntrinsics = true)
+---
+>         public Monomorphization()
+34d32
+<             this.keepAllIntrinsics = keepAllIntrinsics;
+42c40
+<             transformed = Monomorphize.Apply(compilation, this.keepAllIntrinsics);
+---
+>             transformed = Monomorphize.Apply(compilation);

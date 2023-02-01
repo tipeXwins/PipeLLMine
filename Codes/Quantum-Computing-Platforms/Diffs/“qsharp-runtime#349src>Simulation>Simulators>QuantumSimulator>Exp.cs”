@@ -1,0 +1,28 @@
+29c29
+<             public override Func<(IQArray<Pauli>, double, IQArray<Qubit>), QVoid> __Body__ => (_args) =>
+---
+>             public override Func<(IQArray<Pauli>, double, IQArray<Qubit>), QVoid> Body => (_args) =>
+46c46
+<             public override Func<(IQArray<Pauli>, double, IQArray<Qubit>), QVoid> __AdjointBody__ => (_args) =>
+---
+>             public override Func<(IQArray<Pauli>, double, IQArray<Qubit>), QVoid> AdjointBody => (_args) =>
+50c50
+<                 return this.__Body__.Invoke((paulis, -angle, qubits));
+---
+>                 return this.Body.Invoke((paulis, -angle, qubits));
+53c53
+<             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, double, IQArray<Qubit>)), QVoid> __ControlledBody__ => (_args) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, double, IQArray<Qubit>)), QVoid> ControlledBody => (_args) =>
+66c66
+<                     () => this.__Body__.Invoke((paulis, angle, qubits)),
+---
+>                     () => this.Body.Invoke((paulis, angle, qubits)),
+72c72
+<             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, double, IQArray<Qubit>)), QVoid> __ControlledAdjointBody__ => (_args) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Pauli>, double, IQArray<Qubit>)), QVoid> ControlledAdjointBody => (_args) =>
+76c76
+<                 return this.__ControlledBody__.Invoke((ctrls, (paulis, -angle, qubits)));
+---
+>                 return this.ControlledBody.Invoke((ctrls, (paulis, -angle, qubits)));

@@ -1,0 +1,44 @@
+4d3
+< using System;
+6d4
+< using System.Linq;
+219c217,218
+<             if (unnormalizedDistribution.Any(prob => prob < 0.0))
+---
+>             double total = 0.0;
+>             foreach (double prob in unnormalizedDistribution)
+221c220,224
+<                 throw new ExecutionFailException("Random expects array of non-negative doubles.");
+---
+>                 if (prob < 0)
+>                 {
+>                     throw new ExecutionFailException("Random expects array of non-negative doubles.");
+>                 }
+>                 total += prob;
+224d226
+<             var total = unnormalizedDistribution.Sum();
+230,241c232,242
+<             var sample = uniformZeroOneSample * total;
+<             return unnormalizedDistribution
+<                 .SelectAggregates((double acc, double x) => acc + x)
+<                 .Select((cumulativeProb, idx) => (cumulativeProb, idx))
+<                 .Where(item => item.cumulativeProb >= sample)
+<                 .Select(
+<                     item => (long)item.idx
+<                 )
+<                 .DefaultIfEmpty(
+<                     unnormalizedDistribution.Length - 1
+<                 )
+<                 .First();
+---
+>             double sample = uniformZeroOneSample * total;
+>             double sum = unnormalizedDistribution[0];
+>             for (int i = 0; i < unnormalizedDistribution.Length - 1; ++i)
+>             {
+>                 if (sum >= sample)
+>                 {
+>                     return i;
+>                 }
+>                 sum += unnormalizedDistribution[i];
+>             }
+>             return unnormalizedDistribution.Length;

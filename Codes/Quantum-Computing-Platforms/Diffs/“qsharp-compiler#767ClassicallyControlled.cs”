@@ -1,0 +1,140 @@
+163,196d162
+<                 private (bool, QsConditionalStatement) ProcessNOT(QsConditionalStatement conditionStatement)
+<                 {
+<                     if (conditionStatement.ConditionalBlocks.Length != 1)
+<                     {
+<                         return (false, conditionStatement);
+<                     }
+<                     var (condition, block) = conditionStatement.ConditionalBlocks[0];
+<                     if (condition.Expression is ExpressionKind.NOT notCondition)
+<                     {
+<                         if (conditionStatement.Default.IsValue)
+<                         {
+<                             return (true, new QsConditionalStatement(
+<                                 ImmutableArray.Create(Tuple.Create(notCondition.Item, conditionStatement.Default.Item)),
+<                                 QsNullable<QsPositionedBlock>.NewValue(block)));
+<                         }
+<                         else
+<                         {
+<                             var emptyScope = new QsScope(
+<                                 ImmutableArray<QsStatement>.Empty,
+<                                 LocalDeclarations.Empty);
+<                             var newConditionalBlock = new QsPositionedBlock(
+<                                     emptyScope,
+<                                     QsNullable<QsLocation>.Null,
+<                                     QsComments.Empty);
+<                             return (true, new QsConditionalStatement(
+<                                 ImmutableArray.Create(Tuple.Create(notCondition.Item, newConditionalBlock)),
+<                                 QsNullable<QsPositionedBlock>.NewValue(block)));
+<                         }
+<                     }
+<                     else
+<                     {
+<                         return (false, conditionStatement);
+<                     }
+<                 }
+207c173
+<                         bool wasOrProcessed, wasAndProcessed, wasNotProcessed;
+---
+>                         bool wasOrProcessed, wasAndProcessed;
+212d177
+<                             (wasNotProcessed, stm) = this.ProcessNOT(stm);
+214c179
+<                         while (wasOrProcessed || wasAndProcessed || wasNotProcessed);
+---
+>                         while (wasOrProcessed || wasAndProcessed);
+351a317,346
+>                 private (TypedExpression Id, TypedExpression Args) GetNoOp()
+>                 {
+>                     var opInfo = BuiltIn.NoOp;
+>                     var properties = new[] { OpProperty.Adjointable, OpProperty.Controllable };
+>                     var characteristics = new CallableInformation(
+>                         ResolvedCharacteristics.FromProperties(properties),
+>                         new InferredCallableInformation(((BuiltInKind.Operation)opInfo.Kind).IsSelfAdjoint, false));
+>                     var unitType = ResolvedType.New(ResolvedTypeKind.UnitType);
+>                     var operationType = ResolvedType.New(ResolvedTypeKind.NewOperation(
+>                             Tuple.Create(unitType, unitType),
+>                             characteristics));
+>                     var args = new TypedExpression(
+>                         ExpressionKind.UnitValue,
+>                         TypeArgsResolution.Empty,
+>                         unitType,
+>                         new InferredExpressionInformation(false, false),
+>                         QsNullable<Range>.Null);
+>                     var typeArgs = ImmutableArray.Create(unitType);
+>                     var identifier = new TypedExpression(
+>                         ExpressionKind.NewIdentifier(
+>                             Identifier.NewGlobalCallable(opInfo.FullName),
+>                             QsNullable<ImmutableArray<ResolvedType>>.NewValue(typeArgs)),
+>                         typeArgs
+>                             .Zip(((BuiltInKind.Operation)opInfo.Kind).TypeParameters, (type, param) => Tuple.Create(opInfo.FullName, param, type))
+>                             .ToImmutableArray(),
+>                         operationType,
+>                         new InferredExpressionInformation(false, false),
+>                         QsNullable<Range>.Null);
+>                     return (identifier, args);
+>                 }
+439,440c434,435
+<                     equalityInfo ??= LiftConditionBlocks.GetNoOp();
+<                     inequalityInfo ??= LiftConditionBlocks.GetNoOp();
+---
+>                     equalityInfo ??= this.GetNoOp();
+>                     inequalityInfo ??= this.GetNoOp();
+790,819d784
+<         internal static (TypedExpression Id, TypedExpression Args) GetNoOp()
+<         {
+<             var opInfo = BuiltIn.NoOp;
+<             var properties = new[] { OpProperty.Adjointable, OpProperty.Controllable };
+<             var characteristics = new CallableInformation(
+<                 ResolvedCharacteristics.FromProperties(properties),
+<                 new InferredCallableInformation(((BuiltInKind.Operation)opInfo.Kind).IsSelfAdjoint, false));
+<             var unitType = ResolvedType.New(ResolvedTypeKind.UnitType);
+<             var operationType = ResolvedType.New(ResolvedTypeKind.NewOperation(
+<                     Tuple.Create(unitType, unitType),
+<                     characteristics));
+<             var args = new TypedExpression(
+<                 ExpressionKind.UnitValue,
+<                 TypeArgsResolution.Empty,
+<                 unitType,
+<                 new InferredExpressionInformation(false, false),
+<                 QsNullable<Range>.Null);
+<             var typeArgs = ImmutableArray.Create(unitType);
+<             var identifier = new TypedExpression(
+<                 ExpressionKind.NewIdentifier(
+<                     Identifier.NewGlobalCallable(opInfo.FullName),
+<                     QsNullable<ImmutableArray<ResolvedType>>.NewValue(typeArgs)),
+<                 typeArgs
+<                     .Zip(((BuiltInKind.Operation)opInfo.Kind).TypeParameters, (type, param) => Tuple.Create(opInfo.FullName, param, type))
+<                     .ToImmutableArray(),
+<                 operationType,
+<                 new InferredExpressionInformation(false, false),
+<                 QsNullable<Range>.Null);
+<             return (identifier, args);
+<         }
+874,897c839
+<                         if (block.Body.Statements.Length == 0)
+<                         {
+<                             var (id, args) = GetNoOp();
+<                             var callExpression = new TypedExpression(
+<                                 ExpressionKind.NewCallLikeExpression(id, args),
+<                                 TypeArgsResolution.Empty,
+<                                 ResolvedType.New(ResolvedTypeKind.UnitType),
+<                                 new InferredExpressionInformation(false, true),
+<                                 QsNullable<Range>.Null);
+<                             var callStatement = new QsStatement(
+<                                 QsStatementKind.NewQsExpressionStatement(callExpression),
+<                                 LocalDeclarations.Empty,
+<                                 QsNullable<QsLocation>.Null,
+<                                 QsComments.Empty);
+<                             newConditionBlocks.Add(Tuple.Create(
+<                                 expr.Item,
+<                                 new QsPositionedBlock(
+<                                     new QsScope(
+<                                         ImmutableArray.Create(callStatement),
+<                                         LocalDeclarations.Empty),
+<                                     block.Location,
+<                                     block.Comments)));
+<                         }
+<                         else if (this.IsScopeSingleCall(block.Body))
+---
+>                         if (this.IsScopeSingleCall(block.Body))

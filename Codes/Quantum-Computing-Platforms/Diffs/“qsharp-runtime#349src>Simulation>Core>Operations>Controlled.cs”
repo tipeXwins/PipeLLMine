@@ -1,0 +1,44 @@
+63c63
+<         public ControlledOperation(Operation<I, O> op) : base(op.__Factory__)
+---
+>         public ControlledOperation(Operation<I, O> op) : base(op.Factory)
+74c74
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+80c80
+<         public override Func<(IQArray<Qubit>, I), QVoid> __Body__ => this.BaseOp.__ControlledBody__;
+---
+>         public override Func<(IQArray<Qubit>, I), QVoid> Body => this.BaseOp.ControlledBody;
+82c82
+<         public override Func<(IQArray<Qubit>, I), QVoid> __AdjointBody__ => this.BaseOp.__ControlledAdjointBody__;
+---
+>         public override Func<(IQArray<Qubit>, I), QVoid> AdjointBody => this.BaseOp.ControlledAdjointBody;
+84c84
+<         public override Func<(IQArray<Qubit>, (IQArray<Qubit>, I)), QVoid> __ControlledBody__
+---
+>         public override Func<(IQArray<Qubit>, (IQArray<Qubit>, I)), QVoid> ControlledBody
+92c92
+<                     return this.BaseOp.__ControlledBody__.Invoke((ctrls, args));
+---
+>                     return this.BaseOp.ControlledBody.Invoke((ctrls, args));
+97c97
+<         public override Func<(IQArray<Qubit>, (IQArray<Qubit>, I)), QVoid> __ControlledAdjointBody__
+---
+>         public override Func<(IQArray<Qubit>, (IQArray<Qubit>, I)), QVoid> ControlledAdjointBody
+105c105
+<                     return this.BaseOp.__ControlledAdjointBody__.Invoke((ctrls, args));
+---
+>                     return this.BaseOp.ControlledAdjointBody.Invoke((ctrls, args));
+112c112
+<         public override IApplyData __DataIn__((IQArray<Qubit>, I) data) => new In((data.Item1, this.BaseOp.__DataIn__(data.Item2)));
+---
+>         public override IApplyData __dataIn((IQArray<Qubit>, I) data) => new In((data.Item1, this.BaseOp.__dataIn(data.Item2)));
+114c114
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataOut(QVoid data) => data;
+124c124
+<                 var baseMetadata = this.BaseOp.GetRuntimeMetadata(this.BaseOp.__DataIn__(baseArgs));
+---
+>                 var baseMetadata = this.BaseOp.GetRuntimeMetadata(this.BaseOp.__dataIn(baseArgs));

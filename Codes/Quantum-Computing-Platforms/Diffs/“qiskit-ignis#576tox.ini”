@@ -1,0 +1,4 @@
+36c36
+< basepython = python3
+---
+> basepython = python3.8

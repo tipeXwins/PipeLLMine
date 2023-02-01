@@ -1,0 +1,934 @@
+864c864
+<             let expected = sprintf "public override void __Init__() { %s }" (String.concat "" body)
+---
+>             let expected = sprintf "public override void Init() { %s }" (String.concat "" body)
+867c867
+<         let template = sprintf "this.%s = this.__Factory__.Get<%s>(typeof(%s));"
+---
+>         let template = sprintf "this.%s = this.Factory.Get<%s>(typeof(%s));"
+881,886c881,886
+<             template "Allocate__" "Allocate" "global::Microsoft.Quantum.Intrinsic.Allocate"
+<             template "Microsoft__Quantum__Intrinsic__H" "IUnitary<Qubit>" "global::Microsoft.Quantum.Intrinsic.H"
+<             template "H__" "ICallable<Qubit, QVoid>" "H"
+<             template "Release__" "Release" "global::Microsoft.Quantum.Intrinsic.Release"
+<             template "Microsoft__Quantum__Overrides__emptyFunction" "ICallable<QVoid, QVoid>" "global::Microsoft.Quantum.Overrides.emptyFunction"
+<             template "emptyFunction__" "ICallable<QVoid, QVoid>" "emptyFunction"
+---
+>             template "Allocate"                               "Allocate"                        "global::Microsoft.Quantum.Intrinsic.Allocate"
+>             template "MicrosoftQuantumIntrinsicH"             "IUnitary<Qubit>"                 "global::Microsoft.Quantum.Intrinsic.H"
+>             template "H"                                      "ICallable<Qubit, QVoid>"         "H"
+>             template "Release"                                "Release"                         "global::Microsoft.Quantum.Intrinsic.Release"
+>             template "MicrosoftQuantumOverridesemptyFunction" "ICallable<QVoid, QVoid>"         "global::Microsoft.Quantum.Overrides.emptyFunction"
+>             template "emptyFunction"                          "ICallable<QVoid, QVoid>"         "emptyFunction"
+891,901c891,901
+<             template "Allocate__" "Allocate" "global::Microsoft.Quantum.Intrinsic.Allocate"
+<             template "CNOT__" "IAdjointable<(Qubit, Qubit)>" "global::Microsoft.Quantum.Intrinsic.CNOT"
+<             template "Microsoft__Quantum__Testing__Hold" "ICallable" "global::Microsoft.Quantum.Testing.Hold<>"
+<             template "Release__" "Release" "global::Microsoft.Quantum.Intrinsic.Release"
+<             template "ResultToString__" "ICallable<Result,String>" "ResultToString"
+<             template "X__" "IUnitary<Qubit>" "global::Microsoft.Quantum.Intrinsic.X"
+<             template "genIter__" "IUnitary" "genIter<>"
+<             template "genMapper__" "ICallable" "genMapper<,>"
+<             template "genU1__" "IUnitary" "genU1<>"
+<             template "Microsoft__Quantum__Testing__noOpGeneric" "IUnitary" "global::Microsoft.Quantum.Testing.noOpGeneric<>"
+<             template "Microsoft__Quantum__Testing__noOpResult" "IUnitary<Result>" "global::Microsoft.Quantum.Testing.noOpResult"
+---
+>             template "Allocate"                             "Allocate"                          "global::Microsoft.Quantum.Intrinsic.Allocate"
+>             template "CNOT"                                 "IAdjointable<(Qubit, Qubit)>"      "global::Microsoft.Quantum.Intrinsic.CNOT"
+>             template "MicrosoftQuantumTestingHold"          "ICallable"                         "global::Microsoft.Quantum.Testing.Hold<>"
+>             template "Release"                              "Release"                           "global::Microsoft.Quantum.Intrinsic.Release"
+>             template "ResultToString"                       "ICallable<Result,String>"          "ResultToString"
+>             template "X"                                    "IUnitary<Qubit>"                   "global::Microsoft.Quantum.Intrinsic.X"
+>             template "genIter"                              "IUnitary"                          "genIter<>"
+>             template "genMapper"                            "ICallable"                         "genMapper<,>"
+>             template "genU1"                                "IUnitary"                          "genU1<>"
+>             template "MicrosoftQuantumTestingnoOpGeneric"   "IUnitary"                          "global::Microsoft.Quantum.Testing.noOpGeneric<>"
+>             template "MicrosoftQuantumTestingnoOpResult"    "IUnitary<Result>"                  "global::Microsoft.Quantum.Testing.noOpResult"
+906c906
+<             template "genericWithMultipleTypeParams__"        "ICallable"                         "genericWithMultipleTypeParams<,,>"
+---
+>             template "genericWithMultipleTypeParams"        "ICallable"                         "genericWithMultipleTypeParams<,,>"
+911c911
+<             template "Z__"                                    "IUnitary<Qubit>"                   "global::Microsoft.Quantum.Intrinsic.Z"
+---
+>             template "Z"                                    "IUnitary<Qubit>"                   "global::Microsoft.Quantum.Intrinsic.Z"
+984,994c984,994
+<             template "Allocate"                     "Allocate__"
+<             template "IAdjointable<(Qubit,Qubit)>"  "CNOT__"
+<             template "ICallable"                    "Microsoft__Quantum__Testing__Hold"
+<             template "Release"                      "Release__"
+<             template "ICallable<Result, String>"    "ResultToString__"
+<             template "IUnitary<Qubit>"              "X__"
+<             template "IUnitary"                     "genIter__"
+<             template "ICallable"                    "genMapper__"
+<             template "IUnitary"                     "genU1__"
+<             template "IUnitary"                     "Microsoft__Quantum__Testing__noOpGeneric"
+<             template "IUnitary<Result>"             "Microsoft__Quantum__Testing__noOpResult"
+---
+>             template "Allocate"                     "Allocate"
+>             template "IAdjointable<(Qubit,Qubit)>"  "CNOT"
+>             template "ICallable"                    "MicrosoftQuantumTestingHold"
+>             template "Release"                      "Release"
+>             template "ICallable<Result, String>"    "ResultToString"
+>             template "IUnitary<Qubit>"              "X"
+>             template "IUnitary"                     "genIter"
+>             template "ICallable"                    "genMapper"
+>             template "IUnitary"                     "genU1"
+>             template "IUnitary"                     "MicrosoftQuantumTestingnoOpGeneric"
+>             template "IUnitary<Result>"             "MicrosoftQuantumTestingnoOpResult"
+999c999
+<             template "ICallable"                    "genericWithMultipleTypeParams__"
+---
+>             template "ICallable"                    "genericWithMultipleTypeParams"
+1004c1004
+<             template "IUnitary<Qubit>"              "Z__"
+---
+>             template "IUnitary<Qubit>"              "Z"
+1018c1018
+<             let (_, operationName) = findClassName op
+---
+>             let (_, operationName) = findClassName context op
+1097c1097
+<             "X__.Apply(q1);"
+---
+>             "X.Apply(q1);"
+1102c1102
+<             "X__.Adjoint.Apply(q1);"
+---
+>             "X.Adjoint.Apply(q1);"
+1108,1109c1108,1109
+<             "CNOT__.Apply((q1,q2));       "
+<             "R__.Apply((r,q1));           "
+---
+>             "CNOT.Apply((q1,q2));       "
+>             "R.Apply((r,q1));           "
+1114,1115c1114,1115
+<             "R__.Adjoint.Apply((r,q1));"
+<             "CNOT__.Adjoint.Apply((q1,q2));"
+---
+>             "R.Adjoint.Apply((r,q1));"
+>             "CNOT.Adjoint.Apply((q1,q2));"
+1120,1122c1120,1122
+<             "three_op1__.Apply((q1,q2));"
+<             "three_op1__.Apply((q2,q1));"
+<             "three_op1__.Apply((q1,q2));"
+---
+>             "three_op1.Apply((q1,q2));"
+>             "three_op1.Apply((q2,q1));"
+>             "three_op1.Apply((q1,q2));"
+1127c1127
+<             "Z__.Adjoint.Apply(q1);"
+---
+>             "Z.Adjoint.Apply(q1);"
+1169c1169
+<             "X__.Apply(q1);"
+---
+>             "X.Apply(q1);"
+1183c1183
+<             "return composeImpl__.Partial((second, first, _));"
+---
+>             "return composeImpl.Partial((second, first, _));"
+1192,1193c1192,1193
+<             "var s = (IQArray<String>)new QArray<String>(ResultToString__.Apply(a[0L]), ResultToString__.Apply(a[1L]));"
+<             "Microsoft__Quantum__Testing__noOpResult.Apply(a[0L]);"
+---
+>             "var s = (IQArray<String>)new QArray<String>(ResultToString.Apply(a[0L]), ResultToString.Apply(a[1L]));"
+>             "MicrosoftQuantumTestingnoOpResult.Apply(a[0L]);"
+1197c1197
+<                 var qubits = Allocate__.Apply(3L);
+---
+>                 var qubits = Allocate.Apply(3L);
+1202c1202
+<                     var op = Microsoft__Quantum__Testing__Hold.Partial(new Func<QVoid,(ICallable,(Qubit,Qubit),QVoid)>((__arg2__) => (CNOT__, (qubits[0L], qubits[1L]), __arg2__)));
+---
+>                     var op = MicrosoftQuantumTestingHold.Partial(new Func<QVoid,(ICallable,(Qubit,Qubit),QVoid)>((__arg2__) => (CNOT, (qubits[0L], qubits[1L]), __arg2__)));
+1205,1207c1205,1207
+<                     Microsoft__Quantum__Testing__noOpGeneric.Apply(qubits[0L]);
+<                     Microsoft__Quantum__Testing__noOpGeneric.Apply(a[0L]);
+<                     genIter__.Apply((X__, qubits));
+---
+>                     MicrosoftQuantumTestingnoOpGeneric.Apply(qubits[0L]);
+>                     MicrosoftQuantumTestingnoOpGeneric.Apply(a[0L]);
+>                     genIter.Apply((X, qubits));
+1220c1220
+<                         Release__.Apply(qubits);
+---
+>                         Release.Apply(qubits);
+1225c1225
+<             "genIter__.Apply((Microsoft__Quantum__Testing__noOpResult, a));"
+---
+>             "genIter.Apply((MicrosoftQuantumTestingnoOpResult, a));"
+1227c1227
+<             genIter__.Apply((genU1__, genMapper__.Apply<IQArray<String>>((ResultToString__, a))));
+---
+>             genIter.Apply((genU1, genMapper.Apply<IQArray<String>>((ResultToString, a))));
+1229,1230c1229,1230
+<             "genIter__.Apply((genU1__, s));"
+<             "genIter__.Apply((genU1__, a));"
+---
+>             "genIter.Apply((genU1, s));"
+>             "genIter.Apply((genU1, a));"
+1238,1245c1238,1245
+<             "var plain = new call_plain(X__);"
+<             "var adj   = new call_adj(X__);"
+<             "var ctr   = new call_ctr(X__);"
+<             "var uni   = new call_uni(X__);"
+< 
+<             "X__.Apply(qubits.Data[0L]);"
+<             "X__.Adjoint.Apply(qubits.Data[0L]);"
+<             "X__.Controlled.Apply((qubits.Data.Slice(new QRange(1L,5L)), qubits.Data[0L]));"
+---
+>             "var plain = new call_plain(X);"
+>             "var adj   = new call_adj(X);"
+>             "var ctr   = new call_ctr(X);"
+>             "var uni   = new call_uni(X);"
+> 
+>             "X.Apply(qubits.Data[0L]);"
+>             "X.Adjoint.Apply(qubits.Data[0L]);"
+>             "X.Controlled.Apply((qubits.Data.Slice(new QRange(1L,5L)), qubits.Data[0L]));"
+1247,1248c1247,1248
+<             "call_target1__.Apply((1L, X__,     X__,   X__,   X__));"
+<             "call_target1__.Apply((1L, plain.Data, adj.Data, ctr.Data, uni.Data));"
+---
+>             "call_target1.Apply((1L, X,     X,   X,   X));"
+>             "call_target1.Apply((1L, plain.Data, adj.Data, ctr.Data, uni.Data));"
+1250,1251c1250,1251
+<             "call_target2__.Apply((1L, (Result.Zero, X__),    (Result.Zero, X__),  (Result.Zero, X__),  (Result.Zero, X__)));"
+<             "call_target2__.Apply((2L, (Result.One, plain.Data), (Result.One, adj.Data), (Result.One, ctr.Data), (Result.One, uni.Data)));"
+---
+>             "call_target2.Apply((1L, (Result.Zero, X),    (Result.Zero, X),  (Result.Zero, X),  (Result.Zero, X)));"
+>             "call_target2.Apply((2L, (Result.One, plain.Data), (Result.One, adj.Data), (Result.One, ctr.Data), (Result.One, uni.Data)));"
+1261c1261
+<             "var r = M__.Apply(q1);"
+---
+>             "var r = M.Apply(q1);"
+1294c1294
+<             "return let_f0__.Apply(n);"
+---
+>             "return let_f0.Apply(n);"
+1337c1337
+<                 n = (if_f0__.Apply(QVoid.Instance) * i);
+---
+>                 n = (if_f0.Apply(QVoid.Instance) * i);
+1361c1361
+<                 return ((p==Pauli.PauliI)?3L:if_f0__.Apply(QVoid.Instance));
+---
+>                 return ((p==Pauli.PauliI)?3L:if_f0.Apply(QVoid.Instance));
+1385c1385
+<                 result = ((range.End + result) + (n * -(foreach_f2__.Apply((n, 4L)))));
+---
+>                 result = ((range.End + result) + (n * -(foreach_f2.Apply((n, 4L)))));
+1423c1423
+<             "iter__.Apply((Length__, new QArray<IQArray<Result>>(new QArray<Result>(Result.One), new QArray<Result>(Result.Zero, Result.One))));"
+---
+>             "iter.Apply((Length, new QArray<IQArray<Result>>(new QArray<Result>(Result.One), new QArray<Result>(Result.Zero, Result.One))));"
+1484c1484
+<                 var qubits = Allocate__.Apply(i);
+---
+>                 var qubits = Allocate.Apply(i);
+1491c1491
+<                         var res =  repeat_op0__.Apply(new repeat_udt0((0L, qubits)));
+---
+>                         var res =  repeat_op0.Apply(new repeat_udt0((0L, qubits)));
+1493c1493
+<                         if ((repeat_op1__.Apply((0L, qubits)) == Result.One))
+---
+>                         if ((repeat_op1.Apply((0L, qubits)) == Result.One))
+1499c1499
+<                             res = repeat_op2__.Apply((3D, new repeat_udt0(((i-1L), qubits))));
+---
+>                             res = repeat_op2.Apply((3D, new repeat_udt0(((i-1L), qubits))));
+1514c1514
+<                         Release__.Apply(qubits);
+---
+>                         Release.Apply(qubits);
+1527c1527
+<                 var q = Allocate__.Apply();
+---
+>                 var q = Allocate.Apply();
+1533,1534c1533,1534
+<                     (flag ? X__ : Z__).Apply(q);
+<                     alloc_op0__.Apply(q);
+---
+>                     (flag ? X : Z).Apply(q);
+>                     alloc_op0.Apply(q);
+1547c1547
+<                         Release__.Apply(q);
+---
+>                         Release.Apply(q);
+1553c1553
+<                 var qs = Allocate__.Apply(n);
+---
+>                 var qs = Allocate.Apply(n);
+1558c1558
+<                     alloc_op0__.Apply(qs[(n-1L)]);
+---
+>                     alloc_op0.Apply(qs[(n-1L)]);
+1571c1571
+<                         Release__.Apply(qs);
+---
+>                         Release.Apply(qs);
+1577c1577
+<                 var (q1, (q2, (__arg3__, q3, __arg4__, q4))) = (Allocate__.Apply(), ((Allocate__.Apply(), Allocate__.Apply(2L)), (Allocate__.Apply(), Allocate__.Apply(n), Allocate__.Apply((n-1L)), Allocate__.Apply(4L))));
+---
+>                 var (q1, (q2, (__arg3__, q3, __arg4__, q4))) = (Allocate.Apply(), ((Allocate.Apply(), Allocate.Apply(2L)), (Allocate.Apply(), Allocate.Apply(n), Allocate.Apply((n-1L)), Allocate.Apply(4L))));
+1582,1583c1582,1583
+<                     alloc_op0__.Apply(q1);
+<                     alloc_op0__.Apply(q3[1L]);
+---
+>                     alloc_op0.Apply(q1);
+>                     alloc_op0.Apply(q3[1L]);
+1596,1602c1596,1602
+<                         Release__.Apply(q1);
+<                         Release__.Apply(q2.Item1);
+<                         Release__.Apply(q2.Item2);
+<                         Release__.Apply(__arg3__);
+<                         Release__.Apply(q3);
+<                         Release__.Apply(__arg4__);
+<                         Release__.Apply(q4);
+---
+>                         Release.Apply(q1);
+>                         Release.Apply(q2.Item1);
+>                         Release.Apply(q2.Item2);
+>                         Release.Apply(__arg3__);
+>                         Release.Apply(q3);
+>                         Release.Apply(__arg4__);
+>                         Release.Apply(q4);
+1612c1612
+<                 var b = Borrow__.Apply(n);
+---
+>                 var b = Borrow.Apply(n);
+1617c1617
+<                     alloc_op0__.Apply(b[(n-1L)]);
+---
+>                     alloc_op0.Apply(b[(n-1L)]);
+1630c1630
+<                         Return__.Apply(b);
+---
+>                         Return.Apply(b);
+1636c1636
+<                 var (q1, (q2, (__arg2__, q3))) = (Borrow__.Apply(), (Borrow__.Apply(2L), (Borrow__.Apply(), (Borrow__.Apply(n), Borrow__.Apply(4L)))));
+---
+>                 var (q1, (q2, (__arg2__, q3))) = (Borrow.Apply(), (Borrow.Apply(2L), (Borrow.Apply(), (Borrow.Apply(n), Borrow.Apply(4L)))));
+1642c1642
+<                         var qt = (Allocate__.Apply(), (Allocate__.Apply(1L), Allocate__.Apply(2L)));
+---
+>                         var qt = (Allocate.Apply(), (Allocate.Apply(1L), Allocate.Apply(2L)));
+1648c1648
+<                             alloc_op0__.Apply(qt1);
+---
+>                             alloc_op0.Apply(qt1);
+1661,1663c1661,1663
+<                                 Release__.Apply(qt.Item1);
+<                                 Release__.Apply(qt.Item2.Item1);
+<                                 Release__.Apply(qt.Item2.Item2);
+---
+>                                 Release.Apply(qt.Item1);
+>                                 Release.Apply(qt.Item2.Item1);
+>                                 Release.Apply(qt.Item2.Item2);
+1668,1669c1668,1669
+<                     alloc_op0__.Apply(q1);
+<                     alloc_op0__.Apply(q2[1L]);
+---
+>                     alloc_op0.Apply(q1);
+>                     alloc_op0.Apply(q2[1L]);
+1682,1686c1682,1686
+<                         Return__.Apply(q1);
+<                         Return__.Apply(q2);
+<                         Return__.Apply(__arg2__);
+<                         Return__.Apply(q3.Item1);
+<                         Return__.Apply(q3.Item2);
+---
+>                         Return.Apply(q1);
+>                         Return.Apply(q2);
+>                         Return.Apply(__arg2__);
+>                         Return.Apply(q3.Item1);
+>                         Return.Apply(q3.Item2);
+1735c1735
+<         public override Func<QVoid,QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<QVoid,QVoid> Body => (__in__) =>
+1743c1743
+<         public override Func<Qubit,QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<Qubit,QVoid> Body => (__in__) =>
+1747c1747
+<             X__.Apply(q1);
+---
+>             X.Apply(q1);
+1755c1755
+<         public override Func<(Qubit,(Qubit,Double)), QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<(Qubit,(Qubit,Double)), QVoid> Body => (__in__) =>
+1761,1762c1761,1762
+<             CNOT__.Apply((q1, q2));
+<             R__.Apply((r, q1));
+---
+>             CNOT.Apply((q1, q2));
+>             R.Apply((r, q1));
+1772c1772
+<         public override Func<(Qubit,Qubit,IQArray<Qubit>), QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<(Qubit,Qubit,IQArray<Qubit>), QVoid> Body => (__in__) =>
+1776,1779c1776,1779
+<             da_op0__.Apply(QVoid.Instance);
+<             da_op1__.Adjoint.Apply(q1);
+<             da_op2__.Controlled.Apply((new QArray<Qubit>(q1), (1L, q2)));
+<             da_op3__.Controlled.Adjoint.Apply((new QArray<Qubit>(q1, q2), (1.1D, Result.One, arr1.Length)));
+---
+>             da_op0.Apply(QVoid.Instance);
+>             da_op1.Adjoint.Apply(q1);
+>             da_op2.Controlled.Apply((new QArray<Qubit>(q1), (1L, q2)));
+>             da_op3.Controlled.Adjoint.Apply((new QArray<Qubit>(q1, q2), (1.1D, Result.One, arr1.Length)));
+1799c1799
+<         public override Func<(Qubit, %s, %s, %s, (%s, %s), %s), %s> __Body__  => (__in__) =>
+---
+>         public override Func<(Qubit, %s, %s, %s, (%s, %s), %s), %s> Body  => (__in__) =>
+1802c1802
+<                     op1.Apply(OP_1__);
+---
+>                     op1.Apply(OP_1);
+1866c1866
+<             "var s4 = (IQArray<Qubit>)qubits.Slice(GetMeARange__.Apply(QVoid.Instance));"
+---
+>             "var s4 = (IQArray<Qubit>)qubits.Slice(GetMeARange.Apply(QVoid.Instance));"
+1928c1928
+<         Some "public override Func<Qubit, QVoid> __AdjointBody__ => __Body__;"
+---
+>         Some "public override Func<Qubit, QVoid> AdjointBody  => Body;"
+1934c1934
+<         Some "public override Func<Qubit, QVoid> __AdjointBody__ => __Body__;"
+---
+>         Some "public override Func<Qubit, QVoid> AdjointBody => Body;"
+1938c1938
+<         public override Func<QVoid, QVoid> __AdjointBody__ => (__in__) =>
+---
+>         public override Func<QVoid, QVoid> AdjointBody => (__in__) =>
+1946c1946
+<         public override Func<Qubit, QVoid> __AdjointBody__ => (__in__) =>
+---
+>         public override Func<Qubit, QVoid> AdjointBody => (__in__) =>
+1949c1949
+<             X__.Adjoint.Apply(q1);
+---
+>             X.Adjoint.Apply(q1);
+1957c1957
+<         public override Func<(Qubit,(Qubit,Double)), QVoid> __AdjointBody__ => (__in__) =>
+---
+>         public override Func<(Qubit,(Qubit,Double)), QVoid> AdjointBody => (__in__) =>
+1963,1964c1963,1964
+<             R__.Adjoint.Apply((r, q1));
+<             CNOT__.Adjoint.Apply((q1, q2));
+---
+>             R.Adjoint.Apply((r, q1));
+>             CNOT.Adjoint.Apply((q1, q2));
+1972c1972
+<         public override Func<(Qubit,Qubit,Qubits), QVoid> __AdjointBody__ => (__in__) =>
+---
+>         public override Func<(Qubit,Qubit,Qubits), QVoid> AdjointBody => (__in__) =>
+1975,1977c1975,1977
+<             three_op1__.Adjoint.Apply((q1, q2));
+<             three_op1__.Adjoint.Apply((q2, q1));
+<             three_op1__.Adjoint.Apply((q1, q2));
+---
+>             three_op1.Adjoint.Apply((q1, q2));
+>             three_op1.Adjoint.Apply((q2, q1));
+>             three_op1.Adjoint.Apply((q1, q2));
+1984c1984
+<         Some "public override Func<__T__, QVoid> __AdjointBody__ => __Body__;"
+---
+>         Some "public override Func<__T__, QVoid> AdjointBody => Body;"
+2001c2001
+<         public override Func<(IQArray<Qubit>,QVoid), QVoid> __ControlledBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,QVoid), QVoid> ControlledBody => (__in__) =>
+2011c2011
+<         public override Func<(IQArray<Qubit>,Qubit), QVoid> __ControlledBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,Qubit), QVoid> ControlledBody => (__in__) =>
+2015c2015
+<             X__.Controlled.Apply((c, q1));
+---
+>             X.Controlled.Apply((c, q1));
+2023c2023
+<         public override Func<(IQArray<Qubit>,(Qubit,Qubit,Qubits)), QVoid> __ControlledBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,(Qubit,Qubit,Qubits)), QVoid> ControlledBody => (__in__) =>
+2027,2029c2027,2029
+<             three_op1__.Controlled.Apply((c, (q1, q2)));
+<             three_op1__.Controlled.Apply((c, (q2, q1)));
+<             three_op1__.Controlled.Apply((c, (q1, q2)));
+---
+>             three_op1.Controlled.Apply((c, (q1, q2)));
+>             three_op1.Controlled.Apply((c, (q2, q1)));
+>             three_op1.Controlled.Apply((c, (q1, q2)));
+2043c2043
+<         Some "public override Func<(IQArray<Qubit>,Qubit), QVoid> __ControlledAdjointBody__ => __ControlledBody__;"
+---
+>         Some "public override Func<(IQArray<Qubit>,Qubit), QVoid> ControlledAdjointBody  => ControlledBody;"
+2050c2050
+<         public override Func<(IQArray<Qubit>,QVoid), QVoid> __ControlledAdjointBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,QVoid), QVoid> ControlledAdjointBody => (__in__) =>
+2060c2060
+<         public override Func<(IQArray<Qubit>, Qubit), QVoid> __ControlledAdjointBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>, Qubit), QVoid> ControlledAdjointBody => (__in__) =>
+2063c2063
+<             X__.Controlled.Adjoint.Apply((c, q1));
+---
+>             X.Controlled.Adjoint.Apply((c, q1));
+2071c2071
+<         public override Func<(IQArray<Qubit>,(Qubit,Qubit,Qubits)), QVoid> __ControlledAdjointBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,(Qubit,Qubit,Qubits)), QVoid> ControlledAdjointBody => (__in__) =>
+2075,2077c2075,2077
+<             three_op1__.Controlled.Adjoint.Apply((c, (q1, q2)));
+<             three_op1__.Controlled.Adjoint.Apply((c, (q2, q1)));
+<             three_op1__.Controlled.Adjoint.Apply((c, (q1, q2)));
+---
+>             three_op1.Controlled.Adjoint.Apply((c, (q1, q2)));
+>             three_op1.Controlled.Adjoint.Apply((c, (q2, q1)));
+>             three_op1.Controlled.Adjoint.Apply((c, (q1, q2)));
+2088c2088
+<             "partial3Args__
+---
+>             "partial3Args
+2091c2091
+<             "partial3Args__
+---
+>             "partial3Args
+2094c2094
+<             "partial3Args__
+---
+>             "partial3Args
+2097c2097
+<             "partial3Args__
+---
+>             "partial3Args
+2100c2100
+<             "partial3Args__
+---
+>             "partial3Args
+2103c2103
+<             "partialInnerTuple__
+---
+>             "partialInnerTuple
+2106c2106
+<             "partialInnerTuple__
+---
+>             "partialInnerTuple
+2109c2109
+<             "partialInnerTuple__
+---
+>             "partialInnerTuple
+2112c2112
+<             "partialInnerTuple__
+---
+>             "partialInnerTuple
+2115c2115
+<             "partialInnerTuple__
+---
+>             "partialInnerTuple
+2118c2118
+<             "partialInnerTuple__
+---
+>             "partialInnerTuple
+2121c2121
+<             "partialNestedArgsOp__
+---
+>             "partialNestedArgsOp
+2141c2141
+<             "partialNestedArgsOp__
+---
+>             "partialNestedArgsOp
+2161c2161
+<             "partialNestedArgsOp__
+---
+>             "partialNestedArgsOp
+2177c2177
+<             "partialGeneric1__
+---
+>             "partialGeneric1
+2182c2182
+<             "partialGeneric1__
+---
+>             "partialGeneric1
+2187,2190c2187,2190
+<             "partialGeneric1__.Partial((0L, _, (1L, _))).Apply((Result.Zero, Result.One));"
+<             "partialGeneric2__.Partial((0L, Result.Zero, (_, Result.One))).Apply(1L);"
+<             "partialGeneric2__.Partial((_, _, (1L, Result.One))).Apply((0L, Result.Zero));"
+<             "partialGeneric2__.Partial((0L, _, (1L, _))).Apply((Result.Zero, Result.One));"
+---
+>             "partialGeneric1.Partial((0L, _, (1L, _))).Apply((Result.Zero, Result.One));"
+>             "partialGeneric2.Partial((0L, Result.Zero, (_, Result.One))).Apply(1L);"
+>             "partialGeneric2.Partial((_, _, (1L, Result.One))).Apply((0L, Result.Zero));"
+>             "partialGeneric2.Partial((0L, _, (1L, _))).Apply((Result.Zero, Result.One));"
+2205c2205
+<                     partialFunction__.Partial(new Func<(Int64,Double), (Int64,Double,Pauli)>((__arg22__) =>
+---
+>                     partialFunction.Partial(new Func<(Int64,Double), (Int64,Double,Pauli)>((__arg22__) =>
+2219c2219
+<             "var r1 = partialFunction__
+---
+>             "var r1 = partialFunction
+2222c2222
+<             "var r2 = partialFunction__
+---
+>             "var r2 = partialFunction
+2237c2237
+<             let _, nonGenericName = findClassName op
+---
+>             let (name, nonGenericName) = findClassName context op
+2360c2360
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2362,2363c2362,2363
+<         public override IApplyData __DataIn__(QVoid data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;
+2399c2399
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2401,2402c2401,2402
+<         public override IApplyData __DataIn__((Qubit,Basis,(Pauli,IQArray<IQArray<Double>>,Boolean),Int64) data) => new In(data);
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn((Qubit,Basis,(Pauli,IQArray<IQArray<Double>>,Boolean),Int64) data) => new In(data);
+>         public override IApplyData __dataOut(QVoid data) => data;
+2427c2427
+<         protected IUnitary<Qubit> X__ { get; set; }
+---
+>         protected IUnitary<Qubit> X { get; set; }
+2429c2429
+<         public override Func<Qubit, QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<Qubit, QVoid> Body => (__in__) =>
+2432c2432
+<             X__.Apply(q1);
+---
+>             X.Apply(q1);
+2438c2438
+<         public override Func<Qubit, QVoid> __AdjointBody__ => (__in__) =>
+---
+>         public override Func<Qubit, QVoid> AdjointBody => (__in__) =>
+2441c2441
+<             X__.Adjoint.Apply(q1);
+---
+>             X.Adjoint.Apply(q1);
+2447c2447
+<         public override Func<(IQArray<Qubit>,Qubit), QVoid> __ControlledBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,Qubit), QVoid> ControlledBody => (__in__) =>
+2450c2450
+<             X__.Controlled.Apply((c, q1));
+---
+>             X.Controlled.Apply((c, q1));
+2456c2456
+<         public override Func<(IQArray<Qubit>,Qubit), QVoid> __ControlledAdjointBody__ => (__in__) =>
+---
+>         public override Func<(IQArray<Qubit>,Qubit), QVoid> ControlledAdjointBody => (__in__) =>
+2459c2459
+<             X__.Controlled.Adjoint.Apply((c, q1));
+---
+>             X.Controlled.Adjoint.Apply((c, q1));
+2466c2466
+<         public override void __Init__()
+---
+>         public override void Init()
+2468c2468
+<             this.X__ = this.__Factory__.Get<IUnitary<Qubit>>(typeof(global::Microsoft.Quantum.Intrinsic.X));
+---
+>             this.X = this.Factory.Get<IUnitary<Qubit>>(typeof(global::Microsoft.Quantum.Intrinsic.X));
+2471,2472c2471,2472
+<         public override IApplyData __DataIn__(Qubit data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(Qubit data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;
+2513c2513
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2515,2516c2515,2516
+<         public override IApplyData __DataIn__((__X__,(Int64,(__Y__,__Z__),Result)) data) => new In(data);
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn((__X__,(Int64,(__Y__,__Z__),Result)) data) => new In(data);
+>         public override IApplyData __dataOut(QVoid data) => data;
+2554c2554
+<         public override Func<(ICallable,ICallable,__B__), QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<(ICallable,ICallable,__B__), QVoid> Body => (__in__) =>
+2562c2562
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2564,2565c2564,2565
+<         public override IApplyData __DataIn__((ICallable,ICallable,__B__) data) => new In(data);
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn((ICallable,ICallable,__B__) data) => new In(data);
+>         public override IApplyData __dataOut(QVoid data) => data;
+2588c2588
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2590,2591c2590,2591
+<         public override IApplyData __DataIn__(__A__ data) => new QTuple<__A__>(data);
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(__A__ data) => new QTuple<__A__>(data);
+>         public override IApplyData __dataOut(QVoid data) => data;
+2614c2614
+<         public override Func<QVoid, QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<QVoid, QVoid> Body => (__in__) =>
+2620c2620
+<         public override void __Init__()
+---
+>         public override void Init()
+2624c2624
+<         public override IApplyData __DataIn__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+2626c2626
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataOut(QVoid data) => data;
+2648c2648
+<         public override Func<QVoid, QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<QVoid, QVoid> Body => (__in__) =>
+2654c2654
+<         public override void __Init__()
+---
+>         public override void Init()
+2658c2658
+<         public override IApplyData __DataIn__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+2660c2660
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataOut(QVoid data) => data;
+2674,2675c2674,2675
+<             "emptyFunction__.Apply(QVoid.Instance);"
+<             "Microsoft__Quantum__Overrides__emptyFunction.Apply(QVoid.Instance);"
+---
+>             "emptyFunction.Apply(QVoid.Instance);"
+>             "MicrosoftQuantumOverridesemptyFunction.Apply(QVoid.Instance);"
+2678c2678
+<                 var qubits = Allocate__.Apply(1L);
+---
+>                 var qubits = Allocate.Apply(1L);
+2683,2684c2683,2684
+<                     H__.Apply(qubits[0L]);
+<                     Microsoft__Quantum__Intrinsic__H.Apply(qubits[0L]);
+---
+>                     H.Apply(qubits[0L]);
+>                     MicrosoftQuantumIntrinsicH.Apply(qubits[0L]);
+2697c2697
+<                         Release__.Apply(qubits);
+---
+>                         Release.Apply(qubits);
+2712,2717c2712,2717
+<                 template "Allocate"                "Allocate__"
+<                 template "IUnitary<Qubit>"         "Microsoft__Quantum__Intrinsic__H"
+<                 template "ICallable<Qubit, QVoid>" "H__"
+<                 template "Release"                 "Release__"
+<                 template "ICallable<QVoid, QVoid>" "Microsoft__Quantum__Overrides__emptyFunction"
+<                 template "ICallable<QVoid, QVoid>" "emptyFunction__"
+---
+>                 template "Allocate"                "Allocate"
+>                 template "IUnitary<Qubit>"         "MicrosoftQuantumIntrinsicH"
+>                 template "ICallable<Qubit, QVoid>" "H"
+>                 template "Release"                 "Release"
+>                 template "ICallable<QVoid, QVoid>" "MicrosoftQuantumOverridesemptyFunction"
+>                 template "ICallable<QVoid, QVoid>" "emptyFunction"
+2733c2733
+<         let property = sprintf "private protected %s %s__ { get; set; }"
+---
+>         let property = sprintf "private protected %s %s { get; set; }"
+2765c2765
+<         public override Func<MyType2, MyType2> __Body__ => (__in__) =>
+---
+>         public override Func<MyType2, MyType2> Body => (__in__) =>
+2772c2772
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2774,2775c2774,2775
+<         public override IApplyData __DataIn__(MyType2data) => data;
+<         public override IApplyData __DataOut__(MyType2data) => data;
+---
+>         public override IApplyData __dataIn(MyType2data) => data;
+>         public override IApplyData __dataOut(MyType2data) => data;
+2796c2796
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2798,2799c2798,2799
+<         public override IApplyData __DataIn__(QVoid data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;
+2820c2820
+<         public override Func<QVoid, Int64> __Body__ => (__in__) =>
+---
+>         public override Func<QVoid, Int64> Body => (__in__) =>
+2825c2825
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2827,2828c2827,2828
+<         public override IApplyData __DataIn__(QVoid data) => data;
+<         public override IApplyData __DataOut__(Int64 data) => new QTuple<Int64>(data);
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+>         public override IApplyData __dataOut(Int64 data) => new QTuple<Int64>(data);
+2858c2858
+<         public override Func<(Int64,Int64), Int64> __Body__ => (__in__) =>
+---
+>         public override Func<(Int64,Int64), Int64> Body => (__in__) =>
+2864c2864
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2866,2867c2866,2867
+<         public override IApplyData __DataIn__((Int64,Int64) data) => new In(data);
+<         public override IApplyData __DataOut__(Int64 data) => new QTuple<Int64>(data);
+---
+>         public override IApplyData __dataIn((Int64,Int64) data) => new In(data);
+>         public override IApplyData __dataOut(Int64 data) => new QTuple<Int64>(data);
+2897c2897
+<         public override Func<(System.Numerics.BigInteger,Int64), System.Numerics.BigInteger> __Body__ => (__in__) =>
+---
+>         public override Func<(System.Numerics.BigInteger,Int64), System.Numerics.BigInteger> Body => (__in__) =>
+2903c2903
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+2905,2906c2905,2906
+<         public override IApplyData __DataIn__((System.Numerics.BigInteger,Int64) data) => new In(data);
+<         public override IApplyData __DataOut__(System.Numerics.BigInteger data) => new QTuple<System.Numerics.BigInteger>(data);
+---
+>         public override IApplyData __dataIn((System.Numerics.BigInteger,Int64) data) => new In(data);
+>         public override IApplyData __dataOut(System.Numerics.BigInteger data) => new QTuple<System.Numerics.BigInteger>(data);
+3280,3282c3280,3282
+<         public override void __Init__() { }
+<         public override IApplyData __DataIn__(Pair data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override void Init() { }
+>         public override IApplyData __dataIn(Pair data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;
+3297,3299c3297,3299
+<         public override void __Init__() { }
+<         public override IApplyData __DataIn__(QVoid data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override void Init() { }
+>         public override IApplyData __dataIn(QVoid data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;
+3435c3435
+<         public override Func<Int64, Int64> __Body__ => (__in__) =>
+---
+>         public override Func<Int64, Int64> Body => (__in__) =>
+3444c3444
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+3446,3447c3446,3447
+<         public override IApplyData __DataIn__(Int64 data) => new QTuple<Int64>(data);
+<         public override IApplyData __DataOut__(Int64 data) => new QTuple<Int64>(data);
+---
+>         public override IApplyData __dataIn(Int64 data) => new QTuple<Int64>(data);
+>         public override IApplyData __dataOut(Int64 data) => new QTuple<Int64>(data);
+3492c3492
+<         protected Allocate Allocate__
+---
+>         protected Allocate Allocate
+3498c3498
+<         protected Release Release__
+---
+>         protected Release Release
+3504c3504
+<         protected IUnitary<Qubit> X__
+---
+>         protected IUnitary<Qubit> X
+3510c3510
+<         public override Func<Int64, Result> __Body__ => (__in__) =>
+---
+>         public override Func<Int64, Result> Body => (__in__) =>
+3518c3518
+<                 var (ctrls,q) = (Allocate__.Apply(r), Allocate__.Apply());
+---
+>                 var (ctrls,q) = (Allocate.Apply(r), Allocate.Apply());
+3527c3527
+<                         X__.Apply(q);
+---
+>                         X.Apply(q);
+3536c3536
+<                             X__.Controlled.Apply((new QArray<Qubit>(c), q));
+---
+>                             X.Controlled.Apply((new QArray<Qubit>(c), q));
+3552c3552
+<                         Release__.Apply(ctrls);
+---
+>                         Release.Apply(ctrls);
+3554c3554
+<                         Release__.Apply(q);
+---
+>                         Release.Apply(q);
+3564c3564
+<         public override void __Init__()
+---
+>         public override void Init()
+3566,3568c3566,3568
+<             this.Allocate__ = this.__Factory__.Get<Allocate>(typeof(global::Microsoft.Quantum.Intrinsic.Allocate));
+<             this.Release__ = this.__Factory__.Get<Release>(typeof(global::Microsoft.Quantum.Intrinsic.Release));
+<             this.X__ = this.__Factory__.Get<IUnitary<Qubit>>(typeof(global::Microsoft.Quantum.Intrinsic.X));
+---
+>             this.Allocate = this.Factory.Get<Allocate>(typeof(global::Microsoft.Quantum.Intrinsic.Allocate));
+>             this.Release = this.Factory.Get<Release>(typeof(global::Microsoft.Quantum.Intrinsic.Release));
+>             this.X = this.Factory.Get<IUnitary<Qubit>>(typeof(global::Microsoft.Quantum.Intrinsic.X));
+3571,3572c3571,3572
+<         public override IApplyData __DataIn__(Int64 data) => new QTuple<Int64>(data);
+<         public override IApplyData __DataOut__(Result data) => new QTuple<Result>(data);
+---
+>         public override IApplyData __dataIn(Int64 data) => new QTuple<Int64>(data);
+>         public override IApplyData __dataOut(Result data) => new QTuple<Result>(data);
+3731c3731
+<         public override Func<QVoid, QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<QVoid, QVoid> Body => (__in__) =>
+3738c3738
+<         public override void __Init__()
+---
+>         public override void Init()
+3742,3743c3742,3743
+<         public override IApplyData __DataIn__(QVoid data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;
+3792c3792
+<         public override Func<QVoid, QVoid> __Body__ => (__in__) =>
+---
+>         public override Func<QVoid, QVoid> Body => (__in__) =>
+3799c3799
+<         public override void __Init__()
+---
+>         public override void Init()
+3803,3804c3803,3804
+<         public override IApplyData __DataIn__(QVoid data) => data;
+<         public override IApplyData __DataOut__(QVoid data) => data;
+---
+>         public override IApplyData __dataIn(QVoid data) => data;
+>         public override IApplyData __dataOut(QVoid data) => data;

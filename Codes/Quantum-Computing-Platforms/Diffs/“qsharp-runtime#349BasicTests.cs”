@@ -1,0 +1,8 @@
+65c65
+<                 var ctrlX = x.__ControlledBody__.AsAction();
+---
+>                 var ctrlX = x.ControlledBody.AsAction();
+73c73
+<                     x.__ControlledBody__((ctrls, q));
+---
+>                     x.ControlledBody((ctrls, q));

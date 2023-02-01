@@ -1,0 +1,144 @@
+15c15
+<             public override Func<double, double> __Body__ => System.Math.Abs;
+---
+>             public override Func<double, double> Body => System.Math.Abs;
+24c24
+<             public override Func<long, long> __Body__ => System.Math.Abs;
+---
+>             public override Func<long, long> Body => System.Math.Abs;
+33c33
+<             public override Func<BigInteger, BigInteger> __Body__ => BigInteger.Abs;
+---
+>             public override Func<BigInteger, BigInteger> Body => BigInteger.Abs;
+42c42
+<             public override Func<double, double> __Body__ => System.Math.Acos;
+---
+>             public override Func<double, double> Body => System.Math.Acos;
+51c51
+<             public override Func<double, double> __Body__ => System.Math.Asin;
+---
+>             public override Func<double, double> Body => System.Math.Asin;
+60c60
+<             public override Func<double, double> __Body__ => System.Math.Atan;
+---
+>             public override Func<double, double> Body => System.Math.Atan;
+70c70
+<             public override Func<(double, double), double> __Body__ => (args) => System.Math.Atan2(args.Item1, args.Item2);
+---
+>             public override Func<(double, double), double> Body => (args) => System.Math.Atan2(args.Item1, args.Item2);
+79c79
+<             public override Func<double, long> __Body__ => (arg) => System.Convert.ToInt64(System.Math.Ceiling(arg));
+---
+>             public override Func<double, long> Body => (arg) => System.Convert.ToInt64(System.Math.Ceiling(arg));
+88c88
+<             public override Func<double, double> __Body__ => System.Math.Cos;
+---
+>             public override Func<double, double> Body => System.Math.Cos;
+97c97
+<             public override Func<double, double> __Body__ => System.Math.Cosh;
+---
+>             public override Func<double, double> Body => System.Math.Cosh;
+113c113
+<             public override Func<(BigInteger, BigInteger), (BigInteger, BigInteger)> __Body__ => Impl;
+---
+>             public override Func<(BigInteger, BigInteger), (BigInteger, BigInteger)> Body => Impl;
+122c122
+<             public override Func<QVoid, double> __Body__ => (arg) => System.Math.E;
+---
+>             public override Func<QVoid, double> Body => (arg) => System.Math.E;
+131c131
+<             public override Func<double, double> __Body__ => System.Math.Exp;
+---
+>             public override Func<double, double> Body => System.Math.Exp;
+140c140
+<             public override Func<double, long> __Body__ => (arg) => System.Convert.ToInt64(System.Math.Floor(arg));
+---
+>             public override Func<double, long> Body => (arg) => System.Convert.ToInt64(System.Math.Floor(arg));
+149c149
+<             public override Func<(double, double), double> __Body__ => (arg) => System.Math.IEEERemainder(arg.Item1, arg.Item2);
+---
+>             public override Func<(double, double), double> Body => (arg) => System.Math.IEEERemainder(arg.Item1, arg.Item2);
+158c158
+<             public override Func<double, double> __Body__ => System.Math.Log;
+---
+>             public override Func<double, double> Body => System.Math.Log;
+167c167
+<             public override Func<double, double> __Body__ => System.Math.Log10;
+---
+>             public override Func<double, double> Body => System.Math.Log10;
+176c176
+<             public override Func<(double, double), double> __Body__ => (args) => System.Math.Max(args.Item1, args.Item2);
+---
+>             public override Func<(double, double), double> Body => (args) => System.Math.Max(args.Item1, args.Item2);
+185c185
+<             public override Func<(long, long), long> __Body__ => (args) => System.Math.Max(args.Item1, args.Item2);
+---
+>             public override Func<(long, long), long> Body => (args) => System.Math.Max(args.Item1, args.Item2);
+194c194
+<             public override Func<(BigInteger, BigInteger), BigInteger> __Body__ => (args) => BigInteger.Max(args.Item1, args.Item2);
+---
+>             public override Func<(BigInteger, BigInteger), BigInteger> Body => (args) => BigInteger.Max(args.Item1, args.Item2);
+203c203
+<             public override Func<(double, double), double> __Body__ => (args) => System.Math.Min(args.Item1, args.Item2);
+---
+>             public override Func<(double, double), double> Body => (args) => System.Math.Min(args.Item1, args.Item2);
+212c212
+<             public override Func<(long, long), long> __Body__ => (args) => System.Math.Min(args.Item1, args.Item2);
+---
+>             public override Func<(long, long), long> Body => (args) => System.Math.Min(args.Item1, args.Item2);
+221c221
+<             public override Func<(BigInteger, BigInteger), BigInteger> __Body__ => (args) => BigInteger.Min(args.Item1, args.Item2);
+---
+>             public override Func<(BigInteger, BigInteger), BigInteger> Body => (args) => BigInteger.Min(args.Item1, args.Item2);
+230c230
+<             public override Func<(BigInteger, BigInteger, BigInteger), BigInteger> __Body__ => (args) => BigInteger.ModPow(args.Item1, args.Item2, args.Item3);
+---
+>             public override Func<(BigInteger, BigInteger, BigInteger), BigInteger> Body => (args) => BigInteger.ModPow(args.Item1, args.Item2, args.Item3);
+239c239
+<             public override Func<QVoid, double> __Body__ => (arg) => System.Math.PI;
+---
+>             public override Func<QVoid, double> Body => (arg) => System.Math.PI;
+248c248
+<             public override Func<(double, double), double> __Body__ => (arg) => System.Math.Pow(arg.Item1, arg.Item2);
+---
+>             public override Func<(double, double), double> Body => (arg) => System.Math.Pow(arg.Item1, arg.Item2);
+257c257
+<             public override Func<double, long> __Body__ => (arg) => System.Convert.ToInt64(System.Math.Round(arg));
+---
+>             public override Func<double, long> Body => (arg) => System.Convert.ToInt64(System.Math.Round(arg));
+266c266
+<             public override Func<double, double> __Body__ => (theta) => System.Math.Sin(theta);
+---
+>             public override Func<double, double> Body => (theta) => System.Math.Sin(theta);
+275c275
+<             public override Func<double, long> __Body__ => (arg) => System.Math.Sign(arg);
+---
+>             public override Func<double, long> Body => (arg) => System.Math.Sign(arg);
+284c284
+<             public override Func<long, long> __Body__ => (arg) => System.Math.Sign(arg);
+---
+>             public override Func<long, long> Body => (arg) => System.Math.Sign(arg);
+293c293
+<             public override Func<BigInteger, long> __Body__ => (arg) => arg.Sign;
+---
+>             public override Func<BigInteger, long> Body => (arg) => arg.Sign;
+302c302
+<             public override Func<double, double> __Body__ => (theta) => System.Math.Sinh(theta);
+---
+>             public override Func<double, double> Body => (theta) => System.Math.Sinh(theta);
+311c311
+<             public override Func<double, double> __Body__ => (arg) => System.Math.Sqrt(arg);
+---
+>             public override Func<double, double> Body => (arg) => System.Math.Sqrt(arg);
+320c320
+<             public override Func<double, double> __Body__ => (theta) => System.Math.Tan(theta);
+---
+>             public override Func<double, double> Body => (theta) => System.Math.Tan(theta);
+329c329
+<             public override Func<double, double> __Body__ => (theta) => System.Math.Tanh(theta);
+---
+>             public override Func<double, double> Body => (theta) => System.Math.Tanh(theta);
+338c338
+<             public override Func<double, long> __Body__ => (arg) => System.Convert.ToInt64(System.Math.Truncate(arg));
+---
+>             public override Func<double, long> Body => (arg) => System.Convert.ToInt64(System.Math.Truncate(arg));

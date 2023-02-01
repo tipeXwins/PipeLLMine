@@ -1,0 +1,61 @@
+28,32c28,31
+<     long x0;
+<     long y0;
+<     long x1;
+<     long y1;
+<     Position4() = delete;
+---
+>     long x0 = 0;
+>     long y0 = 0;
+>     long x1 = 0;
+>     long y1 = 0;
+36,38c35,36
+<     long x;
+<     long y;
+<     Position2() = delete;
+---
+>     long x = 0;
+>     long y = 0;
+59,60c57,58
+<     BitType bitType;
+<     int index;
+---
+>     BitType bitType = QUANTUM;
+>     int index = 0;
+71,72d68
+< 
+<     GateOperand() = delete;
+79,81c75,77
+<     int duration;
+<     int cycle;
+<     gate_type_t type;
+---
+>     int duration = 0;
+>     int cycle = 0;
+>     gate_type_t type = __custom_gate__;
+84,85d79
+< 
+<     GateProperties() = delete;
+89,91c83,85
+<     int index;
+<     bool empty;
+<     bool cut;
+---
+>     int index = 0;
+>     bool empty = false;
+>     bool cut = false;
+93d86
+<     Cycle() = delete;
+158c151
+<     Cycle getCycle(const size_t index) const;
+---
+>     Cycle getCycle(const int index) const;
+202c195
+<     Position4 getCellPosition(const size_t column, const size_t row, const BitType bitType) const;
+---
+>     Position4 getCellPosition(const int column, const int row, const BitType bitType) const;
+251c244
+< #endif //WITH_VISUALIZER
+---
+> #endif //WITH_VISUALIZER
+\ No newline at end of file

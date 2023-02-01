@@ -1,0 +1,72 @@
+126c126
+<             public override Func<(Result, ICallable, ICallable), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(Result, ICallable, ICallable), QVoid> Body => (q) =>
+142c142
+<             public override Func<(Result, IAdjointable, IAdjointable), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(Result, IAdjointable, IAdjointable), QVoid> Body => (q) =>
+148c148
+<             public override Func<(Result, IAdjointable, IAdjointable), QVoid> __AdjointBody__ => (q) =>
+---
+>             public override Func<(Result, IAdjointable, IAdjointable), QVoid> AdjointBody => (q) =>
+164c164
+<             public override Func<(Result, IControllable, IControllable), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(Result, IControllable, IControllable), QVoid> Body => (q) =>
+170c170
+<             public override Func<(IQArray<Qubit>, (Result, IControllable, IControllable)), QVoid> __ControlledBody__ => (q) =>
+---
+>             public override Func<(IQArray<Qubit>, (Result, IControllable, IControllable)), QVoid> ControlledBody => (q) =>
+187c187
+<             public override Func<(Result, IUnitary, IUnitary), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(Result, IUnitary, IUnitary), QVoid> Body => (q) =>
+193c193
+<             public override Func<(Result, IUnitary, IUnitary), QVoid> __AdjointBody__ => (q) =>
+---
+>             public override Func<(Result, IUnitary, IUnitary), QVoid> AdjointBody => (q) =>
+199c199
+<             public override Func<(IQArray<Qubit>, (Result, IUnitary, IUnitary)), QVoid> __ControlledBody__ => (q) =>
+---
+>             public override Func<(IQArray<Qubit>, (Result, IUnitary, IUnitary)), QVoid> ControlledBody => (q) =>
+206c206
+<             public override Func<(IQArray<Qubit>, (Result, IUnitary, IUnitary)), QVoid> __ControlledAdjointBody__ => (q) =>
+---
+>             public override Func<(IQArray<Qubit>, (Result, IUnitary, IUnitary)), QVoid> ControlledAdjointBody => (q) =>
+227c227
+<             public override Func<(IQArray<Result>, IQArray<Result>, ICallable, ICallable), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(IQArray<Result>, IQArray<Result>, ICallable, ICallable), QVoid> Body => (q) =>
+243c243
+<             public override Func<(IQArray<Result>, IQArray<Result>, IAdjointable, IAdjointable), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(IQArray<Result>, IQArray<Result>, IAdjointable, IAdjointable), QVoid> Body => (q) =>
+249c249
+<             public override Func<(IQArray<Result>, IQArray<Result>, IAdjointable, IAdjointable), QVoid> __AdjointBody__ => (q) =>
+---
+>             public override Func<(IQArray<Result>, IQArray<Result>, IAdjointable, IAdjointable), QVoid> AdjointBody => (q) =>
+265c265
+<             public override Func<(IQArray<Result>, IQArray<Result>, IControllable, IControllable), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(IQArray<Result>, IQArray<Result>, IControllable, IControllable), QVoid> Body => (q) =>
+271c271
+<             public override Func<(IQArray<Qubit>, (IQArray<Result>, IQArray<Result>, IControllable, IControllable)), QVoid> __ControlledBody__ => (q) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Result>, IQArray<Result>, IControllable, IControllable)), QVoid> ControlledBody => (q) =>
+288c288
+<             public override Func<(IQArray<Result>, IQArray<Result>, IUnitary, IUnitary), QVoid> __Body__ => (q) =>
+---
+>             public override Func<(IQArray<Result>, IQArray<Result>, IUnitary, IUnitary), QVoid> Body => (q) =>
+294c294
+<             public override Func<(IQArray<Result>, IQArray<Result>, IUnitary, IUnitary), QVoid> __AdjointBody__ => (q) =>
+---
+>             public override Func<(IQArray<Result>, IQArray<Result>, IUnitary, IUnitary), QVoid> AdjointBody => (q) =>
+300c300
+<             public override Func<(IQArray<Qubit>, (IQArray<Result>, IQArray<Result>, IUnitary, IUnitary)), QVoid> __ControlledBody__ => (q) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Result>, IQArray<Result>, IUnitary, IUnitary)), QVoid> ControlledBody => (q) =>
+307c307
+<             public override Func<(IQArray<Qubit>, (IQArray<Result>, IQArray<Result>, IUnitary, IUnitary)), QVoid> __ControlledAdjointBody__ => (q) =>
+---
+>             public override Func<(IQArray<Qubit>, (IQArray<Result>, IQArray<Result>, IUnitary, IUnitary)), QVoid> ControlledAdjointBody => (q) =>

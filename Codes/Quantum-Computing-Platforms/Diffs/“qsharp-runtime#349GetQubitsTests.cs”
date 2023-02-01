@@ -1,0 +1,25 @@
+25c25
+<         public override void __Init__() { }
+---
+>         public override void Init() { }
+27c27
+<         public override Func<(IQArray<Qubit>, TInput), QVoid> __ControlledAdjointBody__ => (arg) =>
+---
+>         public override Func<(IQArray<Qubit>, TInput), QVoid> ControlledAdjointBody => (arg) =>
+33c33
+<         public override Func<TInput, QVoid> __AdjointBody__ => (arg) =>
+---
+>         public override Func<TInput, QVoid> AdjointBody => (arg) =>
+39c39
+<         public override Func<(IQArray<Qubit>, TInput), QVoid> __ControlledBody__ => (arg) =>
+---
+>         public override Func<(IQArray<Qubit>, TInput), QVoid> ControlledBody => (arg) =>
+45c45
+<         public override Func<TInput, QVoid> __Body__ => (TInput arg) =>
+---
+>         public override Func<TInput, QVoid> Body => (TInput arg) =>
+395c395
+< }
+---
+> }
+\ No newline at end of file

@@ -1,0 +1,24 @@
+18c18
+<             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> __Body__ => (_args) =>
+---
+>             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> Body => (_args) =>
+34c34
+<             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> __AdjointBody__ => (_args) =>
+---
+>             public override Func<(IQArray<Pauli>, long, long, IQArray<Qubit>), QVoid> AdjointBody => (_args) =>
+38c38
+<                 return this.__Body__.Invoke((paulis, -nom, den, qubits));
+---
+>                 return this.Body.Invoke((paulis, -nom, den, qubits));
+42c42
+<                 __ControlledBody__ => (_args) =>
+---
+>                 ControlledBody => (_args) =>
+67c67
+<                 __ControlledAdjointBody__ => (_args) =>
+---
+>                 ControlledAdjointBody => (_args) =>
+71c71
+<                     return this.__ControlledBody__.Invoke((ctrls, (paulis, -nom, den, qubits)));
+---
+>                     return this.ControlledBody.Invoke((ctrls, (paulis, -nom, den, qubits)));

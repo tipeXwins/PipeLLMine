@@ -1,0 +1,6 @@
+115,117c115
+<     let callableName =
+<         SimulationCode.userDefinedName None callable.FullName.Name.Value
+<         |> sprintf "global::%s.%s" callable.FullName.Namespace.Value
+---
+>     let callableName = sprintf "global::%s.%s" callable.FullName.Namespace.Value callable.FullName.Name.Value

@@ -1,0 +1,51 @@
+4d3
+< using System.Runtime.ExceptionServices;
+10d8
+< using Microsoft.Quantum.Simulation.Simulators.Exceptions;
+39d36
+<             protected ResetAll ResetAll { get; set; }
+52d48
+<                 this.ResetAll = this.Factory.Get<ResetAll>(typeof(Microsoft.Quantum.Intrinsic.ResetAll));
+73,74d68
+<                 Exception? innerException = null;
+<                 double result = 0.0;
+78a73
+>                     preparation.Adjoint.Apply(qubits);
+82,88c77
+<                     result = (double)dist.NextSample() / (double)samples;
+<                     return result;
+<                 }
+<                 catch (ExecutionFailException ex)
+<                 {
+<                     innerException = ex;
+<                     return result;
+---
+>                     return (double)dist.NextSample() / (double)samples;
+92,111c81
+<                     try
+<                     {
+<                         ResetAll.Apply(qubits);
+<                         Release.Apply(qubits);
+<                         if (innerException != null)
+<                         {
+<                             ExceptionDispatchInfo.Capture(innerException).Throw();
+<                         }
+<                     }
+<                     catch (Exception ex)
+<                     {
+<                         if (innerException != null)
+<                         {
+<                             throw new AggregateException(ex, innerException);
+<                         }
+<                         else
+<                         {
+<                             ExceptionDispatchInfo.Capture(ex).Throw();
+<                         }
+<                     }
+---
+>                     Release.Apply(qubits);
+147c117
+< }
+---
+> }
+\ No newline at end of file

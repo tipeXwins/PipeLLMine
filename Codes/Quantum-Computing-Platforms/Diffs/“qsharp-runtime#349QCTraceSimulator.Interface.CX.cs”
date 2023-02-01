@@ -1,0 +1,9 @@
+18c18
+<             public override Func<(Qubit, Qubit), QVoid> __Body__
+---
+>             public override Func<(Qubit, Qubit), QVoid> Body
+27c27
+< }
+---
+> }
+\ No newline at end of file

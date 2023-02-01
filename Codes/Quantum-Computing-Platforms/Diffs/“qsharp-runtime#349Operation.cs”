@@ -1,0 +1,38 @@
+58c58
+<         public virtual IApplyData __DataIn__(I data) => new QTuple<I>(data);
+---
+>         public virtual IApplyData __dataIn(I data) => new QTuple<I>(data);
+60c60
+<         public virtual IApplyData __DataOut__(O data) => new QTuple<O>(data);
+---
+>         public virtual IApplyData __dataOut(O data) => new QTuple<O>(data);
+63c63
+<         public abstract Func<I, O> __Body__ { get; }
+---
+>         public abstract Func<I, O> Body { get; }
+66c66
+<         public virtual Func<I, QVoid> __AdjointBody__ => throw new NotImplementedException();
+---
+>         public virtual Func<I, QVoid> AdjointBody => throw new NotImplementedException();
+69c69
+<         public virtual Func<(IQArray<Qubit>, I), QVoid> __ControlledBody__ => throw new NotImplementedException();
+---
+>         public virtual Func<(IQArray<Qubit>, I), QVoid> ControlledBody => throw new NotImplementedException();
+72c72
+<         public virtual Func<(IQArray<Qubit>, I), QVoid> __ControlledAdjointBody__ => throw new NotImplementedException();
+---
+>         public virtual Func<(IQArray<Qubit>, I), QVoid> ControlledAdjointBody => throw new NotImplementedException();
+95,96c95,96
+<                 this.__Factory__?.StartOperation(this, __DataIn__(a));
+<                 __result__ = this.__Body__(a);
+---
+>                 this.Factory?.StartOperation(this, __dataIn(a));
+>                 __result__ = this.Body(a);
+100c100
+<                 this.__Factory__?.Fail(System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(e));
+---
+>                 this.Factory?.Fail(System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(e));
+105c105
+<                 this.__Factory__?.EndOperation(this, __DataOut__(__result__));
+---
+>                 this.Factory?.EndOperation(this, __dataOut(__result__));

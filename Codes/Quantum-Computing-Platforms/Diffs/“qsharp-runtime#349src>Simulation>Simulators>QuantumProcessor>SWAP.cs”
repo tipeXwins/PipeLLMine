@@ -1,0 +1,8 @@
+20c20
+<             public override Func<(Qubit,Qubit), QVoid> __Body__ => (q1) =>
+---
+>             public override Func<(Qubit,Qubit), QVoid> Body => (q1) =>
+26c26
+<             public override Func<(IQArray<Qubit>, (Qubit, Qubit)), QVoid> __ControlledBody__ => (args) =>
+---
+>             public override Func<(IQArray<Qubit>, (Qubit, Qubit)), QVoid> ControlledBody => (args) =>

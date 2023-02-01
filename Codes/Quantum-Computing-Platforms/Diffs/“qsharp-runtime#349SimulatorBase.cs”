@@ -1,0 +1,24 @@
+108c108
+<             op.__Init__();
+---
+>             op.Init();
+398c398
+<             public override Func<String, QVoid> __Body__ => (msg) =>
+---
+>             public override Func<String, QVoid> Body => (msg) =>
+417c417
+<             public override Func<QVoid, long> __Body__ => (arg) => sim.QubitManager.GetFreeQubitsCount();
+---
+>             public override Func<QVoid, long> Body => (arg) => sim.QubitManager.GetFreeQubitsCount();
+432c432
+<             public override Func<QVoid, long> __Body__ => (arg) => sim.QubitManager.GetParentQubitsAvailableToBorrowCount() +
+---
+>             public override Func<QVoid, long> Body => (arg) => sim.QubitManager.GetParentQubitsAvailableToBorrowCount() +
+449c449
+<             public override Func<(long, long), long> __Body__ => arg =>
+---
+>             public override Func<(long, long), long> Body => arg =>
+473c473
+<             public override Func<(double, double), double> __Body__ => arg =>
+---
+>             public override Func<(double, double), double> Body => arg =>

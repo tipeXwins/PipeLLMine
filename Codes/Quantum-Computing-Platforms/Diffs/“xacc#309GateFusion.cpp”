@@ -1,0 +1,30 @@
+30,34d29
+<     std::vector<size_t> reverseBitIdx(const std::vector<size_t>& in_origBit) {
+<         auto copy = in_origBit;
+<         std::reverse(copy.begin(), copy.end());
+<         return copy;
+<     }
+135c130
+<     m_gates.emplace_back(cnotMat, reverseBitIdx(cnot.bits()));
+---
+>     m_gates.emplace_back(cnotMat, cnot.bits());
+208c203
+<     m_gates.emplace_back(cyMat, reverseBitIdx(cy.bits()));
+---
+>     m_gates.emplace_back(cyMat, cy.bits());
+215c210
+<     m_gates.emplace_back(czMat, reverseBitIdx(cz.bits()));
+---
+>     m_gates.emplace_back(czMat, cz.bits());
+228c223
+<     m_gates.emplace_back(crzMat, reverseBitIdx(crz.bits()));
+---
+>     m_gates.emplace_back(crzMat, crz.bits());
+238c233
+<     m_gates.emplace_back(chMat, reverseBitIdx(ch.bits()));
+---
+>     m_gates.emplace_back(chMat, ch.bits());
+257c252
+<     m_gates.emplace_back(cphaseMat, reverseBitIdx(cphase.bits()));
+---
+>     m_gates.emplace_back(cphaseMat, cphase.bits());

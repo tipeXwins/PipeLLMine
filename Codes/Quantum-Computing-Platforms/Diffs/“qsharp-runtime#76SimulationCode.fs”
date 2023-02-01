@@ -1,0 +1,6 @@
+553d552
+<                 | Identifier (_, Value tArgs) when tArgs.Length > 0 -> false
+561c560
+<                             not (hasTypeParameters [op.ResolvedType]) 
+---
+>                             not (hasTypeParameters [op.ResolvedType])

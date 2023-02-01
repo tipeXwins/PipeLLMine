@@ -1,0 +1,11 @@
+17,22c17,19
+< find_package(LAPACK)
+< if(LAPACK_FOUND)
+<     add_xacc_test(QuantumNatualGradient)
+<     target_link_libraries(QuantumNatualGradientTester xacc xacc-pauli xacc-gradient-strategies) 
+<     target_include_directories(QuantumNatualGradientTester PRIVATE ../) 
+< endif()
+---
+> add_xacc_test(QuantumNatualGradient)
+> target_link_libraries(QuantumNatualGradientTester xacc xacc-pauli xacc-gradient-strategies) 
+> target_include_directories(QuantumNatualGradientTester PRIVATE ../) 

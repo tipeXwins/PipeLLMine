@@ -1,0 +1,8 @@
+224,225d223
+<             seed_transpiler=1,
+<             seed_simulator=1
+249c247,248
+<     assert abs(exact - mitigated) < abs(exact - unmitigated)
+---
+> .. testoutput::
+>     True

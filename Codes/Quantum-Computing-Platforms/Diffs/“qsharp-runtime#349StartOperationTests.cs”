@@ -1,0 +1,24 @@
+144,145c144,145
+<                 AssertTuple(expected, p1.__DataIn__((q2, q3)).Value);
+<                 AssertTuple(expected, p2.__DataIn__((q2)).Value);
+---
+>                 AssertTuple(expected, p1.__dataIn((q2, q3)).Value);
+>                 AssertTuple(expected, p2.__dataIn((q2)).Value);
+147,148c147,148
+<                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p1.__DataIn__((q2, q3)).Qubits);
+<                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p2.__DataIn__(q2).Qubits);
+---
+>                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p1.__dataIn((q2, q3)).Qubits);
+>                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p2.__dataIn(q2).Qubits);
+172,173c172,173
+<                 AssertTuple(expected, p1.__DataIn__((q2, q3)).Value);
+<                 AssertTuple(expected, p2.__DataIn__((q2)).Value);
+---
+>                 AssertTuple(expected, p1.__dataIn((q2, q3)).Value);
+>                 AssertTuple(expected, p2.__dataIn((q2)).Value);
+175,176c175,176
+<                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p1.__DataIn__((q2, q3)).Qubits);
+<                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p2.__DataIn__(q2).Qubits);
+---
+>                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p1.__dataIn((q2, q3)).Qubits);
+>                 Assert.Equal(new Qubit[] { q1, q2, q3 }, p2.__dataIn(q2).Qubits);

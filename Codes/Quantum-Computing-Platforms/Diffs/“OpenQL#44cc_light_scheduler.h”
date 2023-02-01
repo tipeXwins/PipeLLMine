@@ -1,0 +1,4 @@
+310c310
+<     size_t curr_cycle=0; // first instruction should be with pre-interval 1, 'bs 1'
+---
+>     size_t curr_cycle=1;

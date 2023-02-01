@@ -1,0 +1,14 @@
+220a221,226
+>             if (this.Config.GenerateFunctorSupport)
+>             {
+>                 this.CompilationStatus.FunctorSupport = 0;
+>                 var functorSpecGenerated = this.GeneratedSyntaxTree != null && FunctorGeneration.GenerateFunctorSpecializations(this.GeneratedSyntaxTree, out this.GeneratedSyntaxTree);
+>                 if (!functorSpecGenerated) this.LogAndUpdate(ref this.CompilationStatus.FunctorSupport, ErrorCode.FunctorGenerationFailed, Enumerable.Empty<string>());
+>             }
+227,232d232
+<             }
+<             if (this.Config.GenerateFunctorSupport)
+<             {
+<                 this.CompilationStatus.FunctorSupport = 0;
+<                 var functorSpecGenerated = this.GeneratedSyntaxTree != null && FunctorGeneration.GenerateFunctorSpecializations(this.GeneratedSyntaxTree, out this.GeneratedSyntaxTree);
+<                 if (!functorSpecGenerated) this.LogAndUpdate(ref this.CompilationStatus.FunctorSupport, ErrorCode.FunctorGenerationFailed, Enumerable.Empty<string>());

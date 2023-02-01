@@ -1,0 +1,13 @@
+38,39d37
+<         pauli_str.clear();
+<         index = UINT_MAX - 1;
+41,47c39
+<         if (index == UINT_MAX - 1) {
+<             if (pauli_str.empty() == false) {
+<                 std::cerr << "Warning: PauliOperator::PauliOperator(std::string, CPPCTYPE) : detected pauli_str without indexs. Maybe mistyped?" << std::endl;
+<                 std::cerr << "Original Pauli string: " << strings << std::endl;
+<             }
+<             break;
+<         }
+---
+>         if (pauli_str.length() == 0) break;

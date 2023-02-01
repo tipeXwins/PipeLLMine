@@ -1,0 +1,4 @@
+42c42
+< 	string(REPLACE ${CMAKE_CURRENT_SOURCE_DIR}/src/ ${CMAKE_CURRENT_SOURCE_DIR}/include/ path_dst ${path})
+---
+> 	string(REPLACE /src/ /include/ path_dst ${path})

@@ -1,0 +1,28 @@
+29c29
+<             public override Func<(Pauli, double, Qubit), QVoid> __Body__ => (_args) =>
+---
+>             public override Func<(Pauli, double, Qubit), QVoid> Body => (_args) =>
+41c41
+<             public override Func<(Pauli, double, Qubit), QVoid> __AdjointBody__ => (_args) =>
+---
+>             public override Func<(Pauli, double, Qubit), QVoid> AdjointBody => (_args) =>
+45c45
+<                 return this.__Body__.Invoke((basis, -angle, q1));
+---
+>                 return this.Body.Invoke((basis, -angle, q1));
+48c48
+<             public override Func<(IQArray<Qubit>, (Pauli, double, Qubit)), QVoid> __ControlledBody__ => (_args) =>
+---
+>             public override Func<(IQArray<Qubit>, (Pauli, double, Qubit)), QVoid> ControlledBody => (_args) =>
+56c56
+<                     () => this.__Body__.Invoke((basis, angle, q1)),
+---
+>                     () => this.Body.Invoke((basis, angle, q1)),
+63c63
+<             public override Func<(IQArray<Qubit>, (Pauli, double, Qubit)), QVoid> __ControlledAdjointBody__ => (_args) =>
+---
+>             public override Func<(IQArray<Qubit>, (Pauli, double, Qubit)), QVoid> ControlledAdjointBody => (_args) =>
+67c67
+<                 return this.__ControlledBody__.Invoke((ctrls, (basis, -angle, q1)));
+---
+>                 return this.ControlledBody.Invoke((ctrls, (basis, -angle, q1)));

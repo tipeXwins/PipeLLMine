@@ -1,0 +1,20 @@
+230c230
+<     "bitstring_array = np.vstack([bitstrings[q] for q in qc.qubits()]).T\n",
+---
+>     "bitstring_array = np.vstack(bitstrings[q] for q in qc.qubits()).T\n",
+365c365
+<     "np.vstack([bitstrings[q] for q in qc.qubits()]).T"
+---
+>     "np.vstack(bitstrings[q] for q in qc.qubits()).T"
+396c396
+<     "np.vstack([bitstrings[q] for q in qubits]).T"
+---
+>     "np.vstack(bitstrings[q] for q in qubits).T"
+451c451
+<     "bitstring_array = np.vstack([bitstrings[q] for q in qc.qubits()]).T\n",
+---
+>     "bitstring_array = np.vstack(bitstrings[q] for q in qc.qubits()).T\n",
+630c630
+<     "    def quil_to_native_quil(self, program, *, protoquil=None):\n",
+---
+>     "    def quil_to_native_quil(self, program):\n",

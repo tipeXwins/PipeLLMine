@@ -1,0 +1,6 @@
+44,46c44
+<            "")
+<       .def("postProcess", &xacc::Observable::postProcess,
+<            "Post-process the execution results.");
+---
+>            "");

@@ -1,0 +1,4 @@
+859c859
+<     } else if ((cmd_def_name == "u1") || (cmd_def_name == "rz")) {
+---
+>     } else if (cmd_def_name == "u1") {

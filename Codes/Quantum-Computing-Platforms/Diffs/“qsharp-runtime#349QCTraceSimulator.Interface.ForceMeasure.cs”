@@ -1,0 +1,9 @@
+18c18
+<             public override Func<(IQArray<Pauli>, IQArray<Qubit>, Result), QVoid> __Body__
+---
+>             public override Func<(IQArray<Pauli>, IQArray<Qubit>, Result), QVoid> Body
+27c27
+< }
+---
+> }
+\ No newline at end of file

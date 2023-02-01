@@ -1,0 +1,4 @@
+16c16
+<         public override void __Init__() { }
+---
+>         public override void Init() { }

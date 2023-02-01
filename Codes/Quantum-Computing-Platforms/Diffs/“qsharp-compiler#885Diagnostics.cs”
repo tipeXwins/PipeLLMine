@@ -1,0 +1,72 @@
+124c124
+<                 Range = new Lsp.Range { Start = new Lsp.Position(0, 0), End = new Lsp.Position(0, 0) }
+---
+>                 Range = null
+137c137
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+159c159
+<                 Range = new Lsp.Range { Start = new Lsp.Position(0, 0), End = new Lsp.Position(0, 0) }
+---
+>                 Range = null
+166,170d165
+<             if (pos == null)
+<             {
+<                 throw new ArgumentNullException(nameof(pos));
+<             }
+< 
+177c172
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+183,187d177
+<             if (pos == null)
+<             {
+<                 throw new ArgumentNullException(nameof(pos));
+<             }
+< 
+194c184
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+202,206d191
+<             if (pos == null)
+<             {
+<                 throw new ArgumentNullException(nameof(pos));
+<             }
+< 
+213c198
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+219,223d203
+<             if (pos == null)
+<             {
+<                 throw new ArgumentNullException(nameof(pos));
+<             }
+< 
+230c210
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+236,240d215
+<             if (pos == null)
+<             {
+<                 throw new ArgumentNullException(nameof(pos));
+<             }
+< 
+247c222
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+253,257d227
+<             if (pos == null)
+<             {
+<                 throw new ArgumentNullException(nameof(pos));
+<             }
+< 
+264c234
+<                 Range = new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
+---
+>                 Range = pos == null ? null : new Lsp.Range { Start = pos.ToLsp(), End = pos.ToLsp() }
