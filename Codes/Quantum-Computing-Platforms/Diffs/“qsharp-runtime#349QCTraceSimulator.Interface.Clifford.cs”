@@ -1,9 +1,0 @@
-19c19
-<             public override Func<(long, Pauli, Qubit), QVoid> __Body__
----
->             public override Func<(long, Pauli, Qubit), QVoid> Body
-28c28
-< }
----
-> }
-\ No newline at end of file

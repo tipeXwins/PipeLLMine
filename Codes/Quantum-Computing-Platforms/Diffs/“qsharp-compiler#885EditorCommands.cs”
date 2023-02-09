@@ -1,8 +1,0 @@
-206c206
-<                 Range = new Lsp.Range { Start = position.ToLsp(), End = position.ToLsp() }
----
->                 Range = new Lsp.Range { Start = position?.ToLsp(), End = position?.ToLsp() }
-396c396
-<                 Label = paramName ?? "<unknown parameter>",
----
->                 Label = paramName,

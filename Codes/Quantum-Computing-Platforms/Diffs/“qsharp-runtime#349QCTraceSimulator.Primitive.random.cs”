@@ -1,4 +1,0 @@
-20c20
-<             public override Func<IQArray<double>, Int64> __Body__ => (p) =>
----
->             public override Func<IQArray<double>, Int64> Body => (p) =>

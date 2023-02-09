@@ -1,4 +1,0 @@
-21c21
-<         public GenericPartial(GenericCallable baseOp, object partialValues) : base(baseOp.__Factory__, null)
----
->         public GenericPartial(GenericCallable baseOp, object partialValues) : base(baseOp.Factory, null)

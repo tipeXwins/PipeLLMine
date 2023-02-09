@@ -1,4 +1,0 @@
-24c24
-< 		return "pulse";
----
-> 		return "default";

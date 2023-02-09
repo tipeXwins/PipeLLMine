@@ -1,4 +1,0 @@
-32c32
-< size_t MAX_CYCLE = std::numeric_limits<int>::max();
----
-> auto MAX_CYCLE = std::numeric_limits<int>::max();

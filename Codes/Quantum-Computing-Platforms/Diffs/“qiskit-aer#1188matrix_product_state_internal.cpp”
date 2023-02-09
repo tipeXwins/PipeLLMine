@@ -1,4 +1,0 @@
-823c823
-<   apply_kraus_internal(internal_qubits, kmats, rng);
----
->   apply_kraus_internal(qubits, kmats, rng);

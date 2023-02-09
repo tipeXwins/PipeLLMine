@@ -1,4 +1,0 @@
-49c49
-<             let fct = GenRecursionPartial<'T>(_, cnt - 1);
----
->             let fct = GenRecursionPartial(_, cnt - 1);

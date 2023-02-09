@@ -1,9 +1,0 @@
-1021c1021
-<   const size_t block = 16;
----
->   const size_t block = 8;
-1030,1031c1030
-<   if (remain != 0)
-<       bin += int2string(std::stoull(str.substr(0, remain), nullptr, 16), 2);
----
->   bin += int2string(std::stoull(str.substr(0, remain), nullptr, 16), 2);

@@ -1,7 +1,0 @@
-275a276
->                     sharedState.ScopeMgr.OpenScope();
-278,279d278
-<                     sharedState.StartBranch(); // needed for the caching of length to work properly
-<                     sharedState.ScopeMgr.OpenScope();
-283d281
-<                     sharedState.EndBranch();

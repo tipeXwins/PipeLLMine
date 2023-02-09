@@ -1,4 +1,0 @@
-16c16
-<             public override Func<(__T__, __T__), QVoid> __Body__ => (_args) =>
----
->             public override Func<(__T__, __T__), QVoid> Body => (_args) =>

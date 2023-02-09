@@ -1,4 +1,0 @@
-304c304
-< 		if (target_qubit_index >= this->qubit_count) {
----
-> 		if (target_qubit_index < this->qubit_count) {

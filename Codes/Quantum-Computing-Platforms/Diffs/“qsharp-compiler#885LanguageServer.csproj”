@@ -1,4 +1,0 @@
-26c26
-<     <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol" Version="16.9.1180" />
----
->     <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol" Version="16.3.57" />

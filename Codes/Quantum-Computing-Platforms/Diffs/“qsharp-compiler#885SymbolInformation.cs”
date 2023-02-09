@@ -1,4 +1,0 @@
-31c31
-<                 Uri = CompilationUnitManager.TryGetUri(source, out var uri) ? uri : throw new Exception($"Source location {source} could not be converted to a valid URI."),
----
->                 Uri = CompilationUnitManager.TryGetUri(source, out var uri) ? uri : null,

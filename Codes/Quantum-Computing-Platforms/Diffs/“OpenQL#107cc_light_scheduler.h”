@@ -1,4 +1,0 @@
-686c686
-<     bundles1 = sched.GetBundlesScheduleASAP(rm, platform, verbose);
----
->     bundles1 = sched.GetBundlesScheduleALAP(rm, platform, verbose);

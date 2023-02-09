@@ -1,4 +1,0 @@
-28c28
-<             public override Func<Qubit, QVoid> __Body__ => (q1) =>
----
->             public override Func<Qubit, QVoid> Body => (q1) =>

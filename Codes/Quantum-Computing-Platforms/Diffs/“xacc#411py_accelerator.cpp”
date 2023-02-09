@@ -1,5 +1,0 @@
-67,70d66
-<                 } else {
-<                   std::shared_ptr<CompositeInstruction> composite =
-<                       _circ.cast<std::shared_ptr<CompositeInstruction>>();
-<                   programs.push_back(composite);

@@ -1,4 +1,0 @@
-684c684
-<     if (!Linalg::almost_equal(std::abs(val), 1.0, 1e-7)) {
----
->     if (!Linalg::almost_equal(std::abs(val), 1.0)) {

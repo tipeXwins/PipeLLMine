@@ -1,4 +1,0 @@
-413c413
-<         BaseState::qreg_.apply_diagonal_unitary_matrix(op.qubits, op.params);
----
->         BaseState::qreg_.apply_diagonal_matrix(op.qubits, op.params);

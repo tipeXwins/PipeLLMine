@@ -1,4 +1,0 @@
-155c155
-<                 var currentName = typeof(QCTraceSimulatorImpl).Assembly.GetName();
----
->                 var currentName = this.GetType().Assembly.GetName();

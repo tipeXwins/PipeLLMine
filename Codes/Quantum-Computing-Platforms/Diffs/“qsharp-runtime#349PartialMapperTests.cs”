@@ -1,8 +1,0 @@
-22c22
-<             public override Func<TestTuple, QVoid> __Body__ => (a) => QVoid.Instance;
----
->             public override Func<TestTuple, QVoid> Body => (a) => QVoid.Instance;
-24c24
-<             public override void __Init__() { }
----
->             public override void Init() { }

@@ -1,9 +1,0 @@
-62d61
-< 	std::map<int, int> qubitToClassicalBitIndex;
-105d103
-< 		qubitToClassicalBitIndex.insert(std::make_pair(m.bits()[0], classicalBitIdx));
-113,114c111
-< 		auto classicalBitIdx = qubitToClassicalBitIndex[c.getConditionalQubit()];
-< 		quilStr += "JUMP-UNLESS @" + c.getName() + " [" + std::to_string(classicalBitIdx) + "]\n";
----
-> 		quilStr += "JUMP-UNLESS @" + c.getName() + " [" + std::to_string(c.getConditionalQubit()) + "]\n";

@@ -1,9 +1,0 @@
-47d46
-< #include "transpile/basic_opts.hpp"
-632,633d630
-<     Transpile::ReduceBarrier barrier_pass;
-<     barrier_pass.optimize_circuit(circ, noise, circ.opset(), data);
-638c635
-<       truncate_pass.optimize_circuit(circ, noise, circ.opset(), data);
----
->       truncate_pass.optimize_circuit(circ, noise, Operations::OpSet(), data);

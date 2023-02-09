@@ -1,8 +1,0 @@
-433c433
-<             CompilationUnit compilation, CompletionItemData data, CompletionItemKind? kind, bool useMarkdown)
----
->             CompilationUnit compilation, CompletionItemData data, CompletionItemKind kind, bool useMarkdown)
-622c622
-<                 Items = items?.ToArray() ?? new CompletionItem[] { }
----
->                 Items = items?.ToArray()

@@ -1,4 +1,0 @@
-30c30
-<         public GenericControlled(GenericCallable baseOp) : base(baseOp.__Factory__, null)
----
->         public GenericControlled(GenericCallable baseOp) : base(baseOp.Factory, null)

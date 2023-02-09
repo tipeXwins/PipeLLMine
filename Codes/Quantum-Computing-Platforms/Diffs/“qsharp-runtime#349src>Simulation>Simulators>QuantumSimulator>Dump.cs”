@@ -1,8 +1,0 @@
-76c76
-<             public override Func<T, QVoid> __Body__ => (location) =>
----
->             public override Func<T, QVoid> Body => (location) =>
-94c94
-<             public override Func<(T, IQArray<Qubit>), QVoid> __Body__ => (__in) =>
----
->             public override Func<(T, IQArray<Qubit>), QVoid> Body => (__in) =>

@@ -1,2 +1,0 @@
-320d319
-<   void propagate_to_neighbors_internal(uint_t min_qubit, uint_t max_qubit);

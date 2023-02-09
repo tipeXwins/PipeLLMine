@@ -1,6 +1,0 @@
-126,128c126
-<                 Range = diagnostic.Source is null || diagnostic.Range is null
-<                         ? new VisualStudio.LanguageServer.Protocol.Range()
-<                         : diagnostic.Range.ToLsp()
----
->                 Range = diagnostic.Source is null ? null : diagnostic.Range?.ToLsp()

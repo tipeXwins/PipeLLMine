@@ -1,4 +1,0 @@
-196c196
-<   {"cu3", Gates::mcu3},     // Controlled-u3 gate
----
->   {"cu3", Gates::mcu1},     // Controlled-u3 gate

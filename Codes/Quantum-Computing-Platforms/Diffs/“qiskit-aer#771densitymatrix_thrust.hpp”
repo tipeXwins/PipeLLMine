@@ -1,8 +1,0 @@
-445c445
-<     pV[offsets[0]+i0] = q3;
----
->     pV[offsets[0]+i0] = q0;
-448c448
-<     pV[offsets[3]+i0] = q0;
----
->     pV[offsets[3]+i0] = q3;

@@ -1,7 +1,0 @@
-661c661
-<     while(op_idx < next_diagonal_start && op_idx < fusion_end) {
----
->     for (; op_idx < next_diagonal_start; ++op_idx)
-663,664d662
-<       ++op_idx;
-<     }

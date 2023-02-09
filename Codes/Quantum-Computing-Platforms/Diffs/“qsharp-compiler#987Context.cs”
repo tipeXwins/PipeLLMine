@@ -1,8 +1,0 @@
-1102c1102
-<             var defaultRequiresRefCount = increaseReferenceCount && defaultValue != null && ScopeManager.RequiresReferenceCount(defaultValue.LlvmType);
----
->             var defaultRequiresRefCount = increaseReferenceCount && defaultValue != null && this.ScopeMgr.RequiresReferenceCount(defaultValue.LlvmType);
-1129c1129
-<                     this.ScopeMgr.CloseScope(evaluated); // forces that the ref count is increased within the branch
----
->                     this.ScopeMgr.CloseScope(evaluated, false); // force that the ref count is increased within the branch
