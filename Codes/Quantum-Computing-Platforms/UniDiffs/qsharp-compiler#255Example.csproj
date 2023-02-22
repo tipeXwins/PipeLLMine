@@ -1,0 +1,21 @@
+--- qsharp-compiler/qsharp-compiler#255/after/Example.csproj	2022-01-10 16:02:54.000000000 +0000
++++ qsharp-compiler/qsharp-compiler#255/before/Example.csproj	2022-01-10 16:02:54.000000000 +0000
+@@ -20,8 +20,7 @@
+     <ExecutionTestsDir>ExecutionTests\</ExecutionTestsDir>
+     <GenFilesDir>generated\</GenFilesDir>
+     <SimulationTarget>"..\Target\bin\$(Configuration)\netstandard2.1\Simulation.dll"</SimulationTarget>
+-    <QscExe>dotnet</QscExe>
+-    <QsLib>"../../../CommandLineTool/bin/$(Configuration)/netcoreapp3.0/qsc.dll"</QsLib>
++    <QscExe>dotnet "..\..\..\CommandLineTool\bin\$(Configuration)\netcoreapp3.0\qsc.dll"</QscExe>
+   </PropertyGroup>
+ 
+   <ItemGroup>
+@@ -58,7 +57,7 @@
+       <QsSourceFiles Include="**\*.qs" Exclude="@(QsSourceFiles)" />
+     </ItemGroup>
+     <PropertyGroup>
+-      <QscCommand>$(QscExe) $(QsLib) build -v --format MsBuild --proj "$(MSBuildProjectName)" -i "@(QsSourceFiles,'" "')" -r "@(QsReferences,'" "')" -o $(GenFilesDir) --load "$(SimulationTarget)"</QscCommand>
++      <QscCommand>$(QscExe) build -v --format MsBuild --proj "$(MSBuildProjectName)" -i "@(QsSourceFiles,'" "')" -r "@(QsReferences,'" "')" -o $(GenFilesDir) --load "$(SimulationTarget)"</QscCommand>
+     </PropertyGroup>
+     <Message Importance="low" Text="executing command '$(QscCommand)'" />
+     <Exec Command="$(QscCommand)" IgnoreExitCode="false" />

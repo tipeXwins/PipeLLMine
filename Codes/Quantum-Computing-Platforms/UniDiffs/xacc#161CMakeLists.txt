@@ -1,0 +1,10 @@
+--- xacc/xacc#161/after/CMakeLists.txt	2022-01-10 16:02:54.000000000 +0000
++++ xacc/xacc#161/before/CMakeLists.txt	2022-01-10 16:02:54.000000000 +0000
+@@ -21,7 +21,6 @@
+ endif()
+ add_subdirectory(cppmicroservices)
+ 
+-install(FILES "${CMAKE_BINARY_DIR}/tpls/cppmicroservices/CMakeFiles/Export/share/cppmicroservices4/cmake/CppMicroServicesTargets-release.cmake" DESTINATION share/cppmicroservices4/cmake)
+ set(USE_SYSTEM_CURL ON CACHE BOOL "" FORCE)
+ set(BUILD_CPR_TESTS OFF CACHE BOOL "" FORCE)
+ set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)

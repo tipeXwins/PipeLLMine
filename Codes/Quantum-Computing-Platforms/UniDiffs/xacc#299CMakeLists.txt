@@ -1,0 +1,15 @@
+--- xacc/xacc#299/after/CMakeLists.txt	2022-01-10 16:02:54.000000000 +0000
++++ xacc/xacc#299/before/CMakeLists.txt	2022-01-10 16:02:54.000000000 +0000
+@@ -14,9 +14,6 @@
+ add_xacc_test(GradientStrategies)
+ target_link_libraries(GradientStrategiesTester xacc xacc-quantum-gate xacc-pauli) 
+ 
+-find_package(LAPACK)
+-if(LAPACK_FOUND)
+-    add_xacc_test(QuantumNatualGradient)
+-    target_link_libraries(QuantumNatualGradientTester xacc xacc-pauli xacc-gradient-strategies) 
+-    target_include_directories(QuantumNatualGradientTester PRIVATE ../) 
+-endif()
++add_xacc_test(QuantumNatualGradient)
++target_link_libraries(QuantumNatualGradientTester xacc xacc-pauli xacc-gradient-strategies) 
++target_include_directories(QuantumNatualGradientTester PRIVATE ../) 

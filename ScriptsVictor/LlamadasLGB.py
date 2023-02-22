@@ -2,8 +2,8 @@ import os
 import openai
 
 #Path with the codes
-dir_path_buggy_codes = "/home/tipex/TFG/TFG-LMBugFixing/Codes/Quantum-Computing-Platforms/minimal_bugfixes/Cirq/Cirq#608/after"
-dir_path_correct_codes = ""
+dir_path_buggy_codes = "/home/tipex/TFG/TFG-LMBugFixing/Codes/Quantum-Computing-Platforms/minimal_bugfixes/Cirq/Cirq#608/after" #pasar por parametro 
+dir_path_correct_codes = "" # esto igual   # mirar librerias para hacer unified diffs y  librerias que te leen los difss directamente
 
 buggyCodes = []
 correctCodes = []
@@ -27,8 +27,8 @@ for file in files :
   text = f.read()
   buggyCodes.append(text)
   f.close()
-
-
+print("holita")
+print(buggyCodes)
 files = []
 
 # Iterate directory
