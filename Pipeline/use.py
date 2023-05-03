@@ -1,6 +1,6 @@
 import os
 from Calls import OAICommunicationController
-from Comparison import Comparer
+from Comparison import Comparer, ComparerNLTKCodeBleu
 
 from Diff_Info_extraction import obtainInfoLines
 from Filtering import Filter
@@ -111,7 +111,7 @@ for codeInformation in Codes:
 
 ###MAKE COMPARISONS
 
-comparer = Comparer()
+comparer = ComparerNLTKCodeBleu()
 for codeInformation in Codes:
         correctCodeContent = codeInformation.correctCodeContent
         for response in codeInformation.responses:
