@@ -44,8 +44,8 @@ class OAICommunicationController():
         return response['choices'][0]['text']
     
 
-from transformers import AutoTokenizer, AutoModelForCausalLM    
-class HFCommunicationController():
+#from transformers import AutoTokenizer, AutoModelForCausalLM    
+"""class HFCommunicationController():
     tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-16B-multi")
     model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-16B-multi")
     query = "def hello_world():"
@@ -56,7 +56,7 @@ class HFCommunicationController():
         print(self.tokenizer.decode(generated_ids[0], skip_special_tokens=True))
 
 comunicator = HFCommunicationController()
-comunicator.callToModel("def hello_world():")
+comunicator.callToModel("def hello_world():")"""
 """ 
 tokenizer = AutoTokenizer.from_pretrained("codeparrot/codeparrot")
 model = AutoModelWithLMHead.from_pretrained("codeparrot/codeparrot")
