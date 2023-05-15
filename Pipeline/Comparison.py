@@ -34,24 +34,23 @@ class ComparerCodeBleu(Comparer):
     
 class ComparerNLTKCodeBleu(ComparerCodeBleu): 
     def compute_code_bleu(self,references, hypotheses):
+
+        references = ''.join(references)
+        hypotheses = ''.join(hypotheses)
         # Tokenize the source codes
-        references = self.tokenize_code(references)
-        hypotheses = self.tokenize_code(hypotheses)
-        
-        # Convert the tokenized codes back to strings
-        references_strings = [" ".join(ref).strip() for ref in references]
-        hypotheses_strings = [" ".join(hyp).strip() for hyp in hypotheses]
-    
+        ref_tokens = references.split()
+        hyp_tokens = hypotheses.split()
+
         # Compute the CodeBLEU score
         weights = [0.25] * 4  # Use the default weights for CodeBLEU
         smoothing = SmoothingFunction()
-        
-        code_bleu = sentence_bleu([references_strings], hypotheses_strings, weights=weights, smoothing_function=smoothing.method1) 
+        code_bleu = sentence_bleu([ref_tokens], hyp_tokens, weights=weights, smoothing_function=smoothing.method1)
+
         return code_bleu
    
 
-references ="public class Main {\n    public static void mai(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}\n"
-hypotheses ="public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}\n"
+references =['\n', 'def bitcount(n):\n', '    count = 0\n', '    while n:\n', '        n ^= n - 1\n', '        count += 1\n', '    return count\n']
+hypotheses =['\n', 'def bitcount(n):\n', '    count = 0\n', '    while n:\n', '        n &= n - 1\n', '        count += 1\n', '    return count\n']
 comparer = ComparerNLTKCodeBleu()
 code_bleu = comparer.compare(references, hypotheses)
 print(f"CodeBleu score: {code_bleu}")
