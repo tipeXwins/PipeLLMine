@@ -49,10 +49,16 @@ class OAICommunicationController():
     
 class HFCommunicationController():
     
-    
-
     tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")
 
+    model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
+
+    def callToModelWithTransformers(self,query):
+        print("THIS IS AN ABSTRACT CLASS PLEASE REFFER TO AN SPECIFIC Hugging Face Controller")
+
+
+class HFPlBartController(HFCommunicationController):
+    tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")
     model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
 
     def callToModelWithTransformers(self,query):
@@ -67,15 +73,30 @@ class HFCommunicationController():
         #file = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/output.txt','w') # open as write mode and write the new content here
         #file.writelines(output)
         #file.close()
-        print("output",output[0])
+        return output[0]
+    
+class HFCodeT5Controller(HFCommunicationController):
+    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
+    model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
+
+    def callToModelWithTransformers(self,query):
+        input_ids = self.tokenizer(query, return_tensors="pt").input_ids
+        generated_ids = self.model.generate(input_ids, max_length=512, num_beams=10, num_return_sequences=10)
+        output = []
+        for generated_id in generated_ids:
+            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
+        print("nosense")
+        print("hi",output)
+        return output[0]
 
 
-comunicator = HFCommunicationController()
+comunicator = HFCodeT5Controller()
 f = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/input.py', "r")
 text = f.read()
 print("leido", text)
 print("hackiau", "".join(text))
 comunicator.callToModelWithTransformers("".join(text))
+print("hola?")
 f.close()
 
 
