@@ -1,7 +1,7 @@
 import os
 import openai
 import torch
-from transformers import pipeline , AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import pipeline , AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM
 
 class OAICommunicationController():
     openai.api_key = "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"
@@ -88,15 +88,52 @@ class HFCodeT5Controller(HFCommunicationController):
         print("nosense")
         print("hi",output)
         return output[0]
+    
+class HFCodeGenController(HFCommunicationController):
+    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono")
+    model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
+
+    def callToModelWithTransformers(self,query):
+        input_ids = self.tokenizer(query, return_tensors="pt").input_ids
+        eos_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.eos_token)
+        generated_ids = self.model.generate(
+            input_ids, max_new_tokens=128, num_beams=10, num_return_sequences=10, early_stopping=True,
+            pad_token_id=eos_id, eos_token_id=eos_id
+        )
+        output = []
+        for generated_id in generated_ids:
+            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
+        
+        print("hi",output)
+        return output[0]
+
+class HFIncoderController(HFCommunicationController):
+
+    tokenizer = AutoTokenizer.from_pretrained("facebook/incoder-1B")
+    model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
+
+    def callToModelWithTransformers(self,query):
+        input_ids = self.tokenizer(query, return_tensors="pt").input_ids
+        eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
+        generated_ids = self.model.generate(
+            input_ids, max_new_tokens=128, num_beams=10, num_return_sequences=10, early_stopping=True,
+            pad_token_id=eos_id, eos_token_id=eos_id
+        )
+        output = []
+        for generated_id in generated_ids:
+            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
+        
+        print("hi",output)
+        return output[0]
 
 
-comunicator = HFCodeT5Controller()
+
+comunicator =  HFIncoderController()
 f = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/input.py', "r")
 text = f.read()
 print("leido", text)
 print("hackiau", "".join(text))
 comunicator.callToModelWithTransformers("".join(text))
-print("hola?")
 f.close()
 
 
