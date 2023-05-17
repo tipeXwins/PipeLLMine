@@ -100,7 +100,32 @@ class OAIHintQuery(OAIStandardQuery):
         return content
 
 
-class HFHintQuery(QueryCreator):
+
+class HFStandardQuery(QueryCreator):
+    placeholder = ""
+    linesAddPlaceholder = []
+    def setPlaceholder(self,placeholder):
+        self.placeholder = placeholder
+    def setLinesAddPlaceholder(self,linesAdd):
+        self.linesAddPlaceholder = linesAdd
+    def deleteBuggyLines(self,content,pointModified):
+        for point in pointModified:
+            content[point-1] = "" #line behind
+    def includePlaceholder(self,content,pointModified,placeholder):
+        for point in pointModified:
+            buggyline = content[point-1]
+            print("buggy",buggyline)
+            print(len(buggyline))
+            print(buggyline.strip())
+            indentation = buggyline[:len(buggyline)-len(buggyline.strip())-5]
+            content.insert(point,indentation + placeholder) #line behind
+    def createQuery(self, content): #before calling createQuery we have to set the lines  
+        
+        self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
+        self.deleteBuggyLines(content,self.linesAddPlaceholder)  
+        return content
+    
+class HFHintQuery(HFStandardQuery):
     hint = "buggy line:"
     linesAddHint = []
 
@@ -111,39 +136,31 @@ class HFHintQuery(QueryCreator):
     def includeHint(self,content,pointModified,hint):
         for point in pointModified:
             line = content[point]
-            content[point] = " #" + hint + line
+            indentation = line[:len(line)-len(line.strip())-5]
+            content[point] = indentation + "#" + hint + line
             
     def createQuery(self, content): #before calling createQuery we have to set the lines    
         self.includeHint(content,self.linesAddHint,self.hint)
+        self.includePlaceholder(content,[self.linesAddHint[0]+1],self.placeholder)
         return content
 
-class HFStandardQuery(QueryCreator):
-    placeholder = ""
-    linesAddPlaceholder = []
-    def setPlaceholder(self,placeholder):
-        self.placeholder = placeholder
-    def setLinesAddPlaceholder(self,linesAdd):
-        self.linesAddPlaceholder = linesAdd
-    def includePlaceholder(self,content,pointModified,placeholder):
-        for point in pointModified:
-            content.insert(point,placeholder) #line behind
-    def createQuery(self, content): #before calling createQuery we have to set the lines    
-        self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
-        return content
     
-
+## This is for testing this pipeline module
 buggy =  HFHintQuery()
-f = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/input.py', "r")
+f = open('../Tests/input.py', "r")
 text = f.readlines()
+buggy.setPlaceholder("<mask>")
 buggy.setLinesAddHint([3])
 text = buggy.createQuery(text)
 print(text)
+f.close()
 
-
+f = open('../Tests/input.py', "r")
+text = f.readlines()
 comunicator =  HFStandardQuery()
 comunicator.setPlaceholder("<mask>")
 comunicator.setLinesAddPlaceholder([4])
 print(comunicator.createQuery(text))
-
+f.close()
 
 

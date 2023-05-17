@@ -58,41 +58,41 @@ class HFCommunicationController():
 
 
 class HFPlBartController(HFCommunicationController):
-    tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")
+    tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")#,src_lang="python", tgt_lang="python")
     model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
-
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, add_special_tokens=False, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
-            input_ids, max_length=512, #num_beams=10, num_return_sequences=10, 
+            input_ids, max_length=512, num_beams=10, num_return_sequences=10, 
             early_stopping=True, decoder_start_token_id=self.tokenizer.lang_code_to_id["__python__"] # language code is 50002
         )
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        #file = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/output.txt','w') # open as write mode and write the new content here
-        #file.writelines(output)
-        #file.close()
+        #Writing on file for testing purposes
+        file = open('../Tests/outputBart.txt','w') # open as write mode and write the new content here
+        file.writelines(output)
+        file.close()
         return output[0]
     
 class HFCodeT5Controller(HFCommunicationController):
     tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
     model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
-
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         generated_ids = self.model.generate(input_ids, max_length=512, num_beams=10, num_return_sequences=10)
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        print("nosense")
-        print("hi",output)
-        return output[0]
+        #Writing on file for testing purposes
+        file1 = open('../Tests/outputCodeT5.txt','w') # open as write mode and write the new content here
+        file1.writelines(output)
+        file1.close()
+        return output
     
 class HFCodeGenController(HFCommunicationController):
     tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono")
     model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
-
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.eos_token)
@@ -103,15 +103,15 @@ class HFCodeGenController(HFCommunicationController):
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        
-        print("hi",output)
+        #Writing on file for testing purposes
+        file2 = open('../Tests/outputCodeGen.txt','w') # open as write mode and write the new content here
+        file2.writelines(output)
+        file2.close()
         return output[0]
 
 class HFIncoderController(HFCommunicationController):
-
     tokenizer = AutoTokenizer.from_pretrained("facebook/incoder-1B")
     model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
-
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
@@ -121,21 +121,52 @@ class HFIncoderController(HFCommunicationController):
         )
         output = []
         for generated_id in generated_ids:
-            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        
-        print("hi",output)
-        return output[0]
+            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True,clean_up_tokenization_spaces=False))
+        #Writing on file for testing purposes
+        file3 = open('../Tests/outputIncoder.txt','w') # open as write mode and write the new content here
+        file3.writelines(output)
+        file3.close()
+        return output
 
 
 
-comunicator =  HFIncoderController()
-f = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/input.py', "r")
-text = f.read()
-print("leido", text)
-print("hackiau", "".join(text))
-comunicator.callToModelWithTransformers("".join(text))
+## This is for testing this pipeline module
+
+### READ QUERIES
+f = open('../Tests/plbartQuery.py', "r")
+queryBart = f.read()
 f.close()
 
+f = open('../Tests/codet5Query.py', "r")
+queryCodeT5 = f.read()
+f.close()
+
+f = open('../Tests/codegenQuery.py', "r")
+queryCodeGen = f.read()
+f.close()
+
+f = open('../Tests/incoderQuey.py', "r")
+queryInCoder = f.read()
+f.close()
+
+
+### Do the calls with the respective query
+# Output will be writed on outputHFModel.txt on Test folder
+
+comunicatorBart =  HFPlBartController() # Return full code one string 
+print("Bart",comunicatorBart.callToModelWithTransformers("".join(queryBart)))
+
+"""
+comunicatorCodeT5 =  HFCodeT5Controller() # return only snipets of code where specified and vector of string with lines
+print("CodeT5",comunicatorCodeT5.callToModelWithTransformers("".join(queryCodeT5)))
+
+comunicatorIncoder =  HFIncoderController() # Complexx queries and vectors of full results but strange ones
+print("Incoder",comunicatorIncoder.callToModelWithTransformers("".join(queryInCoder)))
+
+comunicatorCodeGen =  HFCodeGenController() #gives 4 responses with full code try to se if every output is a result
+print("CodeGen",comunicatorCodeGen.callToModelWithTransformers("".join(queryCodeGen)))
+
+"""
 
 
 
