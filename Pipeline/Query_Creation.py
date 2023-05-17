@@ -98,3 +98,52 @@ class OAIHintQuery(OAIStandardQuery):
         self.includeHint(content,self.linesAddHint,self.hint)
         self.addOAILabels(content)
         return content
+
+
+class HFHintQuery(QueryCreator):
+    hint = "buggy line:"
+    linesAddHint = []
+
+    def setHint(self,hint):
+        self.hint = hint
+    def setLinesAddHint(self,linesAdd):
+        self.linesAddHint = linesAdd
+    def includeHint(self,content,pointModified,hint):
+        for point in pointModified:
+            line = content[point]
+            content[point] = " #" + hint + line
+            
+    def createQuery(self, content): #before calling createQuery we have to set the lines    
+        self.includeHint(content,self.linesAddHint,self.hint)
+        return content
+
+class HFStandardQuery(QueryCreator):
+    placeholder = ""
+    linesAddPlaceholder = []
+    def setPlaceholder(self,placeholder):
+        self.placeholder = placeholder
+    def setLinesAddPlaceholder(self,linesAdd):
+        self.linesAddPlaceholder = linesAdd
+    def includePlaceholder(self,content,pointModified,placeholder):
+        for point in pointModified:
+            content.insert(point,placeholder) #line behind
+    def createQuery(self, content): #before calling createQuery we have to set the lines    
+        self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
+        return content
+    
+
+buggy =  HFHintQuery()
+f = open('/home/tipex/TFG/TFG-LMBugFixing/Tests/input.py', "r")
+text = f.readlines()
+buggy.setLinesAddHint([3])
+text = buggy.createQuery(text)
+print(text)
+
+
+comunicator =  HFStandardQuery()
+comunicator.setPlaceholder("<mask>")
+comunicator.setLinesAddPlaceholder([4])
+print(comunicator.createQuery(text))
+
+
+
