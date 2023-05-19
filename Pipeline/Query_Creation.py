@@ -145,22 +145,6 @@ class HFHintQuery(HFStandardQuery):
         return content
 
     
-## This is for testing this pipeline module
-buggy =  HFHintQuery()
-f = open('../Tests/input.py', "r")
-text = f.readlines()
-buggy.setPlaceholder("<mask>")
-buggy.setLinesAddHint([3])
-text = buggy.createQuery(text)
-print(text)
-f.close()
 
-f = open('../Tests/input.py', "r")
-text = f.readlines()
-comunicator =  HFStandardQuery()
-comunicator.setPlaceholder("<mask>")
-comunicator.setLinesAddPlaceholder([4])
-print(comunicator.createQuery(text))
-f.close()
 
 
