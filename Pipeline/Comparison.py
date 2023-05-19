@@ -47,29 +47,3 @@ class ComparerNLTKCodeBleu(ComparerCodeBleu):
         code_bleu = sentence_bleu([ref_tokens], hyp_tokens, weights=weights, smoothing_function=smoothing.method1)
 
         return code_bleu
-   
-
-references =['\n', 'def bitcount(n):\n', '    count = 0\n', '    while n:\n', '        n ^= n - 1\n', '        count += 1\n', '    return count\n']
-hypotheses =['\n', 'def bitcount(n):\n', '    count = 0\n', '    while n:\n', '        n &= n - 1\n', '        count += 1\n', '    return count\n']
-comparer = ComparerNLTKCodeBleu()
-code_bleu = comparer.compare(references, hypotheses)
-print(f"CodeBleu score: {code_bleu}")
-
-"""class ComparerCodeXGLUECodeBleu(ComparerCodeBleu): 
-    def compute_code_bleu(self,references, hypotheses):
-        #Compute CodeBleu metric given reference and hypothesis source code.
-        # Tokenize the source codes
-        references = [self.tokenize_code(ref) for ref in references]
-        hypotheses = [self.tokenize_code(hyp) for hyp in hypotheses]
-    
-        # Convert the tokenized code back to string
-        references = [" ".join(ref).strip() for ref in references]
-        hypotheses = [" ".join(hyp).strip() for hyp in hypotheses]
-    
-        # Compute the CodeBleu score
-        code_bleu = CodeBLEU()
-        score = code_bleu.compute(references, hypotheses)
-    
-        return score
-
-"""
