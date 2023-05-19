@@ -1,11 +1,10 @@
 import os
-from Calls import OAICommunicationController
-from Comparison import Comparer, ComparerNLTKCodeBleu
-
-from Diff_Info_extraction import obtainInfoLines
-from Filtering import Filter
-from Query_Creation import OAIHintQuery, OAIStandardQuery
-from CodeInformation import CodeInformation
+from Pipeline.Calls import OAICommunicationController
+from Pipeline.Comparison import Comparer, ComparerNLTKCodeBleu
+from Pipeline.Diff_Info_extraction import obtainInfoLines
+from Pipeline.Filtering import Filter
+from Pipeline.Query_Creation import OAIHintQuery, OAIStandardQuery
+from Pipeline.CodeInformation import CodeInformation
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -32,90 +31,91 @@ def readFiles(dirPath,filesNames):
         f.close()
     return filesContent
 def readFile(dirPath,fileName):
-    fileContent = []
     fullPath = createFullPath(dirPath,fileName)
     f = open(fullPath, "r")
     text = f.readlines()
     
     f.close()
     return text
-     
-
-#print(IterateDirectoryFiles("/home/tipex/TFG/TFG-LMBugFixing/Codes/QuixBugs/BuggyCodes/")) # returns name of file only
-#Path with the codes
-
-###CREATE RELATIVE PATHS
-dir_path_buggy_codes = "../Codes/QuixBugs/BuggyCodes" #pasar por parametro 
-dir_path_correct_codes = "../Codes/QuixBugs/CorrectCodes" # esto igual   # mirar librerias para hacer unified diffs y  librerias que te leen los difss directamente
-dir_path_unidiffs = "../PruebasUse/Unidiffs"
-buggyCodes = []
-correctCodes = []
-totalCorreclyRepair = totalIncorrectlyRepair = 0
-
-#filesNamesBuggyCode = IterateDirectoryFiles(dir_path_buggy_codes)
-#filesNamesCorrectCode = IterateDirectoryFiles(dir_path_correct_codes)
-filesNamesUniDiffs = IterateDirectoryFiles(dir_path_unidiffs)
-
-maxModifiedLines = 10
-maxAddedLines = 10 
-maxRemovedLines = 10
-
-filter = Filter()
-filter.setMaxLines(maxModifiedLines, maxAddedLines, maxRemovedLines)
-acceptedCodes = []
-for fileName in filesNamesUniDiffs:
-    fullPath = createFullPath(dir_path_unidiffs, fileName)
-    addedLines = obtainInfoLines(dirPath=fullPath,mode=1)
-    removedLines = obtainInfoLines(dirPath=fullPath,mode=2)
-    modifiedLines= obtainInfoLines(dirPath=fullPath,mode=3)
-    if (filter.filter(modifiedLines, addedLines, removedLines)):
-        acceptedCodes.append([fileName,modifiedLines])
 
 
+if __name__ == '__main__':
 
-###CREATE QUERIES
+    #print(IterateDirectoryFiles("/home/tipex/TFG/TFG-LMBugFixing/Codes/QuixBugs/BuggyCodes/")) # returns name of file only
+    #Path with the codes
 
-OAIStandardQueryCreator = OAIStandardQuery()
-OAIHintQueryCreator = OAIHintQuery()
-#OAIHintQueryCreator.setHint("Something Wrong Happened")
-Codes = []
+    ###CREATE RELATIVE PATHS
+    dir_path_buggy_codes = "../Codes/QuixBugs/BuggyCodes" #pasar por parametro
+    dir_path_correct_codes = "../Codes/QuixBugs/CorrectCodes" # esto igual   # mirar librerias para hacer unified diffs y  librerias que te leen los difss directamente
+    dir_path_unidiffs = "../PruebasUse/Unidiffs"
+    buggyCodes = []
+    correctCodes = []
+    totalCorreclyRepair = totalIncorrectlyRepair = 0
+
+    #filesNamesBuggyCode = IterateDirectoryFiles(dir_path_buggy_codes)
+    #filesNamesCorrectCode = IterateDirectoryFiles(dir_path_correct_codes)
+    filesNamesUniDiffs = IterateDirectoryFiles(dir_path_unidiffs)
+
+    maxModifiedLines = 10
+    maxAddedLines = 10
+    maxRemovedLines = 10
+
+    filter = Filter()
+    filter.setMaxLines(maxModifiedLines, maxAddedLines, maxRemovedLines)
+    acceptedCodes = []
+    for fileName in filesNamesUniDiffs:
+        fullPath = createFullPath(dir_path_unidiffs, fileName)
+        addedLines = obtainInfoLines(dirPath=fullPath,mode=1)
+        removedLines = obtainInfoLines(dirPath=fullPath,mode=2)
+        modifiedLines= obtainInfoLines(dirPath=fullPath,mode=3)
+        if (filter.filter(modifiedLines, addedLines, removedLines)):
+            acceptedCodes.append([fileName,modifiedLines])
 
 
-for acceptedCodeName in acceptedCodes:
-    acceptedCodePath = createFullPath(dir_path_buggy_codes, acceptedCodeName[0])
-    correctCodePath = createFullPath(dir_path_correct_codes, acceptedCodeName[0])
-    buggyCodeContent = readFile(dir_path_buggy_codes, acceptedCodeName[0]).copy()
-    correctCodeContent = readFile(dir_path_correct_codes, acceptedCodeName[0]).copy()
-    acceptedCodeInformation = CodeInformation(buggyCodeContent, correctCodeContent)
-    contentQuery1 = buggyCodeContent.copy()
-    contentQuery2 =buggyCodeContent.copy()
-    acceptedCodeInformation.addQuery(OAIStandardQueryCreator.createQuery(contentQuery1))
-    OAIHintQueryCreator.setLinesAddHint(acceptedCodeName[1][0][1])
-    acceptedCodeInformation.addQuery(OAIHintQueryCreator.createQuery(contentQuery2))
 
-    Codes.append(acceptedCodeInformation)
-        
+    ###CREATE QUERIES
+
+    OAIStandardQueryCreator = OAIStandardQuery()
+    OAIHintQueryCreator = OAIHintQuery()
+    #OAIHintQueryCreator.setHint("Something Wrong Happened")
+    Codes = []
 
 
-###MAKE CALLS
+    for acceptedCodeName in acceptedCodes:
+        acceptedCodePath = createFullPath(dir_path_buggy_codes, acceptedCodeName[0])
+        correctCodePath = createFullPath(dir_path_correct_codes, acceptedCodeName[0])
+        buggyCodeContent = readFile(dir_path_buggy_codes, acceptedCodeName[0]).copy()
+        correctCodeContent = readFile(dir_path_correct_codes, acceptedCodeName[0]).copy()
+        acceptedCodeInformation = CodeInformation(buggyCodeContent, correctCodeContent)
+        contentQuery1 = buggyCodeContent.copy()
+        contentQuery2 =buggyCodeContent.copy()
+        acceptedCodeInformation.addQuery(OAIStandardQueryCreator.createQuery(contentQuery1))
+        OAIHintQueryCreator.setLinesAddHint(acceptedCodeName[1][0][1])
+        acceptedCodeInformation.addQuery(OAIHintQueryCreator.createQuery(contentQuery2))
 
-OAICommunicator = OAICommunicationController()
-print(os.getenv("OAIKey"),"bones")
-OAICommunicator.setApiKey(os.getenv("OAIKey"))
-#OAICommunicator.setApiKey("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")
-#hyperparameters = []
-#OAICommunicator.setHyperparameters(hyperparameters)
-#OAICommunicator.setModel("")
-for codeInformation in Codes:
-        for query in codeInformation.queries:
-            
-            acceptedCodeInformation.addResponse(OAICommunicator.callToModel("".join(query)))
+        Codes.append(acceptedCodeInformation)
 
-###MAKE COMPARISONS
 
-comparer = ComparerNLTKCodeBleu()
-for codeInformation in Codes:
-        correctCodeContent = codeInformation.correctCodeContent
-        for response in codeInformation.responses:
-             print("ojito", response)
-             print(comparer.compare(response, correctCodeContent))
+
+        ###MAKE CALLS
+
+        OAICommunicator = OAICommunicationController()
+        print(os.getenv("OAIKey"),"bones")
+        OAICommunicator.setApiKey(os.getenv("OAIKey"))
+        #OAICommunicator.setApiKey("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")
+        #hyperparameters = []
+        #OAICommunicator.setHyperparameters(hyperparameters)
+        #OAICommunicator.setModel("")
+        for codeInformation in Codes:
+                for query in codeInformation.queries:
+
+                    acceptedCodeInformation.addResponse(OAICommunicator.callToModel("".join(query)))
+
+        ###MAKE COMPARISONS
+
+        comparer = ComparerNLTKCodeBleu()
+        for codeInformation in Codes:
+                correctCodeContent = codeInformation.correctCodeContent
+                for response in codeInformation.responses:
+                     print("ojito", response)
+                     print(comparer.compare(response, correctCodeContent))
