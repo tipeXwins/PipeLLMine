@@ -49,17 +49,19 @@ class OAICommunicationController():
     
 class HFCommunicationController():
     
-    tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")
+    #tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")
 
-    model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
+    #model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
 
     def callToModelWithTransformers(self,query):
         print("THIS IS AN ABSTRACT CLASS PLEASE REFFER TO AN SPECIFIC Hugging Face Controller")
 
 
 class HFPlBartController(HFCommunicationController):
-    tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")#,src_lang="python", tgt_lang="python")
-    model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
+    # default constructor
+    def __init__(self):
+        self.tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")#,src_lang="python", tgt_lang="python")
+        self.model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, add_special_tokens=False, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
@@ -76,8 +78,9 @@ class HFPlBartController(HFCommunicationController):
         return output[0]
     
 class HFCodeT5Controller(HFCommunicationController):
-    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
-    model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
+    def __init__(self):
+        self.tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
+        self.model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         generated_ids = self.model.generate(input_ids, max_length=512, num_beams=10, num_return_sequences=10)
@@ -91,8 +94,9 @@ class HFCodeT5Controller(HFCommunicationController):
         return output
     
 class HFCodeGenController(HFCommunicationController):
-    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono")
-    model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
+    def __init__(self):
+        self.tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono")
+        self.model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.eos_token)
@@ -110,8 +114,9 @@ class HFCodeGenController(HFCommunicationController):
         return output[0]
 
 class HFIncoderController(HFCommunicationController):
-    tokenizer = AutoTokenizer.from_pretrained("facebook/incoder-1B")
-    model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
+    def __init__(self):
+        self.tokenizer = AutoTokenizer.from_pretrained("facebook/incoder-1B")
+        self.model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
@@ -127,43 +132,6 @@ class HFIncoderController(HFCommunicationController):
         file3.writelines(output)
         file3.close()
         return output
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 """

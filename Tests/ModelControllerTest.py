@@ -4,15 +4,39 @@ from Pipeline.Calls import HFPlBartController
 
 
 class ModelControllerTest(unittest.TestCase):
+
+    def testLoadModelInConstructor(self):
+        
+        aLLM = HFPlBartController()
+        self.assertTrue(aLLM.tokenizer != None)
+        print("tokenizer", aLLM.tokenizer )
+        self.assertTrue(aLLM.model != None)
+        print("model", aLLM.model)
+
     def test_Model(self):
+
+        #TO BE REFACTORED
         ## This is for testing this pipeline module
 
-        #TODO: one test per Model
-
-        ### READ QUERIES
         f = open('../Tests/plbartQuery.py', "r")
         queryBart = f.read()
         f.close()
+
+        ### Do the calls with the respective query
+        # Output will be writed on outputHFModel.txt on Test folder
+
+        comunicatorBart = HFPlBartController()  # Return full code one string
+        print("Bart", comunicatorBart.callToModelWithTransformers("".join(queryBart)))
+
+        # TODO ADD assessment
+
+        self.assertEqual(True, False)  # add assertion here
+
+    def otherToRefactor(self):
+        # TODO: one test per Model
+
+        ### READ QUERIES
+
 
         f = open('../Tests/codet5Query.py', "r")
         queryCodeT5 = f.read()
@@ -26,13 +50,6 @@ class ModelControllerTest(unittest.TestCase):
         queryInCoder = f.read()
         f.close()
 
-        ### Do the calls with the respective query
-        # Output will be writed on outputHFModel.txt on Test folder
-
-        comunicatorBart = HFPlBartController()  # Return full code one string
-        print("Bart", comunicatorBart.callToModelWithTransformers("".join(queryBart)))
-
-        # TODO ADD assessment
 
 
         """
@@ -46,11 +63,6 @@ class ModelControllerTest(unittest.TestCase):
         print("CodeGen",comunicatorCodeGen.callToModelWithTransformers("".join(queryCodeGen)))
 
         """
-
-        self.assertEqual(True, False)  # add assertion here
-
-
-
 
 if __name__ == '__main__':
     unittest.main()
