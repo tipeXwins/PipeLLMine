@@ -49,10 +49,6 @@ class OAICommunicationController():
     
 class HFCommunicationController():
     
-    #tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")
-
-    #model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
-
     def callToModelWithTransformers(self,query):
         print("THIS IS AN ABSTRACT CLASS PLEASE REFFER TO AN SPECIFIC Hugging Face Controller")
 

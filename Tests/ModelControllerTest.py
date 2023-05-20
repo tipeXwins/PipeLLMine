@@ -6,7 +6,7 @@ from Pipeline.Calls import HFPlBartController
 class ModelControllerTest(unittest.TestCase):
 
     def testLoadModelInConstructor(self):
-        
+
         aLLM = HFPlBartController()
         self.assertTrue(aLLM.tokenizer != None)
         print("tokenizer", aLLM.tokenizer )
