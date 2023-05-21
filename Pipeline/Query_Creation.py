@@ -1,62 +1,3 @@
-"""
-class QueryCreator:
-    def createQuery(self,originPath, finalPath):
-        pass
-    
-
-class OAIStandardQuery(QueryCreator):
-    def addOAILabels(self,content):
-        
-        #Add at file start the necessary content
-        content.insert(0,"##### Fix bugs in the below function  \n")
-        content.insert(1,"\n")
-        content.insert(2,"### Buggy Python \n")
-
-        #Add at the end the necesary content
-        content.append("\n")
-        content.append("### Fixed Python \n")
-        content.append("\n")
-        
-    def createQuery(self,originPath, finalPath):
-        file = open(originPath,'r')
-        content = file.readlines()
-        self.addOAILabels(content)
-        file.close()
-        file = open(finalPath,'w') # open as write mode and write the new content here
-        file.writelines(content)
-        file.close()
-
-class OAIHintQuery(OAIStandardQuery):
-    hint = "Buggy"
-    linesAddHint= []
-
-    def setHint(self,hint):
-        self.hint = hint
-    def setLinesAddHint(self,linesAdd):
-        self.linesAddHint = linesAdd
-    def includeHint(self,content,pointModified,hint):
-        for point in pointModified:
-            line = content[point]
-            content[point] = line[:len(line)-1] +"#" + hint + "\n"
-    def createQuery(self, originPath, finalPath): #before calling createQuery we have to set the lines
-        file = open(originPath,'r')
-        content = file.readlines()
-        file.close()
-        self.includeHint(content,self.linesAddHint,self.hint)
-        self.addOAILabels(content)
-        file = open(finalPath,'w') # open as write mode and write the new content here
-        file.writelines(content)
-        file.close()
-        
-  
-
-        
-        
-hola = OAIHintQuery()
-hola.setLinesAddHint([2,3])
-hola.createQuery('/home/tipex/TFG/TFG-LMBugFixing/Codes/QuixBugs/BuggyCodes/bitcount.py','/home/tipex/TFG/TFG-LMBugFixing/bitcountmodification2.py')
-"""
-
 
 class QueryCreator:
     def createQuery(self,content):
@@ -102,8 +43,15 @@ class OAIHintQuery(OAIStandardQuery):
 
 
 class HFStandardQuery(QueryCreator):
-    placeholder = ""
-    linesAddPlaceholder = []
+    def __init__(self, placeholder=None, linesAddPlaceholder=None):
+        if (placeholder is None):
+            self.placeholder = ""
+        else :
+            self.placeholder = placeholder
+        if (linesAddPlaceholder is None):
+            self.linesAddPlaceholder = []
+        else:
+            self.linesAddPlaceholder = linesAddPlaceholder
     def setPlaceholder(self,placeholder):
         self.placeholder = placeholder
     def setLinesAddPlaceholder(self,linesAdd):
@@ -126,9 +74,15 @@ class HFStandardQuery(QueryCreator):
         return content
     
 class HFHintQuery(HFStandardQuery):
-    hint = "buggy line:"
-    linesAddHint = []
-
+    def __init__(self, hint=None, linesAddHint=None):
+        if (hint is None):
+            self.hint = "buggy line:"
+        else :
+            self.hint = hint
+        if (linesAddHint is None):
+            self.linesAddHint = []
+        else:
+            self.linesAddHint = linesAddHint
     def setHint(self,hint):
         self.hint = hint
     def setLinesAddHint(self,linesAdd):

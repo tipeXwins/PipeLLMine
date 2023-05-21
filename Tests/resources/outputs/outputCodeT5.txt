@@ -1,0 +1,1 @@
+n = n -n = n *n >>= 1n = n %n = n.next() n =n = n.next() yieldn =n = n +n = n.n = n.next() #

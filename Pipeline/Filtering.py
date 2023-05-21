@@ -1,6 +1,5 @@
 class Filter: 
     maxModifiedLines = maxAddedLines = maxRemovedLines = 0
-
     def setMaxModifiedLines(self, maxModifiedLines):
         self.maxModifiedLines = maxModifiedLines
     def setMaxAddedLines(self, maxAddedLines):

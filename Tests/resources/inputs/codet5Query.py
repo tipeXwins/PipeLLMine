@@ -1,6 +1,6 @@
 def bitcount(n):
     count = 0
     while n:
-        <mask>
+        <extra_id_0>
         count += 1
     return count

@@ -1,0 +1,272 @@
+<| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        n >>= 1
+        count += 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        n >>= 1
+        count += 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        n >>= 1
+        <| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += 1
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        count += 1
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        count += 1
+        n >>= <| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:<| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        n >>= 1
+        count += 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        count += <| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+    
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+    
+def bitcount(n):
+    <| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & (n - 1)
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & (n - 1)
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+<| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+        
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+        
+def bitcount(n):
+    <| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+    
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+
+def bitcount(n):
+    count = 0
+<| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+    
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+    
+def bitcount(n):
+    return <| file ext=.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        
+        
+        
+        count += 1
+    return count
+
+<|/ file source=github dstars=0 filename=bitcount.py |>
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+        
+def bitcount(n):
+    count = 0
+    while n:
+        count += n & 1
+        n >>= 1
+    return count
+        
+def bitcount(n):
+    return 
