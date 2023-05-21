@@ -1,14 +1,25 @@
 import os
-from Pipeline.Calls import OAICommunicationController
-from Pipeline.Comparison import Comparer, ComparerNLTKCodeBleu
-from Pipeline.Diff_Info_extraction import obtainInfoLines
-from Pipeline.Filtering import Filter
-from Pipeline.Query_Creation import OAIHintQuery, OAIStandardQuery
-from Pipeline.CodeInformation import CodeInformation
+from Calls import OAICommunicationController
+from Comparison import Comparer, ComparerNLTKCodeBleu
+from Diff_Info_extraction import obtainInfoLines
+from Filtering import Filter
+from Query_Creation import OAIHintQuery, OAIStandardQuery
+from CodeInformation import CodeInformation
 
 from dotenv import load_dotenv
 load_dotenv()
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-d","--dataset", type=str, help="specify the dataset you want to uset")
+parser.add_argument("-f","--filter", type=str, help="specify the filter you want to uset")
+parser.add_argument("-m","--model", type=str, help="specify the model you want to uset")
+parser.add_argument("-q","--query", type=str, help="specify the query you want to uset")
+parser.add_argument("-e","--evaluationmetric",type=str, help="specify the evaluation metric you want to uset")
+
+args = parser.parse_args()
+if args.verbosity:
+    print("verbosity turned on")
 
 
 def createFullPath(dirPath,file):
