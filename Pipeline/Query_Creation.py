@@ -43,8 +43,15 @@ class OAIHintQuery(OAIStandardQuery):
 
 
 class HFStandardQuery(QueryCreator):
-    placeholder = ""
-    linesAddPlaceholder = []
+    def __init__(self, placeholder=None, linesAddPlaceholder=None):
+        if (placeholder is None):
+            self.placeholder = ""
+        else :
+            self.placeholder = placeholder
+        if (linesAddPlaceholder is None):
+            self.linesAddPlaceholder = []
+        else:
+            self.linesAddPlaceholder = linesAddPlaceholder
     def setPlaceholder(self,placeholder):
         self.placeholder = placeholder
     def setLinesAddPlaceholder(self,linesAdd):
@@ -67,9 +74,15 @@ class HFStandardQuery(QueryCreator):
         return content
     
 class HFHintQuery(HFStandardQuery):
-    hint = "buggy line:"
-    linesAddHint = []
-
+    def __init__(self, hint=None, linesAddHint=None):
+        if (hint is None):
+            self.hint = "buggy line:"
+        else :
+            self.hint = hint
+        if (linesAddHint is None):
+            self.linesAddHint = []
+        else:
+            self.linesAddHint = linesAddHint
     def setHint(self,hint):
         self.hint = hint
     def setLinesAddHint(self,linesAdd):

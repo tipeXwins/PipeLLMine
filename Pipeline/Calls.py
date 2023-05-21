@@ -48,19 +48,17 @@ class OAICommunicationController():
 
     
 class HFCommunicationController():
-    
     def callToModelWithTransformers(self,query):
         print("THIS IS AN ABSTRACT CLASS PLEASE REFFER TO AN SPECIFIC Hugging Face Controller")
 
 
 class HFPlBartController(HFCommunicationController):
-    # default constructor
-    def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")#,src_lang="python", tgt_lang="python")
-        self.model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
     MAX_LENGTH = 512
     NUM_BEAMS = 10
     NUM_RETURN_SEQUENCES = 10
+    def __init__(self):
+        self.tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base",src_lang="python", tgt_lang="python")
+        self.model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, add_special_tokens=False, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
@@ -73,22 +71,24 @@ class HFPlBartController(HFCommunicationController):
         return output[0]
     
 class HFCodeT5Controller(HFCommunicationController):
+    MAX_LENGTH = 512
+    NUM_BEAMS = 10
+    NUM_RETURN_SEQUENCES = 10
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
         self.model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
-        generated_ids = self.model.generate(input_ids, max_length=512, num_beams=10, num_return_sequences=10)
+        generated_ids = self.model.generate(input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES)
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        #Writing on file for testing purposes
-        file1 = open('../Tests/outputCodeT5.txt','w') # open as write mode and write the new content here
-        file1.writelines(output)
-        file1.close()
         return output
     
 class HFCodeGenController(HFCommunicationController):
+    MAX_NEW_TOKENS = 128
+    NUM_BEAMS = 10
+    NUM_RETURN_SEQUENCES = 10
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono")
         self.model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
@@ -96,19 +96,18 @@ class HFCodeGenController(HFCommunicationController):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.eos_token)
         generated_ids = self.model.generate(
-            input_ids, max_new_tokens=128, num_beams=10, num_return_sequences=10, early_stopping=True,
+            input_ids, max_new_tokens=self.MAX_NEW_TOKENS, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, early_stopping=True,
             pad_token_id=eos_id, eos_token_id=eos_id
         )
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        #Writing on file for testing purposes
-        file2 = open('../Tests/outputCodeGen.txt','w') # open as write mode and write the new content here
-        file2.writelines(output)
-        file2.close()
         return output[0]
 
 class HFIncoderController(HFCommunicationController):
+    MAX_NEW_TOKENS = 128
+    NUM_BEAMS = 10
+    NUM_RETURN_SEQUENCES = 10
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("facebook/incoder-1B")
         self.model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
@@ -116,66 +115,10 @@ class HFIncoderController(HFCommunicationController):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
         generated_ids = self.model.generate(
-            input_ids, max_new_tokens=128, num_beams=10, num_return_sequences=10, early_stopping=True,
+            input_ids, max_new_tokens=self.MAX_NEW_TOKENS, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, early_stopping=True,
             pad_token_id=eos_id, eos_token_id=eos_id
         )
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True,clean_up_tokenization_spaces=False))
-        #Writing on file for testing purposes
-        file3 = open('../Tests/outputIncoder.txt','w') # open as write mode and write the new content here
-        file3.writelines(output)
-        file3.close()
         return output
-
-
-"""
-
-class HFCommunicationController():
-
-    tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-16B-multi")
-    model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-16B-multi") #16b is also for python
-    query = "def hello_world():"
-
-    def callToModel(self,query):
-        input_ids = self.tokenizer(query, return_tensors="pt").input_ids
-        generated_ids = self.model.generate(input_ids, max_length=128)
-        print(self.tokenizer.decode(generated_ids[0], skip_special_tokens=True))
-
-comunicator = HFCommunicationController()
-comunicator.callToModel("def hello_world():")
-"""
-""" 
-tokenizer = AutoTokenizer.from_pretrained("codeparrot/codeparrot")
-model = AutoModelWithLMHead.from_pretrained("codeparrot/codeparrot")
-
-inputs = tokenizer("def hello_world():", return_tensors="pt")
-outputs = model(**inputs)
-"""
-
-"""
-class HFCommunicationController():
-    
-    tokenizer = AutoTokenizer.from_pretrained("codeparrot/codeparrot")
-    model = AutoModelForCausalLM.from_pretrained("codeparrot/codeparrot") #AutoModelWithLMHead
-    
-
-    def callToModelWithTransformers(self,query):
-        inputs = self.tokenizer(query, return_tensors="pt")
-        outputs = self.model(**inputs)
-
-        generated_ids = outputs["logits"].squeeze().argmax(dim=-1)
-        generated_text = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
-        print(generated_text)
-
-        
-        input_ids = self.tokenizer(query, return_tensors="pt").input_ids
-        attention_mask = torch.ones(input_ids.shape, dtype=torch.long)
-        generated_ids = self.model.generate(input_ids, max_length=128, attention_mask=attention_mask )#pad_token_id=self.tokenizer.pad_token_id
-        print(self.tokenizer.decode(generated_ids[0], skip_special_tokens=True))
-        
-    def callToModelWithPipeline(self,query):
-        
-        pipe = pipeline("text-generation", model="codeparrot/codeparrot")
-        outputs = pipe("def hello_world():") #returning the entire output tensors, including hidden states
-        print(outputs) """
