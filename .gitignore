@@ -1,2 +1,4 @@
 .env
 pytorch/
+__pycache__/
+.idea
