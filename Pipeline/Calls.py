@@ -58,19 +58,18 @@ class HFPlBartController(HFCommunicationController):
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base")#,src_lang="python", tgt_lang="python")
         self.model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
+    MAX_LENGTH = 512
+    NUM_BEAMS = 10
+    NUM_RETURN_SEQUENCES = 10
     def callToModelWithTransformers(self,query):
         input_ids = self.tokenizer(query, add_special_tokens=False, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
-            input_ids, max_length=512, num_beams=10, num_return_sequences=10, 
-            early_stopping=True, decoder_start_token_id=self.tokenizer.lang_code_to_id["__python__"] # language code is 50002
+            input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, 
+            early_stopping=True, decoder_start_token_id=self.tokenizer.lang_code_to_id["__python__"]
         )
         output = []
         for generated_id in generated_ids:
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
-        #Writing on file for testing purposes
-        file = open('../Tests/outputBart.txt','w') # open as write mode and write the new content here
-        file.writelines(output)
-        file.close()
         return output[0]
     
 class HFCodeT5Controller(HFCommunicationController):

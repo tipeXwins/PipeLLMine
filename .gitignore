@@ -1,4 +1,7 @@
 .env
 pytorch/
+clmpipeline/
+.clmpipeline
+.pytest_cache/
 __pycache__/
 .idea
