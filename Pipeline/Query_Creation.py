@@ -58,20 +58,18 @@ class HFStandardQuery(QueryCreator):
         self.linesAddPlaceholder = linesAdd
     def deleteBuggyLines(self,content,pointModified):
         for point in pointModified:
-            content[point-1] = "" #line behind
+            content_start = content[:point-1]
+            content_end = content[point:]
+            content = (content_start + content_end)
+        return content
     def includePlaceholder(self,content,pointModified,placeholder):
         for point in pointModified:
             buggyline = content[point-1]
-            print("buggy",buggyline)
-            print(len(buggyline))
-            print(buggyline.strip())
-            print(len(buggyline.strip()))
             indentation = buggyline[:len(buggyline)-len(buggyline.strip())-1]
             content.insert(point,indentation + placeholder) #line behind
     def createQuery(self, content): #before calling createQuery we have to set the lines  
-        
         self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
-        self.deleteBuggyLines(content,self.linesAddPlaceholder)  
+        content = self.deleteBuggyLines(content,self.linesAddPlaceholder) 
         return content
     
 class HFHintQuery(HFStandardQuery):
