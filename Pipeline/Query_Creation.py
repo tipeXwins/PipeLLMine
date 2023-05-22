@@ -65,7 +65,8 @@ class HFStandardQuery(QueryCreator):
             print("buggy",buggyline)
             print(len(buggyline))
             print(buggyline.strip())
-            indentation = buggyline[:len(buggyline)-len(buggyline.strip())-5]
+            print(len(buggyline.strip()))
+            indentation = buggyline[:len(buggyline)-len(buggyline.strip())-1]
             content.insert(point,indentation + placeholder) #line behind
     def createQuery(self, content): #before calling createQuery we have to set the lines  
         
@@ -74,7 +75,15 @@ class HFStandardQuery(QueryCreator):
         return content
     
 class HFHintQuery(HFStandardQuery):
-    def __init__(self, hint=None, linesAddHint=None):
+    def __init__(self, placeholder=None, linesAddPlaceholder=None, hint=None, linesAddHint=None):
+        if (placeholder is None):
+            self.placeholder = ""
+        else :
+            self.placeholder = placeholder
+        if (linesAddPlaceholder is None):
+            self.linesAddPlaceholder = []
+        else:
+            self.linesAddPlaceholder = linesAddPlaceholder
         if (hint is None):
             self.hint = "buggy line:"
         else :
@@ -89,16 +98,35 @@ class HFHintQuery(HFStandardQuery):
         self.linesAddHint = linesAdd
     def includeHint(self,content,pointModified,hint):
         for point in pointModified:
-            line = content[point]
-            indentation = line[:len(line)-len(line.strip())-5]
-            content[point] = indentation + "#" + hint + line
+            print("point",point-1)
+            line = content[point-1]
+            indentation = line[:len(line)-len(line.strip())-1]
+            content[point-1] = indentation + "#" + hint + line
             
-    def createQuery(self, content): #before calling createQuery we have to set the lines    
+    def createQuery(self, content): #before calling createQuery we have to set the lines   
+        self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder) 
         self.includeHint(content,self.linesAddHint,self.hint)
-        self.includePlaceholder(content,[self.linesAddHint[0]+1],self.placeholder)
+        
         return content
 
+class HFPlBartStandardQuery(HFStandardQuery):
+    def __init__(self, placeholder=None, linesAddPlaceholder=None):
+        if (placeholder is None):
+            self.placeholder = "<mask>"
+        else :
+            self.placeholder = placeholder
+        if (linesAddPlaceholder is None):
+            self.linesAddPlaceholder = []
+        else:
+            self.linesAddPlaceholder = linesAddPlaceholder
+    def addSpecialTokens(self,content):
+        content[0] = "<s> " + content[0]
+        content.append("</s> Python")
+    def createQuery(self, content): #before calling createQuery we have to set the lines  
     
-
+        self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
+        self.deleteBuggyLines(content,self.linesAddPlaceholder) 
+        self.addSpecialTokens(content)
+        return content
 
 

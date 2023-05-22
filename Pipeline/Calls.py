@@ -65,7 +65,7 @@ class HFPlBartController(HFCommunicationController):
         input_ids = self.tokenizer(query, add_special_tokens=add_special_tokens, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
             input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, 
-            early_stopping=True, decoder_start_token_id=self.tokenizer.lang_code_to_id["python"]#"__python__"
+            early_stopping=True, decoder_start_token_id=self.tokenizer.lang_code_to_id["__python__"]#"__python__"
         )
         output = []
         for generated_id in generated_ids:
