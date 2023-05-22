@@ -97,20 +97,27 @@ class ModelControllerTest(unittest.TestCase):
        # self.assertEqual("def bitcount(n): count = 0 while n: if n & 1 == 1 : count += 1 return count",
         #                 output)  # add assertion here
 
-    def test_Codet5_Model(self):
-        f = open('Tests/resources/inputs/codet5Query.py', "r")
-        queryCodet5 = f.read()
-        f.close()
+    def test_Codet5(self):
+
+        queryCodet5 = "def bitcount(n):\
+            count = 0\
+            while n:\
+                <extra_id_0>\
+                count += 1\
+            return count"
 
         comunicatorCodet5 = HFCodeT5Controller()  # Return full code one string
         output = comunicatorCodet5.callToModelWithTransformers("".join(queryCodet5))
 
-        with open('Tests/resources/outputs/outputCodeT5.txt', 'w') as file:
-            file.writelines(output)
+        print("output", output)
 
-        # TODO ADD assessment
+        self.assertEqual(len(output), 10)
 
-        self.assertEqual(True, True)  # add assertion here
+        ## Even "n = n - 1" is not the correct answer, we check a similar one
+        self.assertTrue("n = n - 1" in output )
+
+      #  self.assertEqual(True, True)  # add assertion here
+
 
     def test_CodeGen_Model(self):
         f = open('Tests/resources/inputs/codegenQuery.py', "r")
