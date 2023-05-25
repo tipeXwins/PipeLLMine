@@ -62,6 +62,8 @@ class ModelControllerTest(unittest.TestCase):
         output = comunicatorBart.callToModelWithTransformers(queryBart)
 
         print("output ", output)
+        with open('Tests/resources/outputs/outputBart.txt', 'w') as file:
+            file.writelines(output)
 
         self.assertFalse("<mask>" in output)
         self.assertEqual("def bitcount(n): count = 0 while n: if n & 1 == 1 : count += 1 return count", output)  # add assertion here
