@@ -1,10 +1,10 @@
 import os
-from Pipeline.Calls import OAICommunicationController
-from Pipeline.Comparison import Comparer, ComparerNLTKCodeBleu
-from Pipeline.Diff_Info_extraction import obtainInfoLines
-from Pipeline.Filtering import Filter
-from Pipeline.Query_Creation import OAIHintQuery, OAIStandardQuery
-from Pipeline.CodeInformation import CodeInformation
+from Calls import OAICommunicationController
+from Comparison import Comparer, ComparerNLTKCodeBleu
+from Diff_Info_extraction import obtainInfoLines
+from Filtering import Filter
+from Query_Creation import OAIHintQuery, OAIStandardQuery
+from CodeInformation import CodeInformation
 
 from dotenv import load_dotenv
 load_dotenv()
