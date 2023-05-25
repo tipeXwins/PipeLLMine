@@ -120,6 +120,20 @@ class ModelControllerTest(unittest.TestCase):
 
       #  self.assertEqual(True, True)  # add assertion here
 
+    def test_CodeGen_Model_sequence(self):
+        queryCodeGen = "def bitcount(n):\
+            count = 0\
+            while n:"
+
+        comunicatorCodeGen = HFCodeGenController()
+        output = comunicatorCodeGen.callToModelWithTransformers(queryCodeGen)
+
+        firstResult = output[0]
+        print("Output\n", firstResult)
+        self.assertTrue(queryCodeGen in firstResult)
+        self.assertTrue("return count" in firstResult)
+
+        #self.assertEqual(True, True)  # add assertion here
 
     def test_CodeGen_Model(self):
         f = open('Tests/resources/inputs/codegenQuery.py', "r")
