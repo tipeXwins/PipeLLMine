@@ -50,7 +50,7 @@ class OAICommunicationController():
 
 
 class HFCommunicationController():
-    def callToModelWithTransformers(self,query):
+    def callToModel(self,query):
         print("THIS IS AN ABSTRACT CLASS PLEASE REFFER TO AN SPECIFIC Hugging Face Controller")
 
 
@@ -61,7 +61,8 @@ class HFPlBartController(HFCommunicationController):
     def __init__(self):
         self.tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base",src_lang="python", tgt_lang="python")
         self.model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
-    def callToModelWithTransformers(self,query, add_special_tokens=False):
+    def callToModel(self,query):
+        
         input_ids = self.tokenizer(query, add_special_tokens=add_special_tokens, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
             input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, 
@@ -83,9 +84,10 @@ class HFCodeT5Controller(HFCommunicationController):
     def __init__(self, num_responses=None):
         self.tokenizer = AutoTokenizer.from_pretrained("Salesforce/codet5-base")
         self.model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
+    
         if (num_responses is not None):
             self.NUM_BEAMS = self.MAX_LENGTH = num_responses
-    def callToModelWithTransformers(self,query):
+    def callToModel(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         generated_ids = self.model.generate(input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES)
         output = []
@@ -113,7 +115,7 @@ class HFCodeGenController(HFCommunicationController):
         if (num_responses is not None):
             self.NUM_BEAMS = self.MAX_LENGTH = num_responses
 
-    def callToModelWithTransformers(self,query):
+    def callToModel(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids(self.tokenizer.eos_token)
         generated_ids = self.model.generate(
@@ -134,7 +136,7 @@ class HFIncoderController(HFCommunicationController):
         self.model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
         if (num_responses is not None):
             self.NUM_BEAMS = self.MAX_LENGTH = num_responses
-    def callToModelWithTransformers(self,query):
+    def callToModel(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
         generated_ids = self.model.generate(
