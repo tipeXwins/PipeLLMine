@@ -1,25 +1,6 @@
-def bitcount(n):
-    count = 0
-    while n:
-       count = count + 1
-       n = n & (n-1)
-    return count
-
-def bitcount2(n):
-    count = 0
-    while n:
-       count = count + 1
-       n = n & (n-1)
-    return count
-
-def bitcount3(n):
-    count = 0
-    while n:
-       count = count + 1
-       n = n & (n-1)
-    return count
-
-def bitcount4(n):
-    count = 0
-    while n:
-       count = count + 1
+def bitcount(n):            count = 0            while n:            count += 1            n >>= 1            return count
+    def bitcount(n):            count = 0            while n:            count += 1            return count
+    def bitcount(n):            count = 0            while n:            count += 1            return count
+    def bitcount(n):            count = 0            while n:            count += 1            return count
+    def bitcount(n):            count = 0            while n:            count += 1            return count
+    def bitcount(n):            count = 0            while n:            count += 1            return count
