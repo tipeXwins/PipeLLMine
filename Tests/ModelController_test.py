@@ -112,6 +112,8 @@ class ModelControllerTest(unittest.TestCase):
         output = comunicatorCodet5.callToModel("".join(queryCodet5))
 
         print("output", output)
+        with open('Tests/resources/outputs/outputCodeT5.txt', 'w') as file:
+            file.writelines(output[0])
 
         self.assertEqual(len(output), 10)
 
@@ -127,7 +129,8 @@ class ModelControllerTest(unittest.TestCase):
 
         comunicatorCodeGen = HFCodeGenController()
         output = comunicatorCodeGen.callToModel(queryCodeGen)
-
+        with open('Tests/resources/outputs/outputCodeGen.txt', 'w') as file:
+            file.writelines(output[0])
         firstResult = output[0]
         print("Output\n", firstResult)
         self.assertTrue(queryCodeGen in firstResult)
