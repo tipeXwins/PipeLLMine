@@ -1,6 +1,5 @@
 import unittest
 #from Pipeline.Query_Creation import *
-from Pipeline.use import readFile
 from Pipeline.Query_Creation import HFHintQuery, HFPlBartStandardQuery, HFStandardQuery, OAIHintQuery
 
 class QueryTestCase(unittest.TestCase):

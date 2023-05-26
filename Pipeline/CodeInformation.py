@@ -5,6 +5,7 @@ class CodeInformation():
         self.buggyCodeContent = buggyCode
         self.correctCodeContent = correctCode
         self.queries = []
+        self.responses = []
     def addQuery(self, query):
         self.queries.append(query)
     def addResponse(self, response):

@@ -11,7 +11,7 @@ class Filter:
         self.maxAddedLines = maxAddedLines
         self.maxRemovedLines = maxRemovedLines 
     def filter(self, modifiedLines, addedLines, removedLines):
-        if (len(modifiedLines) <= self.maxModifiedLines and len(addedLines) <= self.maxAddedLines and len(removedLines) <= self.maxRemovedLines):
+        if (modifiedLines <= self.maxModifiedLines and addedLines <= self.maxAddedLines and removedLines <= self.maxRemovedLines):
             return True
         else:
             return False

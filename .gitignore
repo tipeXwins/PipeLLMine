@@ -4,4 +4,5 @@ clmpipeline/
 .clmpipeline
 .pytest_cache/
 __pycache__/
+Pipeline/__pycache__/
 .idea
