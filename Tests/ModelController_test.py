@@ -51,7 +51,7 @@ class ModelControllerTest(unittest.TestCase):
         self.assertFalse(queryBart == None)
         self.assertTrue(len(queryBart) > 0)
 
-        comunicatorBart = HFPlBartController()
+        comunicatorBart = HFPlBartController(10)
 
         self.assertTrue(comunicatorBart.model is not None)
 
@@ -59,7 +59,7 @@ class ModelControllerTest(unittest.TestCase):
 
         print("\ntokenizer", comunicatorBart.tokenizer)
 
-        output = comunicatorBart.callToModelWithTransformers(queryBart)
+        output = comunicatorBart.callToModel(queryBart)
 
         print("output ", output)
         with open('Tests/resources/outputs/outputBart.txt', 'w') as file:
@@ -82,7 +82,7 @@ class ModelControllerTest(unittest.TestCase):
         self.assertFalse(queryBart == None)
         self.assertTrue(len(queryBart) > 0)
 
-        comunicatorBart = HFPlBartController()
+        comunicatorBart = HFPlBartController(10)
 
         self.assertTrue(comunicatorBart.model is not None)
 
@@ -90,7 +90,7 @@ class ModelControllerTest(unittest.TestCase):
 
         print("\ntokenizer", comunicatorBart.tokenizer)
         ## We say to add the special tokens
-        output = comunicatorBart.callToModelWithTransformers(queryBart,add_special_tokens=True )
+        output = comunicatorBart.callToModel(queryBart,add_special_tokens=True )
 
         print("output ", output)
 
@@ -109,7 +109,7 @@ class ModelControllerTest(unittest.TestCase):
             return count"
 
         comunicatorCodet5 = HFCodeT5Controller()  # Return full code one string
-        output = comunicatorCodet5.callToModelWithTransformers("".join(queryCodet5))
+        output = comunicatorCodet5.callToModel("".join(queryCodet5))
 
         print("output", output)
 
@@ -126,7 +126,7 @@ class ModelControllerTest(unittest.TestCase):
             while n:"
 
         comunicatorCodeGen = HFCodeGenController()
-        output = comunicatorCodeGen.callToModelWithTransformers(queryCodeGen)
+        output = comunicatorCodeGen.callToModel(queryCodeGen)
 
         firstResult = output[0]
         print("Output\n", firstResult)
@@ -141,7 +141,7 @@ class ModelControllerTest(unittest.TestCase):
         f.close()
 
         comunicatorCodeGen = HFCodeGenController()  # Return full code one string
-        output = comunicatorCodeGen.callToModelWithTransformers("".join(queryCodeGen))
+        output = comunicatorCodeGen.callToModel("".join(queryCodeGen))
 
         with open('Tests/resources/outputs/outputCodeGen.txt', 'w') as file:
             file.writelines(output)
@@ -156,7 +156,7 @@ class ModelControllerTest(unittest.TestCase):
         f.close()
 
         comunicatorIncoder = HFIncoderController()  # Return full code one string
-        output = comunicatorIncoder.callToModelWithTransformers("".join(queryIncoder))
+        output = comunicatorIncoder.callToModel("".join(queryIncoder))
 
         with open('Tests/resources/outputs/outputIncoder.txt', 'w') as file:
             file.writelines(output)

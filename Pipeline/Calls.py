@@ -58,10 +58,12 @@ class HFPlBartController(HFCommunicationController):
     MAX_LENGTH = 512
     NUM_BEAMS = 10
     NUM_RETURN_SEQUENCES = 10
-    def __init__(self):
+    def __init__(self,num_responses=None):
         self.tokenizer = AutoTokenizer.from_pretrained("uclanlp/plbart-base",src_lang="python", tgt_lang="python")
         self.model = AutoModelForSeq2SeqLM.from_pretrained("uclanlp/plbart-base")
-    def callToModel(self,query):
+        if (num_responses is not None):
+            self.NUM_BEAMS = self.Num_RETURN_SEQUENCES = num_responses
+    def callToModel(self,query, add_special_tokens=False):
         
         input_ids = self.tokenizer(query, add_special_tokens=add_special_tokens, return_tensors="pt").input_ids
         generated_ids = self.model.generate(
@@ -71,10 +73,10 @@ class HFPlBartController(HFCommunicationController):
         output = []
         for generated_id in generated_ids:
             aSolution = self.tokenizer.decode(generated_id, skip_special_tokens=True)
-            print(aSolution)
+            #print(aSolution)
             output.append(aSolution)
 
-        return output[0]
+        return output
 
 
 class HFCodeT5Controller(HFCommunicationController):
@@ -86,7 +88,7 @@ class HFCodeT5Controller(HFCommunicationController):
         self.model = AutoModelForSeq2SeqLM.from_pretrained("Salesforce/codet5-base")
     
         if (num_responses is not None):
-            self.NUM_BEAMS = self.MAX_LENGTH = num_responses
+            self.NUM_BEAMS = self.Num_RETURN_SEQUENCES = num_responses
     def callToModel(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         generated_ids = self.model.generate(input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES)
@@ -95,10 +97,10 @@ class HFCodeT5Controller(HFCommunicationController):
             output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True))
         return output
 class CodeGenSize(Enum):
-    size350M =""
-    size2B =""
-    size6B =""
-    size16B =""
+    size350M ="350M"
+    size2B ="2B"
+    size6B ="6B"
+    size16B ="16B"
 
 class CodeGenData(Enum):
     nl = "nl"
@@ -113,7 +115,7 @@ class HFCodeGenController(HFCommunicationController):
         self.tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono")
         self.model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
         if (num_responses is not None):
-            self.NUM_BEAMS = self.MAX_LENGTH = num_responses
+            self.NUM_BEAMS = self.Num_RETURN_SEQUENCES = num_responses
 
     def callToModel(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
@@ -135,7 +137,7 @@ class HFIncoderController(HFCommunicationController):
         self.tokenizer = AutoTokenizer.from_pretrained("facebook/incoder-1B")
         self.model = AutoModelForCausalLM.from_pretrained("facebook/incoder-1B")
         if (num_responses is not None):
-            self.NUM_BEAMS = self.MAX_LENGTH = num_responses
+            self.NUM_BEAMS = self.Num_RETURN_SEQUENCES = num_responses
     def callToModel(self,query):
         input_ids = self.tokenizer(query, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
