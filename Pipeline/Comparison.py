@@ -47,3 +47,20 @@ class ComparerNLTKCodeBleu(ComparerCodeBleu):
         code_bleu = sentence_bleu([ref_tokens], hyp_tokens, weights=weights, smoothing_function=smoothing.method1)
 
         return code_bleu
+
+class MultipleComparerNLTKCodeBleu(ComparerNLTKCodeBleu): 
+    def __init__(self,codeBleuRef=None):
+        self.metric = 0
+        if (codeBleuRef is not None):
+            self.codeBleuRef = codeBleuRef
+        else:
+            self.codeBleuRef = 0.5
+    def setCodeBleuRef(self, codeBleuRef):
+        self.codeBleuRef = codeBleuRef
+    def compareMultipleOutputs(self, outputs, reference):
+        self.metric = 0
+        for output in outputs:
+            codeBleu= self.compute_code_bleu(reference,output)
+            if codeBleu >= self.codeBleuRef:
+                self.metric += 1
+        return self.metric
