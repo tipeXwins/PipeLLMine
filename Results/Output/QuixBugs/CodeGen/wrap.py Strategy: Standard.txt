@@ -1,0 +1,218 @@
+def wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    main()
+def wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', type=str, required=True)
+    parser.add_argument('--output', type=str, required=True)
+    parser.add_argument('--cols', type=int, default=80)
+    args = parser.parse_args()
+
+    with open(args.input, 'r') as f:
+        text = f.read()
+
+    lines = wrap(text, args.cols)
+
+    withdef wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('infile', type=argparse.FileType('r'))
+    parser.add_argument('outfile', type=argparse.FileType('w'))
+    parser.add_argument('cols', type=int)
+    args = parser.parse_args()
+
+    text = args.infile.read()
+    lines = wrap(text, args.cols)
+    for line in lines:
+        args.outfile.def wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', type=str, required=True)
+    parser.add_argument('--output', type=str, required=True)
+    parser.add_argument('--cols', type=int, required=True)
+    args = parser.parse_args()
+
+    with open(args.input, 'r') as f:
+        text = f.read()
+
+    lines = wrap(text, args.cols)
+
+    withdef wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', type=str, required=True)
+    parser.add_argument('-o', '--output', type=str, required=True)
+    parser.add_argument('-c', '--cols', type=int, required=True)
+    args = parser.parse_args()
+
+    with open(args.input, 'r') as f:
+        text = f.read()
+
+    lines =def wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', type=str, required=True)
+    parser.add_argument('--output', type=str, required=True)
+    parser.add_argument('--cols', type=int, default=80)
+    args = parser.parse_args()
+
+    with open(args.input, 'r') as f:
+        text = f.read()
+
+    lines = wrap(text, args.cols)
+    withdef wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('infile', type=argparse.FileType('r'))
+    parser.add_argument('outfile', type=argparse.FileType('w'))
+    parser.add_argument('cols', type=int)
+    args = parser.parse_args()
+
+    text = args.infile.read()
+    lines = wrap(text, args.cols)
+    args.outfile.write('\n'.join(def wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', type=str, required=True)
+    parser.add_argument('-o', '--output', type=str, required=True)
+    parser.add_argument('-c', '--cols', type=int, default=80)
+    args = parser.parse_args()
+
+    with open(args.input, 'r') as f:
+        text = f.read()
+
+    lines =def wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', type=str, required=True)
+    parser.add_argument('--output', type=str, required=True)
+    parser.add_argument('--cols', type=int, required=True)
+    args = parser.parse_args()
+
+    with open(args.input, 'r') as f:
+        text = f.read()
+
+    lines = wrap(text, args.cols)
+    withdef wrap(text, cols):
+    lines = []
+    while len(text) > cols:
+        end = text.rfind(' ', 0, cols + 1)
+        if end == -1:
+            end = cols
+        line, text = text[:end], text[end:]
+        lines.append(line)
+
+    return lines
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', type=str, required=True)
+    parser.add_argument('-o', '--output', type=str, required=True)
+    parser.add_argument('-c', '--cols', type=int, required=True)
+    args = parser.parse_args()
+
+    with open(args.input) as f:
+        text = f.read()
+
+    lines = wrap(text

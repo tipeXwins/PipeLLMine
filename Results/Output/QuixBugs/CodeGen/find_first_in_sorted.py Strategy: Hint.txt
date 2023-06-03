@@ -1,0 +1,222 @@
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
+
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        ifdef find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        ifdef find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
+
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) //def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) //def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) //def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) //def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        ifdef find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        ifdef find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
+
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    #buggy line:    while lo <= hi:
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
+
+def find_last_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if arr[mid] == x:
+            

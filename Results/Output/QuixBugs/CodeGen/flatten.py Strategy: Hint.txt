@@ -1,0 +1,253 @@
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten2(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+
+def flatten3(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten3(x):
+                yield y
+        else:
+            yield x
+
+def flatten4(arr):
+    for x in arr:
+        if isinstance(x, list):
+            def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten2(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+def flatten3(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten3(x):
+                yield y
+        else:
+            yield x
+def flatten4(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for ydef flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flattendef flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten2(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+
+def flatten3(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+
+def flatten4(arr):
+    for x in arr:
+        if isinstance(x, list):
+            def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten2(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+
+def flatten3(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+def flatten4(arr):
+    for x in arr:
+        if isinstance(x, list):
+            fordef flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten2(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+def flatten3(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten3(x):
+                yield y
+        else:
+            yield x
+
+def flatten4(arr):
+    for x in arr:
+        if isinstance(x, list):
+            fordef flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            yield from flattendef flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield xdef flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+#def flatten(arr):
+#    for x in arr:
+#        if isinstance(x, list):
+#            for y in flatten(x):
+#                yield y
+#        else:
+#            yield x
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            def flatten(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten(x):
+                yield y
+        else:
+            yield flatten(x)
+#buggy line:
+def flatten2(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten2(x):
+                yield y
+        else:
+            yield x
+
+def flatten3(arr):
+    for x in arr:
+        if isinstance(x, list):
+            for y in flatten3(x):
+                yield y
+        else:
+            yield x
+
+def flatten5(arr):
+    for x in arr:
+        if isinstance(x, list):
+            

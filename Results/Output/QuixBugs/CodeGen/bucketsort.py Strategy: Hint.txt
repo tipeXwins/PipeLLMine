@@ -1,0 +1,338 @@
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    fordef bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i in range(k):
+        for j in range(counts[i]):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorteddef bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for _ in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i in range(k):
+        for j in range(counts[i]):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorteddef bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for _ in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorteddef bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    for i in range(k):
+        def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+
+    return sorted_arr
+
+
+
+#buggy line:
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    for i

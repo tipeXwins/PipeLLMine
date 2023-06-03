@@ -3,6 +3,7 @@ from io import BytesIO
 #from codexglue.evaluation.metrics import CodeBLEU
 
 import nltk
+import statistics
 #nltk.download('punkt')
 from nltk.translate.bleu_score import corpus_bleu, sentence_bleu,SmoothingFunction
 
@@ -58,9 +59,21 @@ class MultipleComparerNLTKCodeBleu(ComparerNLTKCodeBleu):
     def setCodeBleuRef(self, codeBleuRef):
         self.codeBleuRef = codeBleuRef
     def compareMultipleOutputs(self, outputs, reference):
+        #primero k valores
+        #mediana y standard deviation 
         self.metric = 0
+        self.avg = 0 
+        self.median = 0
+        self.stand_dev = 0
+        codeBleuValues = []
         for output in outputs:
             codeBleu= self.compute_code_bleu(reference,output)
+            codeBleuValues.append(codeBleu)
+            self.avg += codeBleu
             if codeBleu >= self.codeBleuRef:
                 self.metric += 1
-        return self.metric
+        self.avg /= len(outputs)
+        self.metric /= len(outputs)
+        self.median = statistics.median(codeBleuValues)
+        self.stand_dev = statistics.stdev(codeBleuValues)
+        return "values: " + "".join(str(s)+" " for s in codeBleuValues)+" avg: " + str(self.avg) + " metric_treshold: " + str(self.codeBleuRef) + " metric: " + str(self.metric) + " median: " + str(self.median) + " standard deviation: " + str(self.stand_dev)

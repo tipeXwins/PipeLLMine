@@ -1,0 +1,169 @@
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c - 1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+print(pascal(5))
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c - 1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+print(pascal(5))
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+print(pascal(5))
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows[-1]
+
+print(pascal(5))
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows[-1]
+
+print(pascal(5))
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+def main():
+    n = int(input())
+    print(pascal(n))
+
+if __name__ == "__main__":
+    main()
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+def main():
+    n = int(input())
+    print(pascal(n))
+
+if __name__ == '__main__':
+    main()
+
+def pascal(n):
+    rows = [[1]]
+    for r in range(1, n):
+        row = []
+        #buggy line:        for c in range(0, r):
+        for c in range(0, len(rows[-1])):
+            if c == 0 or c == r:
+                row.append(1)
+            else:
+                row.append(rows[-1][c] + rows[-1][c-1])
+        row.append(1)
+        rows.append(row)
+    return rows
+
+def main():
+    n = int(input())
+    print(pascal(n))
+
+if __name__ == "__main__":
+    main()

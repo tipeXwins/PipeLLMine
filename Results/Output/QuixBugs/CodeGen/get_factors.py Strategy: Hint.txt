@@ -1,0 +1,112 @@
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return []
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n)
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n + 1)
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n - 2) + get_factors(n - 3) + get_factors(n - 4) + get_factors(n - 5) + get_factors(n - 6) + get_factors(n - 7) + get_factors(n - 8)
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n - 2) + get_factors(n - 3) + get_factors(n - 4) + get_factors(n - 5) + get_factors(n - 6) + get_factors(n - 7) + get_factors(n - 8)
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n - 2) + get_factors(n - 3) + get_factors(n - 4) + get_factors(n - 5) + get_factors(n - 6) + get_factors(n - 7)
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n - 2) + get_factors(n - 3) + get_factors(n - 4) + get_factors(n - 5)
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n + 1)
+
+if __name__ == '__main__':
+    n = int(input())
+    print(len(get_factors(n)))
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    return get_factors(n - 1) + get_factors(n - 2) + get_factors(n - 3) + get_factors(n - 4) + get_factors(n - 5) + get_factors(n - 6)

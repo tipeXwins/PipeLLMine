@@ -1,0 +1,120 @@
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][1][2][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][1][2][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)return
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][0][1][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][0][1][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)return
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][1][2][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n) 
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][0][1][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)return [0]
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][1][2][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)return [n]
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][1][2][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n%i)return
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][0][1][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n)[1]
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    return []return [0][1][2][2] + get_factors(n)[2] + get_factors(n)[2] + get_factors(n-1)return
+
+

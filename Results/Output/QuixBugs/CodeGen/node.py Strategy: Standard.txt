@@ -1,0 +1,351 @@
+class Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def add_successor(self, node):
+        self.successors.append(node)
+
+    def add_predecessor(self, node):
+        self.predecessors.append(node)
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.append(node)
+
+    def add_outgoing_node(self, nodeclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def set_successor(self, successor):
+        self.successor = successor
+
+    def set_successors(self, successors):
+        self.successors = successors
+
+    def set_predecessors(self, predecessors):
+        self.predecessors = predecessors
+
+    def set_incoming_nodes(self, incoming_nodes):
+        self.incoming_nodesclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def value(self):
+        return self.value
+
+    def set_value(self, value):
+        self.value = value
+
+    def set_successor(self, successor):
+        self.successor = successor
+
+    def set_successors(self, successors):
+        self.successors = successors
+
+    def set_predecessors(self, predecessors):
+        self.predclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def set_successor(self, new_successor):
+        self.successor = new_successor
+
+    def set_successors(self, new_successors):
+        self.successors = new_successors
+
+    def set_predecessors(self, new_predecessors):
+        self.predecessors = new_predecessors
+
+    def set_incomingclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def value(self):
+        return self.value
+
+    def set_successor(self, new_successor):
+        self.successor = new_successor
+
+    def set_successors(self, new_successors):
+        self.successors = new_successors
+
+    def set_predecessors(self, new_predecessors):
+        self.predecessorsclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def value(self):
+        return self.value
+
+    def add_successor(self, node):
+        self.successors.append(node)
+
+    def add_predecessor(self, node):
+        self.predecessors.append(node)
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.append(node)class Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def set_successor(self, node):
+        self.successor = node
+
+    def set_successors(self, nodes):
+        self.successors = nodes
+
+    def set_predecessors(self, nodes):
+        self.predecessors = nodes
+
+    def set_incoming_nodes(self, nodes):
+        self.incoming_nodes = nodes
+
+class Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def value(self):
+        return self.value
+
+    def set_successor(self, node):
+        self.successor = node
+
+    def set_successors(self, nodes):
+        self.successors = nodes
+
+    def set_predecessors(self, nodes):
+        self.predecessors = nodes
+
+    def set_incoming_nodes(self, nodesclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def value(self):
+        return self.value
+
+    def set_value(self, value):
+        self.value = value
+
+    def set_successor(self, successor):
+        self.successor = successor
+
+    def set_successors(self, successors):
+        self.successors = successors
+
+    def set_predecessor(self, predecessor):
+        self.predclass Node:
+    def __init__(self, value=None, successor=None, successors=[], predecessors=[], incoming_nodes=[], outgoing_nodes=[]):
+        self.value = value
+        self.successor = successor
+        self.successors = successors
+        self.predecessors = predecessors
+        self.incoming_nodes = incoming_nodes
+        self.outgoing_nodes = outgoing_nodes
+
+    def successor(self):
+        return self.successor
+
+    def successors(self):
+        return self.successors
+
+    def predecessors(self):
+        return self.predecessors
+
+    def incoming_nodes(self):
+        return self.incoming_nodes
+
+    def outgoing_nodes(self):
+        return self.outgoing_nodes
+
+    def set_successor(self, node):
+        self.successor = node
+
+    def set_successors(self, nodes):
+        self.successors = nodes
+
+    def set_predecessors(self, node):
+        self.predecessors = node
+
+    def set_predecessors(self, nodes):
+        self.predecessors = nodes
+
+    def set_

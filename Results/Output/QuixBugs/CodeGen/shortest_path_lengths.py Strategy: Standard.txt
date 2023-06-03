@@ -1,0 +1,273 @@
+from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, jfrom collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if length_by_path[i, j] > length_by_path[i, k] + length_by_from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if length_by_path[i, j] > length_by_path[i, k] + lengthfrom collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({i: 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    from collections import defaultdict
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j],
+                    length_by_path[i, k] + length_by_path[j, k]
+                )
+
+    return length_by_path
+
+
+
+
+def shortest_path_lengths(n, length_by_edge):
+    length_by_path = defaultdict(lambda: float('inf'))
+    length_by_path.update({(i, i): 0 for i in range(n)})
+    length_by_path.update(length_by_edge)
+
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                length_by_path[i, j] = min(
+                    length_by_path[i, j
