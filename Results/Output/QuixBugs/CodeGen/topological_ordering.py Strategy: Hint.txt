@@ -1,0 +1,193 @@
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = []
+        self.outgoing_nodes = []
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.append(node)
+
+    defdef topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = []
+        self.outgoing_nodes = []
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.append(node)
+
+    defdef topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = set()
+        self.outgoing_nodes = set()
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.add(node)
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = set()
+        self.outgoing_nodes = set()
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.add(node)
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = []
+        self.outgoing_nodes = []
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.append(node)
+        nodedef topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = []
+        self.outgoing_nodes = []
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.namedef topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = []
+        self.outgoing_nodes = []
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.append(node)
+        nodedef topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = []
+        self.outgoing_nodes = []
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.namedef topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = set()
+        self.outgoing_nodes = set()
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.add(node)
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            if set(ordered_nodes).isdisjoint(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+                ordered_nodes.append(nextnode)
+    return ordered_nodes
+
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.incoming_nodes = set()
+        self.outgoing_nodes = set()
+
+    def add_incoming_node(self, node):
+        self.incoming_nodes.add(node)

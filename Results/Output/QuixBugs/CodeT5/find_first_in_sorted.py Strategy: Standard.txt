@@ -1,0 +1,320 @@
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuiet        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuiet        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuiet=        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietFull        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuiet=        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietFullQuiet        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietFullQuietQuiet        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietFullQuietQuietQuiet        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietFullQuietQuietQuietQuiet        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    // 2
+
+ def find_first_in_sorted(arr, x):return -1
+
+
+x <= arr[lo]:
+            lo =hi = -1
+
+
+= -1
+
+
+= -1
+
+QuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietQuietForce        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+

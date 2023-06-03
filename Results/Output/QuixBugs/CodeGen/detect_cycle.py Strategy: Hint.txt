@@ -1,0 +1,247 @@
+def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+        if hare == tortoise:
+            return True
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.successor = None
+        self.predecessor = None
+
+    def __repr__(self):
+        return str(self.value)
+
+class DoublyLinkedList:
+    def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+        if hare == tortoise:
+            return True
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.successor = None
+        self.predecessor = None
+
+    def __repr__(self):
+        return str(self.value)
+
+class LinkedList:
+    def __def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+
+        if hare == tortoise:
+            return True
+
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.successor = None
+        self.predecessor = None
+
+    def __repr__(self):
+        return str(self.value)
+
+
+class LinkedList:
+    def __def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+
+        if hare == tortoise:
+            return True
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __str__(self):
+        return str(self.data)
+
+
+class LinkedList:def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+
+        if hare == tortoise:
+            return True
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __str__(self):
+        return str(self.data)
+
+    def __repr__def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+        if hare == tortoise:
+            return True
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __str__(self):
+        return str(self.data)
+
+class LinkedList:def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+        if hare == tortoise:
+            return True
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __str__(self):
+        return str(self.data)
+
+    def __repr__def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+
+        if hare == tortoise:
+            return True
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __str__(self):
+        return str(self.data)
+
+    def insert(self,def detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+
+        if hare == tortoise:
+            return True
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __repr__(self):
+        return str(self.data)
+
+
+class LinkedListdef detect_cycle(node):
+    hare = tortoise = node
+
+    while True:
+        #buggy line:        if hare.successor is None:
+        if hare.successor is None or tortoise.successor is None:
+            return False
+
+        hare = hare.successor
+        tortoise = tortoise.successor.successor
+
+        if hare == tortoise:
+            return True
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.successor = None
+
+    def __repr__(self):
+        return str(self.data)
+
+
+class BinarySearchTree

@@ -1,0 +1,270 @@
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[1].rpn_eval(tokens[1.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[1.rpn_eval(tokens[0.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[1.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[1.rpn_            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens.pop()]))]))            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens.pop()]))]))            )
+
+    return stack.pop()
+
+
+
+
+
+def rpn_eval(tokens):
+    def op(symbol, a, b):
+        return {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b
+        }[symbol](a, b)
+
+    stack = []
+
+    for token in tokens:
+        if isinstance(token, float):
+            stack.append(token)
+        else:
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(
+                #buggy line:                op(token, a, b)
+                #buggy line:                op(token, a,if isinstance(tokens[0], float):stack.append(tokens[0].rpn_eval(tokens[0].rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn_eval(tokens[0.rpn.            )
+
+    return stack.pop()
+
+
+
+

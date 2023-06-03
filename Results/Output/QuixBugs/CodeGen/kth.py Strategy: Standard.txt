@@ -1,0 +1,280 @@
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    k = int(input())
+
+    result = kth(arr, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    k = int(input())
+
+    result = kth(arr, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    index = int(input())
+
+    result = kth(arr, index)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    m = int(input())
+
+    result = kth(arr, m)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    m = int(input())
+
+    result = kth(arr, m)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    k = int(input())
+
+    result = kth(arr, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()def kth(arr, k):
+    pivot = arr[0]
+    below = [x for x in arr if x < pivot]
+    above = [x for x in arr if x > pivot]
+
+    num_less = len(below)
+    num_lessoreq = len(arr) - len(above)
+
+    if k < num_less:
+        return kth(below, k)
+    elif k >= num_lessoreq:
+        return kth(above, k)
+    else:
+        return pivot
+
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    k = int(input())
+
+    result = kth(arr, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()

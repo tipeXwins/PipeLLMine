@@ -1,0 +1,130 @@
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:   #buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy line:#buggy line:#buggy
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy line:return#buggy line:return
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy line:return#buggy line:#buggy line:#buggy line:#buggy line:return
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy line:#buggy line:return#
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy line:return#buggy line:#
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:   #buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy
+
+
+
+def get_factors(n):
+    if n == 1:
+        return []
+
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return [i] + get_factors(n // i)
+
+    #buggy line:    return []
+    + get_factors(n)#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:#buggy line:return#buggy line:#buggy line:return#buggy line:#buggy line:#buggy line:#buggy line:#
+
+

@@ -1,0 +1,190 @@
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))= max(max(max(memo                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))= max(max(max                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))= max(max(memo[len                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))max(max(max(                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))= max(max(memo                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))max(max(memo[                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+
+
+def knapsack(capacity, items):
+    from collections import defaultdict
+    memo = defaultdict(int)
+
+    for i in range(1, len(items) + 1):
+        weight, value = items[i - 1]
+
+        for j in range(1, capacity + 1):
+            memo[i, j] = memo[i - 1, j]
+
+            #buggy line:            if weight < j:
+            #max(max(max(max(max(memo[i, j-weight]))), max(max(max(memo[i, j-weight])))max(max(max(memo[len(items), capacity])))= max(max(max(max(memo[len(items), capacity])))= max(max(max(memo[len(items), capacity])))= max(max(max(max                memo[i, j] = max(
+                    memo[i, j],
+                    value + memo[i - 1, j - weight]
+                )
+
+    return memo[len(items), capacity]
+

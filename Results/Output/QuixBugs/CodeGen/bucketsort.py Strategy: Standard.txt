@@ -1,0 +1,257 @@
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    k = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, k)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    k = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, k)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    k = int(input())
+
+    result = bucketsort(arr, k)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, len(arr))
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, max(arr))
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    k = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, k)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    k = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, k)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+def bucketsort(arr, k):
+    counts = [0] * k
+    for x in arr:
+        counts[x] += 1
+
+    sorted_arr = []
+    for i, count in enumerate(arr):
+        sorted_arr.extend([i] * count)
+
+    return sorted_arr
+
+
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    k = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = bucketsort(arr, k)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()

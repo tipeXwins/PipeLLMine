@@ -1,0 +1,110 @@
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:           return ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           return ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           ordered_nodesreturn ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           ( ordered_nodes )return ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           : return ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           ordered_nodesordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           = ordered_nodesreturn ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:           ordered_nodes                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+
+def topological_ordering(nodes):
+    ordered_nodes = [node for node in nodes if not node.incoming_nodes]
+
+    for node in ordered_nodes:
+        for nextnode in node.outgoing_nodes:
+            #buggy line:            if set(ordered_nodes).issuperset(nextnode.outgoing_nodes) and nextnode not in ordered_nodes:
+            #buggy line:            #buggy line:           ordered_nodesreturn                ordered_nodes.append(nextnode)
+
+    return ordered_nodes
+
+

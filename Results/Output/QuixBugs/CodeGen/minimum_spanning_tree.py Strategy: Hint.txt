@@ -1,0 +1,261 @@
+
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1,
+        ('D', 'E'): 1,
+        ('D', 'F'): 1,
+        ('
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1,
+        ('C', 'E'): 1,
+        ('D', 'E'): 1,
+        ('
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('B', 'E'): 1,
+        ('C', 'D'): 1,
+        ('C', 'E'): 1,
+        ('
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1,
+        ('D', 'E'): 1,
+        ('E', 'F'): 1,
+        ('
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1,
+        ('C', 'E'): 1,
+        ('D', 'E'): 1,
+    }
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('B', 'E'): 1,
+        ('C', 'E'): 1,
+        ('D', 'E'): 1,
+        ('
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1,
+    }
+    print(minimum_spanning_tree(weight_by_edge))
+
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 2,
+        ('B', 'C'): 3,
+        ('B', 'D'): 4,
+        ('C', 'D'): 5,
+        ('D', 'E'): 6,
+        ('D', 'F'): 7,
+        ('
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1
+    }
+    print(minimum_spanning_tree(weight_by_edge))
+
+def minimum_spanning_tree(weight_by_edge):
+    group_by_node = {}
+    mst_edges = set()
+
+    for edge in sorted(weight_by_edge, key=weight_by_edge.__getitem__):
+        u, v = edge
+        if group_by_node.setdefault(u, {u})!= group_by_node.setdefault(v, {v}):
+            mst_edges.add(edge)
+            group_by_node[u].update(group_by_node[v])
+            for node in group_by_node[v]:
+                #buggy line:                group_by_node[node].update(group_by_node[u])
+                group_by_node[node].update(group_by_node[u])
+
+    return mst_edges
+
+
+if __name__ == '__main__':
+    weight_by_edge = {
+        ('A', 'B'): 1,
+        ('A', 'C'): 1,
+        ('B', 'C'): 1,
+        ('B', 'D'): 1,
+        ('C', 'D'): 1,
+        ('D', 'E'): 1
+    }
+    print(minimum_spanning_tree(weight

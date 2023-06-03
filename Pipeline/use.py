@@ -1,9 +1,10 @@
 import os
 from Calls import HFCodeGenController, HFCodeT5Controller, HFIncoderController, HFPlBartController, OAICommunicationController
-from Comparison import Comparer, ComparerNLTKCodeBleu
+from Comparison import Comparer, ComparerNLTKCodeBleu, MultipleComparerNLTKCodeBleu
 from Diff_Info_extraction import obtainInfoLines
 from Filtering import Filter
-from Query_Creation import HFHintQuery, HFPlBartStandardQuery, HFStandardQuery, OAIHintQuery, OAIStandardQuery
+from OutputReconstructor import ReconstructorPatch
+from Query_Creation import HFCodegenHintQuery, HFCodegenStandardQuery, HFHintQuery, HFPlBartHintQuery, HFPlBartStandardQuery, HFStandardQuery, OAIHintQuery, OAIStandardQuery
 from CodeInformation import CodeInformation
 
 from dotenv import load_dotenv
@@ -123,12 +124,16 @@ if __name__ == '__main__':
          
     else :
         if (args.dataset == "QuixBugs"):
-            dir_path_buggy_codes = "../Codes/QuixBugs/BuggyCodes" 
-            dir_path_correct_codes = "../Codes/QuixBugs/CorrectCodes" 
-            dir_path_unidiffs = "../PruebasUse/Unidiffs"
+            dir_path_buggy_codes = "../Codes/QuixBugsNo/BuggyCodes" 
+            dir_path_correct_codes = "../Codes/QuixBugsNo/CorrectCodes" 
+            dir_path_unidiffs = "../Codes/QuixBugsNo/UniDiffs"
         elif (args.dataset == "Quantum"):
-            dir_path_buggy_codes = ""
-            dir_path_correct_codes = ""
+            dir_path_buggy_codes = "../Codes/Quantum-Computing-Platforms/BuggyCodes"
+            dir_path_correct_codes = "../Codes/Quantum-Computing-Platforms/CorrectCodes"
+            dir_path_unidiffs = "../Codes/Quantum-Computing-Platforms/BuggyCodes"
+        elif (args.dataset == "Tests"):
+            dir_path_buggy_codes = "../Codes/QuixBugs/BuggyCodes"
+            dir_path_correct_codes = "../Codes/QuixBugs/CorrectCodes" 
             dir_path_unidiffs = "../PruebasUse/Unidiffs"
         else:
             print("This Dataset does not exist in the Pipeline. Skipping")
@@ -180,12 +185,12 @@ if __name__ == '__main__':
             numModifiedLines = len(modifiedLines[0][1])
         else:
             numModifiedLines = 0
-            modifiedLines = [[fileName,[]]]
+            modifiedLines = [[args.dataset + "/"+fileName,[]]]
 
         
         print(fileName,numModifiedLines, numAddedLines, numRemovedLines)
         if (filter.filter( numModifiedLines, numAddedLines, numRemovedLines)):
-            print(modifiedLines, "hello")
+            
             
             acceptedCodes.append([fileName,modifiedLines])
             #modifiedLines example: modified lines before assignation [['BuggyCodes/breadth_first_search.py', [32, 33, 11, 25, 28, 29, 30]]]
@@ -210,44 +215,45 @@ if __name__ == '__main__':
                     StandardQuery = HFPlBartStandardQuery("<mask>")
                     QueryCreators.append([StandardQuery,"hg"])
                 elif args.query == Hint:
-                    HintQuery = HFHintQuery()
-                    QueryCreators.append(HintQuery)
+                    HintQuery = HFPlBartHintQuery("<mask>")
+                    QueryCreators.append([HintQuery, "hgHint"])
             else:
-                StandardQuery = HFStandardQuery()
-                QueryCreators.append(StandardQuery)
-                HintQuery = HFHintQuery()
-                QueryCreators.append(HintQuery)
+                StandardQuery = HFPlBartStandardQuery("<mask>")
+                QueryCreators.append([StandardQuery,"hg"])
+                HintQuery = HFPlBartHintQuery("<mask>")
+                QueryCreators.append([HintQuery, "hgHint"])
+                
         elif args.model == CodeT5:
             if args.query:
                 if args.query == Standard:
-                    StandardQuery = HFStandardQuery()
-                    QueryCreators.append(StandardQuery)
+                    StandardQuery = HFStandardQuery("<extra_id_0>")
+                    QueryCreators.append([StandardQuery,"hg"])
                 elif args.query == Hint:
-                    HintQuery = HFHintQuery()
-                    QueryCreators.append(HintQuery)
+                    HintQuery = HFHintQuery("<extra_id_0>")
+                    QueryCreators.append([HintQuery, "hgHint"])
             else:
-                StandardQuery = HFStandardQuery()
-                QueryCreators.append(StandardQuery)
-                HintQuery = HFHintQuery()
-                QueryCreators.append(HintQuery)
+                StandardQuery = HFStandardQuery("<extra_id_0>")
+                QueryCreators.append([StandardQuery,"hg"])
+                HintQuery = HFHintQuery("<extra_id_0>")
+                QueryCreators.append([HintQuery, "hgHint"])
         elif args.model == CodeGen:
             if args.query:
                 if args.query == Standard:
-                    StandardQuery = HFStandardQuery()
-                    QueryCreators.append(StandardQuery)
+                    StandardQuery = HFCodegenStandardQuery()
+                    QueryCreators.append([StandardQuery,"hgTail"])
                 elif args.query == Hint:
-                    HintQuery = HFHintQuery()
-                    QueryCreators.append(HintQuery)
+                    HintQuery = HFCodegenHintQuery()
+                    QueryCreators.append([HintQuery, "hgTail"])
             else:
-                StandardQuery = HFStandardQuery()
-                QueryCreators.append(StandardQuery)
-                HintQuery = HFHintQuery()
-                QueryCreators.append(HintQuery)
+                StandardQuery = HFCodegenStandardQuery()
+                QueryCreators.append([StandardQuery,"hgTail"])
+                HintQuery = HFCodegenHintQuery()
+                QueryCreators.append([HintQuery, "hgTail"])
         elif args.model == Incoder:
             if args.query:
                 if args.query == Standard:
                     StandardQuery = HFStandardQuery()
-                    QueryCreators.append(StandardQuery)
+                    QueryCreators.append([StandardQuery,"hg"])
                 elif args.query == Hint:
                     HintQuery = HFHintQuery()
                     QueryCreators.append(HintQuery)
@@ -264,25 +270,34 @@ if __name__ == '__main__':
     Codes = []
 
 
-    for acceptedCodeName in acceptedCodes:
+    for acceptedCodeNameInstance in acceptedCodes:
+        acceptedCodeName = acceptedCodeNameInstance[:]
         acceptedCodePath = createFullPath(dir_path_buggy_codes, acceptedCodeName[0])
         correctCodePath = createFullPath(dir_path_correct_codes, acceptedCodeName[0])
         buggyCodeContent = readFile(dir_path_buggy_codes, acceptedCodeName[0]).copy()
         correctCodeContent = readFile(dir_path_correct_codes, acceptedCodeName[0]).copy()
         acceptedCodeInformation = CodeInformation(buggyCodeContent, correctCodeContent)
         buggyCode = buggyCodeContent.copy()
-        print(acceptedCodeName)
-        print("ha",acceptedCodeName[1][0][0] )
-        print("ht", acceptedCodeName[1][0][1])
+        
+        
+
         for QueryCreator in QueryCreators:
+            buggy = buggyCode[:]
             if QueryCreator[1] == "hg":
                 QueryCreator[0].setLinesAddPlaceholder(acceptedCodeName[1][0][1])
             elif QueryCreator[1] == "hgHint": 
                 QueryCreator[0].setLinesAddPlaceholder(acceptedCodeName[1][0][1])
                 QueryCreator[0].setLinesAddHint(acceptedCodeName[1][0][1])
-
-            acceptedCodeInformation.addQuery(QueryCreator[0].createQuery(buggyCode))
-        print("hm", acceptedCodeName[1][0])
+            elif QueryCreator[1] == "hgTail": 
+                if len (acceptedCodeName[1][0][1])>0:
+                    QueryCreator[0].setLineChanged(acceptedCodeName[1][0][1][0]) 
+                else:
+                    QueryCreator[0].setLineChanged(0)
+            acceptedCodeInformation.addQuery(QueryCreator[0].createQuery(buggy))
+        print("acceptedCode", acceptedCodeName[1][0])
+        print("acceptedCodeName", acceptedCodeName[1][0][0])
+        acceptedCodeInformation.setName(acceptedCodeName[1][0][0])
+        #print("queries", acceptedCodeInformation.queries)
         Codes.append(acceptedCodeInformation)
 
 
@@ -290,44 +305,79 @@ if __name__ == '__main__':
     ###MAKE CALLS
     if args.model:
         if args.model == OpenAI:
-            ModelCommunicator = OAICommunicationController()
-            ModelCommunicator.setApiKey(os.getenv("OAIKey"))
+            ModelCommunicator = [OAICommunicationController()]
+            ModelCommunicator[0].setApiKey(os.getenv("OAIKey"))
         elif args.model == PlBart:
             if args.retseq:
-                ModelCommunicator = HFPlBartController(args.retseq)
+                ModelCommunicator = [HFPlBartController(args.retseq)]
             else:
-                ModelCommunicator = HFPlBartController()
+                ModelCommunicator = [HFPlBartController()]
         elif args.model == CodeT5:
             if args.retseq:
-                ModelCommunicator = HFCodeT5Controller(args.retseq)
+                ModelCommunicator = [HFCodeT5Controller(args.retseq),["patch","<extra_id_0>"]]
             else:
-                ModelCommunicator = HFCodeT5Controller()
+                ModelCommunicator = [HFCodeT5Controller(),["patch","<extra_id_0>"]]
         elif args.model == CodeGen:
             if args.retseq:
-                ModelCommunicator = HFCodeGenController(args.retseq)
+                ModelCommunicator = [HFCodeGenController(args.retseq)]
             else:
-                ModelCommunicator = HFCodeGenController()
+                ModelCommunicator = [HFCodeGenController()]
         elif args.model == Incoder:
             if args.retseq:
-                ModelCommunicator = HFIncoderController(args.retseq)
+                ModelCommunicator = [HFIncoderController(args.retseq)]
             else:
-                ModelCommunicator = HFIncoderController()
+                ModelCommunicator = [HFIncoderController()]
     else: 
         noModelsSelected()
 
 
     for codeInformation in Codes:
         for query in codeInformation.queries:
-            print("responses")
-            codeInformation.addResponse(ModelCommunicator.callToModel("".join(query)))
-   
+            queryResponse = query[:]
+            if queryResponse !=  [] :
+                print("query arrived in response", queryResponse)
+                responses = ModelCommunicator[0].callToModel("".join(queryResponse))
+                #print("first response before construction", responses[0])
+                
+                if len(ModelCommunicator) >1:
+                    if ModelCommunicator[1][0] == "patch":
+                        reconstructor = ReconstructorPatch()
+                        responsesReconstructed =[]
+                        for response in responses:
+                            responsesReconstructed.append(reconstructor.reconstruct("".join(queryResponse),"".join(response),ModelCommunicator[1][1]))
+                        responses = responsesReconstructed.copy()
+                print("first response", responses[0])
+                codeInformation.addResponse(responses)
+
+    
         
     ###MAKE COMPARISONS
 
-    comparer = ComparerNLTKCodeBleu()
+    comparer = MultipleComparerNLTKCodeBleu()
+    count = 0
     for codeInformation in Codes:
+        count += 1
         correctCodeContent = codeInformation.correctCodeContent
+        countInner = 0
+        query= ""
+        if  args.query: 
+            query = args.query
         for responses in codeInformation.responses:
+            print("buenas", codeInformation.name.split("/")[1])
+            countInner += 1
+            if countInner == 1:
+                query = Standard
+            elif countInner == 2:
+                query = Hint
+            
+            
+
+            with open('../Results/Output/' + args.dataset + '/' + args.model +'/' + codeInformation.name.split("/")[1] +" Strategy: "+ query +".txt", 'w') as file:
+                file.writelines(responses)
+                
+            with open('../Results/Metrics/' + args.dataset + '/' + args.model +'/'  + codeInformation.name.split("/")[1] +" Strategy: "+ query +".txt", 'w') as file:
+                file.writelines("metrics \n" +str(comparer.compareMultipleOutputs(responses,correctCodeContent)))
+            """
             for response in responses:
-                print(",fsfs",response,"fsff")
                 print(comparer.compare(response, correctCodeContent))
+            """

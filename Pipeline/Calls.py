@@ -139,7 +139,7 @@ class HFIncoderController(HFCommunicationController):
         if (num_responses is not None):
             self.NUM_BEAMS = self.Num_RETURN_SEQUENCES = num_responses
     def callToModel(self,query):
-        input_ids = self.tokenizer(query, return_tensors="pt").input_ids
+        input_ids = self.tokenizer(query,add_special_tokens=False, return_tensors="pt").input_ids
         eos_id = self.tokenizer.convert_tokens_to_ids('</code>')
         generated_ids = self.model.generate(
             input_ids, max_new_tokens=self.MAX_NEW_TOKENS, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, early_stopping=True,
@@ -147,5 +147,5 @@ class HFIncoderController(HFCommunicationController):
         )
         output = []
         for generated_id in generated_ids:
-            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True,clean_up_tokenization_spaces=False))
+            output.append(self.tokenizer.decode(generated_id, skip_special_tokens=True,clean_up_tokenization_spaces=True))
         return output

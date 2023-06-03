@@ -1,0 +1,250 @@
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    a, b, k = map(int, input().split())
+    print(subsequences(a, b, k))
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    a, b, k = map(int, input().split())
+    print(len(subsequences(a, b, k)))
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    print(subsequences(1, 4, 2))
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    print(subsequences(1, 3, 2))
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    a, b, k = map(int, input().split())
+    print(subsequences(a, b, k))def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    a, b, k = map(int, input().split())
+    print(*subsequences(a, b, k))
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+if __name__ == '__main__':
+    a, b, k = map(int, input().split())
+    print(len(subsequences(a, b, k)))def subsequences(a, b, k):
+    if k == 0:
+        return []
+
+    ret = []
+    for i in range(a, b + 1 - k):
+        ret.extend(
+            [i] + rest for rest in subsequences(i + 1, b, k - 1)
+        )
+
+    return ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
