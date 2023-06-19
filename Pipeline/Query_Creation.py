@@ -2,7 +2,36 @@
 class QueryCreator:
     def createQuery(self,content):
         pass
-    
+class QueryTruncator(QueryCreator):
+    def __init__(self, lineModified=None, linesBelow=None, linesAbove=None, truncation=None):
+        self.linesAbove = self.linesBelow = 10
+        if (lineModified is None):
+            self.lineModified= ""
+        else :
+            self.lineModified = lineModified
+        if (linesBelow is not None):
+            self.linesBelow = linesBelow
+        if (linesAbove is not None):
+            self.linesAbove = linesAbove
+        if (truncation is None):
+            self.truncation = False
+        else: 
+            self.truncation = truncation
+    def setLineModified(self,lineModified):
+        self.lineModified = lineModified
+    def setLinesBelow(self,linesBelow):
+        self.linesBelow = linesBelow
+    def setLinesAbove(self,linesAbove):
+        self.linesAbove= linesAbove
+    def setTruncation(self, truncation):
+        self.truncation = truncation
+    def truncate(self,content,pointModified,linesBelow,linesAbove):
+        startLine = max(0,pointModified-linesAbove-1)
+        finishLine = pointModified + linesBelow
+        return content[startLine:finishLine]
+    def createQuery(self, content):
+        return self.truncate(content, self.lineModified,self.linesBelow,self.linesAbove)
+
 
 class OAIStandardQuery(QueryCreator):
     def addOAILabels(self,content):
@@ -41,8 +70,9 @@ class OAIHintQuery(OAIStandardQuery):
 
 
 
-class HFStandardQuery(QueryCreator):
+class HFStandardQuery(QueryTruncator):
     def __init__(self, placeholder=None, linesAddPlaceholder=None):
+        self.linesAbove = self.linesBelow = 10
         if (placeholder is None):
             self.placeholder = ""
         else :
@@ -70,10 +100,13 @@ class HFStandardQuery(QueryCreator):
     def createQuery(self, content): #before calling createQuery we have to set the lines 
         self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
         content = self.deleteBuggyLines(content,self.linesAddPlaceholder) 
+        if self.truncation:
+            content = self.truncate(content, self.linesAddPlaceholder[0],self.linesBelow,self.linesAbove)
         return content
     
 class HFHintQuery(HFStandardQuery):
     def __init__(self, placeholder=None, linesAddPlaceholder=None, hint=None, linesAddHint=None):
+        self.linesAbove = self.linesBelow = 10
         if (placeholder is None):
             self.placeholder = ""
         else :
@@ -105,20 +138,25 @@ class HFHintQuery(HFStandardQuery):
     def createQuery(self, content): #before calling createQuery we have to set the lines   
         self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder) 
         self.includeHint(content,self.linesAddHint,self.hint)
+        if self.truncation:
+            content = self.truncate(content, self.linesAddPlaceholder[0],self.linesBelow,self.linesAbove)
         
         return content
 
-class HFPlBartStandardQuery(HFStandardQuery):
+class HFPlBartStandardQuery(HFStandardQuery, QueryTruncator):
     def addSpecialTokens(self,content):
         content[0] = "<s> " + content[0]
         content.append("</s> Python")
     def createQuery(self, content): #before calling createQuery we have to set the lines  
         self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder)
         content = self.deleteBuggyLines(content,self.linesAddPlaceholder) 
+        if self.truncation:
+            content = self.truncate(content, self.linesAddPlaceholder[0],self.linesBelow,self.linesAbove)
         self.addSpecialTokens(content)
         return content
 class HFPlBartHintQuery(HFPlBartStandardQuery,HFHintQuery):
     def __init__(self, placeholder=None, linesAddPlaceholder=None, hint=None, linesAddHint=None):
+        self.linesAbove = self.linesBelow = 10
         if (placeholder is None):
             self.placeholder = ""
         else :
@@ -138,11 +176,14 @@ class HFPlBartHintQuery(HFPlBartStandardQuery,HFHintQuery):
     def createQuery(self, content): #before calling createQuery we have to set the lines   
         self.includePlaceholder(content,self.linesAddPlaceholder,self.placeholder) 
         self.includeHint(content,self.linesAddHint,self.hint)
+        if self.truncation:
+            content = self.truncate(content, self.linesAddPlaceholder[0],self.linesBelow,self.linesAbove)
         self.addSpecialTokens(content)
         return content
     
-class HFCodegenStandardQuery(QueryCreator):
+class HFCodegenStandardQuery(QueryTruncator):
     def __init__(self, lineChanged=None):
+        self.linesAbove = self.linesBelow = 10
         if (lineChanged is None):
             self.lineChanged = 0
         else :
@@ -158,10 +199,13 @@ class HFCodegenStandardQuery(QueryCreator):
         
     def createQuery(self, content): #before calling createQuery we have to set the lines  
         content = self.removeTail(content, self.lineChanged)
+        if self.truncation:
+            content = self.truncate(content, self.lineChanged,self.linesBelow,self.linesAbove)
         return content
     
 class HFCodegenHintQuery(HFCodegenStandardQuery,HFHintQuery):
     def __init__(self, lineChanged=None, hint=None):
+        self.linesAbove = self.linesBelow = 10
         if (lineChanged is None):
             self.lineChanged = 1
         else :
@@ -169,16 +213,13 @@ class HFCodegenHintQuery(HFCodegenStandardQuery,HFHintQuery):
         if (hint is None):
             self.hint = "buggy line:"
         else :
-            self.hint = hint
-    
-   
-        
+            self.hint = hint  
     def createQuery(self, content): #before calling createQuery we have to set the lines  
-        print("lineChanged",self.lineChanged)
-        print(content)
         if (self.lineChanged >0):
             self.includeHint(content,[self.lineChanged],self.hint)
         content = self.removeTail(content, self.lineChanged + 1)
+        if self.truncation:
+            content = self.truncate(content, self.lineChanged,self.linesBelow,self.linesAbove)
         return content
 
 
