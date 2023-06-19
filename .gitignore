@@ -6,3 +6,5 @@ clmpipeline/
 __pycache__/
 Pipeline/__pycache__/
 .idea
+Codes/
+Tests/

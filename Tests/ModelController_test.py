@@ -162,10 +162,10 @@ class ModelControllerTest(unittest.TestCase):
         output = comunicatorIncoder.callToModel("".join(queryIncoder))
 
         with open('Tests/resources/outputs/outputIncoder.txt', 'w') as file:
-            file.writelines(output)
+            file.writelines(output[0])
 
         # TODO ADD assessment
-
+        print("OUTPUT",output)
         self.assertEqual(True, True)  # add assertion here
 
 

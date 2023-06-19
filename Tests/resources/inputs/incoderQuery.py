@@ -1,10 +1,10 @@
-<| file ext=.py |>
+<|endoftext|>
 def bitcount(n):
     count = 0
     while n:
-        <|mask:2|>
-        <|mask:1|>
-        <|endofmask|>
+        <|mask:0|>
         count += 1
     return count
-<|endoftext|>
+
+<|mask:0|>
+
