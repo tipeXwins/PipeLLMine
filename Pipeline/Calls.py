@@ -55,7 +55,8 @@ class HFCommunicationController():
 
 
 class HFPlBartController(HFCommunicationController):
-    MAX_LENGTH = 512
+    #MAX_LENGTH_QUERY  = 6000
+    MAX_LENGTH = 512#512
     NUM_BEAMS = 10
     NUM_RETURN_SEQUENCES = 10
     def __init__(self,num_responses=None):
@@ -65,7 +66,7 @@ class HFPlBartController(HFCommunicationController):
             self.NUM_BEAMS = self.Num_RETURN_SEQUENCES = num_responses
     def callToModel(self,query, add_special_tokens=False):
         
-        input_ids = self.tokenizer(query, add_special_tokens=add_special_tokens, return_tensors="pt").input_ids
+        input_ids = self.tokenizer(query, add_special_tokens=add_special_tokens, return_tensors="pt").input_ids #max_length= self.MAX_LENGTH_QUERY, truncation=True).input_ids
         generated_ids = self.model.generate(
             input_ids, max_length=self.MAX_LENGTH, num_beams=self.NUM_BEAMS, num_return_sequences=self.NUM_RETURN_SEQUENCES, 
             early_stopping=True, decoder_start_token_id=self.tokenizer.lang_code_to_id["__python__"]#"__python__"

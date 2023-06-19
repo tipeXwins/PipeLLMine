@@ -3,7 +3,7 @@ from Calls import HFCodeGenController, HFCodeT5Controller, HFIncoderController, 
 from Comparison import Comparer, ComparerNLTKCodeBleu, MultipleComparerNLTKCodeBleu
 from Diff_Info_extraction import obtainInfoLines
 from Filtering import Filter
-from OutputReconstructor import ReconstructorPatch
+from OutputReconstructor import ReconstructorPatch, ReconstructorTruncate
 from Query_Creation import HFCodegenHintQuery, HFCodegenStandardQuery, HFHintQuery, HFPlBartHintQuery, HFPlBartStandardQuery, HFStandardQuery, OAIHintQuery, OAIStandardQuery
 from CodeInformation import CodeInformation
 
@@ -130,16 +130,16 @@ if __name__ == '__main__':
         elif (args.dataset == "Quantum"):
             dir_path_buggy_codes = "../Codes/Quantum-Computing-Platforms/BuggyCodes"
             dir_path_correct_codes = "../Codes/Quantum-Computing-Platforms/CorrectCodes"
-            dir_path_unidiffs = "../Codes/Quantum-Computing-Platforms/BuggyCodes"
+            dir_path_unidiffs = "../Codes/Quantum-Computing-Platforms/UniDiffs"
         elif (args.dataset == "Tests"):
-            dir_path_buggy_codes = "../Codes/QuixBugs/BuggyCodes"
-            dir_path_correct_codes = "../Codes/QuixBugs/CorrectCodes" 
+            dir_path_buggy_codes = "../Codes/Quantum-Computing-Platforms/BuggyCodes"
+            dir_path_correct_codes = "../Codes/Quantum-Computing-Platforms/CorrectCodes"
             dir_path_unidiffs = "../PruebasUse/Unidiffs"
         else:
             print("This Dataset does not exist in the Pipeline. Skipping")
         
               
-         
+
     
     
     
@@ -198,6 +198,11 @@ if __name__ == '__main__':
 
 
     ###CREATE QUERIES
+    truncate = True
+
+
+    if args.dataset == "Quantum":
+        truncate = True
     QueryCreators = []
     if args.model:
         if args.model == OpenAI:
@@ -282,6 +287,8 @@ if __name__ == '__main__':
         
 
         for QueryCreator in QueryCreators:
+            if truncate:
+                QueryCreator[0].setTruncation(True)
             buggy = buggyCode[:]
             if QueryCreator[1] == "hg":
                 QueryCreator[0].setLinesAddPlaceholder(acceptedCodeName[1][0][1])
@@ -294,6 +301,7 @@ if __name__ == '__main__':
                 else:
                     QueryCreator[0].setLineChanged(0)
             acceptedCodeInformation.addQuery(QueryCreator[0].createQuery(buggy))
+        acceptedCodeInformation.setLinesChanged(acceptedCodeName[1][0][1])
         print("acceptedCode", acceptedCodeName[1][0])
         print("acceptedCodeName", acceptedCodeName[1][0][0])
         acceptedCodeInformation.setName(acceptedCodeName[1][0][0])
@@ -335,18 +343,24 @@ if __name__ == '__main__':
         for query in codeInformation.queries:
             queryResponse = query[:]
             if queryResponse !=  [] :
-                print("query arrived in response", queryResponse)
+                #print("query arrived in response", queryResponse)
                 responses = ModelCommunicator[0].callToModel("".join(queryResponse))
                 #print("first response before construction", responses[0])
                 
                 if len(ModelCommunicator) >1:
                     if ModelCommunicator[1][0] == "patch":
                         reconstructor = ReconstructorPatch()
+                        reconstructor.setPlaceholder(ModelCommunicator[1][1])
                         responsesReconstructed =[]
                         for response in responses:
-                            responsesReconstructed.append(reconstructor.reconstruct("".join(queryResponse),"".join(response),ModelCommunicator[1][1]))
+                            responsesReconstructed.append(reconstructor.reconstruct("".join(queryResponse),"".join(response)))
                         responses = responsesReconstructed.copy()
-                print("first response", responses[0])
+                responsesReconstructed =[]
+                reconstructor = ReconstructorTruncate(codeInformation.linesChanged[0])
+                for response in responses:
+                    responsesReconstructed.append("".join(reconstructor.reconstruct(codeInformation.buggyCodeContent,[response])))
+                    responses = responsesReconstructed.copy()
+                #print("first response", responses[0])
                 codeInformation.addResponse(responses)
 
     
@@ -363,7 +377,7 @@ if __name__ == '__main__':
         if  args.query: 
             query = args.query
         for responses in codeInformation.responses:
-            print("buenas", codeInformation.name.split("/")[1])
+            
             countInner += 1
             if countInner == 1:
                 query = Standard
