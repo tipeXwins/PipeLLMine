@@ -1,4 +1,6 @@
 .env
+.vscode
+.vscode/
 pytorch/
 clmpipeline/
 .clmpipeline
@@ -8,3 +10,4 @@ Pipeline/__pycache__/
 .idea
 Codes/
 Tests/
+Tests
